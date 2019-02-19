@@ -7,5 +7,6 @@ namespace G07_Taijitan.Data.Repositories
 {
     public class Gebruiker
     {
+        //comentaar
     }
 }
