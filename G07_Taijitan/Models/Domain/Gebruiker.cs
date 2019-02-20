@@ -26,10 +26,8 @@ namespace G07_Taijitan.Models.Domain
         {
 
         }
-        public Gebruiker(string gebruikersnaam, string wachtwoord, string naam, string voornaam, string adres, string telefoonnumer, string authorityNaam, DateTime geboortedatum)
+        public Gebruiker(string naam, string voornaam, string adres, string telefoonnumer, string authorityNaam, DateTime geboortedatum)
         {
-            this.Gebruikersnaam = gebruikersnaam;
-            this.Wachtwoord = wachtwoord;
             this.Naam = naam;
             this.Voornaam = voornaam;
             this.Adres = adres;

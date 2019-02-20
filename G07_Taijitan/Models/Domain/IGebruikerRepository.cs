@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace G07_Taijitan.Models.Domain
 {
-    interface IGebruikerRepository
+    public interface IGebruikerRepository
     {
         IEnumerable<Gebruiker> GetGetAllGebruikers();
         Gebruiker GetGebruikersnaam(string naam);
