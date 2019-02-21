@@ -30,7 +30,7 @@ namespace G07_Taijitan.Tests.Controllers
         public void Index_GebruikersAanwezig_GeeftGeordendeLijstVanGebruikersDoorViaViewModel()
         {
             _gebruikersRepository.Setup(v => v.GetGetAllGebruikers()).Returns(_dummyContext.Gebruikers);
-            ViewResult actionresult = _controller.Index(null) as ViewResult;
+            ViewResult actionresult = _controller.Index() as ViewResult;
             var gebruikers = actionresult?.Model as IEnumerable<Gebruiker>;
             Assert.Equal(2, gebruikers.Count());
         }
