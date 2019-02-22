@@ -14,6 +14,11 @@ namespace G07_Taijitan.Data
         public DbSet<Gebruiker> gebruikers { get; set; }
         #endregion
 
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> option)
+            : base(option)
+        {
+
+        }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

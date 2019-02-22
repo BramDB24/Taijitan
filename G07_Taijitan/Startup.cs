@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using G07_Taijitan.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using G07_Taijitan.Models.Domain;
+using G07_Taijitan.Data.Repositories;
 
 namespace G07_Taijitan
 {
@@ -34,17 +36,20 @@ namespace G07_Taijitan
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DatabaseConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            services.AddScoped<IGebruikerRepository, GebruikerRepository>();
+            services.AddScoped<GebruikerDataInitializer>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, GebruikerDataInitializer initializer)
         {
             if (env.IsDevelopment())
             {
@@ -69,6 +74,7 @@ namespace G07_Taijitan
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            initializer.InitializeData();
         }
     }
 }
