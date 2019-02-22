@@ -36,5 +36,16 @@ namespace G07_Taijitan.Models.Domain
             this.Geboortedatum = geboortedatum;
         }
         #endregion
+
+        #region Methods
+
+        public void EditGebruiker(string naam, string voornaam, string telefoonnummer, DateTime geboortedatum) {
+            Naam = naam;
+            Voornaam = voornaam;
+            Telefoonnummer = telefoonnummer;
+            Geboortedatum = geboortedatum;
+        }
+
+        #endregion
     }
 }

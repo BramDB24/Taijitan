@@ -1,7 +1,22 @@
-﻿@model G07_Taijitan.Controllers.GebruikerController
+﻿@model IEnumerable<G07_Taijitan.Models.Domain.Gebruiker>
+
 @{
     ViewData["Title"] = "GebruikerInformatie";
 }
 
-<h2></h2>
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    @* automatisch dag selecteren nog toe voegen *@
+    @* basic view atm *@
+    @foreach( var user in Model) {
+        <ul class="list-group">
+            <li class="list-group-item">
+                @(user.Naam + " " + user.Voornaam)
+            </li>
+        </ul>
+        
+    }
+
+</div>
 

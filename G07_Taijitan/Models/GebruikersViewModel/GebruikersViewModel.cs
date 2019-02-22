@@ -1,4 +1,5 @@
-﻿using System;
+﻿using G07_Taijitan.Models.Domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -35,11 +36,22 @@ namespace G07_Taijitan.Models.GebruikersViewModel
         [Display(Name = "Geef je nieuwe e-mail in")]
         [DataType(DataType.EmailAddress)]
         //nodig?
-        [RegularExpression(@"[A-Za-z0-9]+@[A-Za-z]{2,4}", ErrorMessage ="Email is niet correct")]
+        [RegularExpression(@"[A-Za-z0-9]*@[A-Za-z]*.[A-Za-z]{2,4}", ErrorMessage ="Email is niet correct")]
         public string Email { get; set; }
 
-        public GebruikersViewModel()
+        public GebruikersViewModel(Gebruiker gebruiker)
         {
+            Naam = gebruiker.Naam;
+            Voornaam = gebruiker.Voornaam;
+            GeboorteDatum = gebruiker.Geboortedatum;
+            Adres = gebruiker.Adres;
+            Telefoonnummer = gebruiker.Telefoonnummer;
+            //geen email adres nodig om te registreren?
+            //just mockupdata atm - to be replaced
+            Email = gebruiker.Naam + "@hotmail.com";
+        }
+
+        public GebruikersViewModel() {
 
         }
 

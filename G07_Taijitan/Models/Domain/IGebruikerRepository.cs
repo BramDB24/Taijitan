@@ -7,8 +7,8 @@ namespace G07_Taijitan.Models.Domain
 {
     public interface IGebruikerRepository
     {
-        IEnumerable<Gebruiker> GetGetAllGebruikers();
-        Gebruiker GetGebruikersnaam(string naam);
+        IEnumerable<Gebruiker> GetAllGebruikers();
+        Gebruiker GetByGebruikersnaam(string naam);
         void AddGebruiker(Gebruiker gebruiker);
         void RemoveGebruiker(Gebruiker gebruiker);
         void SaveChanges();

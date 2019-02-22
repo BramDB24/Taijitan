@@ -12,7 +12,7 @@ namespace G07_Taijitan.Tests.Models {
         private const string _adres = "straatnaam";
         private const string _telefoonnummer = "0477112233";
         private const string _authorityNaam = "admin";
-        private readonly DateTime _geboorteDatum = new DateTime(1999, 24, 12);
+        private readonly DateTime _geboorteDatum = new DateTime(1999, 12, 24);
 
 
         #region Constructors

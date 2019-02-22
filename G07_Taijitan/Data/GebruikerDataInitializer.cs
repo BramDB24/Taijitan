@@ -17,6 +17,8 @@ namespace G07_Taijitan.Data
 
         public void InitializeData()
         {
+            _context.Database.EnsureDeleted();
+            _context.Database.EnsureCreated();
             if (!_context.gebruikers.Any())
             {
                 //gebruikers

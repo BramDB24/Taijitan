@@ -33,12 +33,12 @@ namespace G07_Taijitan.Data.Repositories
             _context.SaveChanges();
         }
 
-        public IEnumerable<Gebruiker> GetGetAllGebruikers()
+        public IEnumerable<Gebruiker> GetAllGebruikers()
         {
             return _gebruikers.ToList();
         }
 
-        public Gebruiker GetGebruikersnaam(string naam)
+        public Gebruiker GetByGebruikersnaam(string naam)
         {
             return _gebruikers.FirstOrDefault(t => t.Naam.Equals(naam));
         }
