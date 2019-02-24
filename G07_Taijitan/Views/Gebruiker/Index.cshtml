@@ -9,14 +9,16 @@
 <div>
     @* automatisch dag selecteren nog toe voegen *@
     @* basic view atm *@
-    @foreach( var user in Model) {
-        <ul class="list-group">
+    <ul class="list-group">
+        @foreach(var user in Model) {
+
             <li class="list-group-item">
                 @(user.Naam + " " + user.Voornaam)
             </li>
+
+
+        }
         </ul>
-        
-    }
 
 </div>
 

@@ -44,19 +44,19 @@ namespace G07_Taijitan
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DatabaseConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+            //services.AddIdentity<ApplicationUser, IdentityRole>()
+            //    .AddEntityFrameworkStores<ApplicationDbContext>()
+            //    .AddDefaultTokenProviders();
 
-            //services.AddDefaultIdentity<IdentityUser>()
-            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDefaultIdentity<IdentityUser>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("Gebruiker", policy => policy.RequireClaim(ClaimTypes.Role, "Gebruiker"));
             });
 
-            services.AddScoped<IGebruikerRepository, GebruikerRepository>();
             services.AddScoped<GebruikerDataInitializer>();
+            services.AddScoped<IGebruikerRepository, GebruikerRepository>();            
             services.AddScoped<GebruikerFilter>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

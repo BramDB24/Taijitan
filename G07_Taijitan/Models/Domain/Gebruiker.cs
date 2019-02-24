@@ -27,17 +27,16 @@ namespace G07_Taijitan.Models.Domain
         {
 
         }
-        //public Gebruiker(string naam, string voornaam, string adres, string telefoonnumer, string authorityNaam, DateTime geboortedatum, string email, string wachtwoord)
-        //{
-        //    this.Naam = naam;
-        //    this.Voornaam = voornaam;
-        //    this.Adres = adres;
-        //    this.Telefoonnummer = telefoonnumer;
-        //    this.AuthorityNaam = authorityNaam;
-        //    this.Geboortedatum = geboortedatum;
-        //    this.Email = email;
-        //    this.Wachtwoord = wachtwoord;
-        //}
+        public Gebruiker(string naam, string voornaam, string adres, string telefoonnumer, string authorityNaam, DateTime geboortedatum, string email, string wachtwoord) {
+            this.Naam = naam;
+            this.Voornaam = voornaam;
+            this.Adres = adres;
+            this.Telefoonnummer = telefoonnumer;
+            this.AuthorityNaam = authorityNaam;
+            this.Geboortedatum = geboortedatum;
+            this.Email = email;
+            this.Wachtwoord = wachtwoord;
+        }
         #endregion
 
         #region Methods
