@@ -37,7 +37,8 @@ namespace G07_Taijitan.Models.GebruikersViewModel
         [Display(Name = "Geef je nieuwe e-mail in")]
         [DataType(DataType.EmailAddress)]
         //nodig?
-        [RegularExpression(@"[A-Za-z0-9]*@[A-Za-z]*.[A-Za-z]{2,4}", ErrorMessage ="Email is niet correct")]
+        [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$", ErrorMessage ="Email is niet correct")]
+        //@"[A-Za-z0-9]*@[A-Za-z]*.[A-Za-z]{2,4}"
         public string Email { get; set; }
 
         public GebruikersViewModel(Gebruiker gebruiker)

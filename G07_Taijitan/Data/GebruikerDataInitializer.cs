@@ -43,7 +43,8 @@ namespace G07_Taijitan.Data
                         Gebruikersnaam = "jonah.desmet",
                         Telefoonnummer = "0476000000",
                         AuthorityNaam = "Lid",
-                        Wachtwoord = "password"
+                        Wachtwoord = "password",
+                        Graad = 1
                     };
 
                     _context.gebruikers.Add(testUser);
