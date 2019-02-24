@@ -9,6 +9,7 @@ namespace G07_Taijitan.Data.Repositories
 {
     public class GebruikerRepository : IGebruikerRepository
     {
+        /* change at 2402 getbyemail methode toegevoegd */
         private readonly DbSet<Gebruiker> _gebruikers;
         private readonly ApplicationDbContext _context;
 
@@ -38,7 +39,12 @@ namespace G07_Taijitan.Data.Repositories
             return _gebruikers.ToList();
         }
 
-        public Gebruiker GetByGebruikersnaam(string naam)
+        public Gebruiker GetByEmail(string email)
+        {
+            return _gebruikers.FirstOrDefault(t => t.Email.Equals(email));
+        }
+
+        public Gebruiker GetByGebruikernaam(string naam)
         {
             return _gebruikers.FirstOrDefault(t => t.Naam.Equals(naam));
         }

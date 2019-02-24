@@ -7,6 +7,7 @@ namespace G07_Taijitan.Models.Domain
 {
     public class Gebruiker
     {
+        /* change at 2402 dropped ctor, util van prop */
         #region Properties
 
         public String Gebruikersnaam { get; set; }
@@ -17,29 +18,32 @@ namespace G07_Taijitan.Models.Domain
         public String Telefoonnummer { get; set; }
         public String AuthorityNaam { get; set; }
         public DateTime Geboortedatum { get; set; }
-
+        public string Email { get; set; }
         #endregion
 
         //nodig voor het aanmaken van een nieuwe gebruiker
         #region Constructors
-        protected Gebruiker()
+        public Gebruiker()
         {
 
         }
-        public Gebruiker(string naam, string voornaam, string adres, string telefoonnumer, string authorityNaam, DateTime geboortedatum)
-        {
-            this.Naam = naam;
-            this.Voornaam = voornaam;
-            this.Adres = adres;
-            this.Telefoonnummer = telefoonnumer;
-            this.AuthorityNaam = authorityNaam;
-            this.Geboortedatum = geboortedatum;
-        }
+        //public Gebruiker(string naam, string voornaam, string adres, string telefoonnumer, string authorityNaam, DateTime geboortedatum, string email, string wachtwoord)
+        //{
+        //    this.Naam = naam;
+        //    this.Voornaam = voornaam;
+        //    this.Adres = adres;
+        //    this.Telefoonnummer = telefoonnumer;
+        //    this.AuthorityNaam = authorityNaam;
+        //    this.Geboortedatum = geboortedatum;
+        //    this.Email = email;
+        //    this.Wachtwoord = wachtwoord;
+        //}
         #endregion
 
         #region Methods
 
-        public void EditGebruiker(string naam, string voornaam, string telefoonnummer, DateTime geboortedatum) {
+        public void EditGebruiker(string email,string naam, string voornaam, string telefoonnummer, DateTime geboortedatum) {
+            Email = email;
             Naam = naam;
             Voornaam = voornaam;
             Telefoonnummer = telefoonnummer;

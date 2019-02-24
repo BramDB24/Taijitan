@@ -12,19 +12,11 @@ using Microsoft.Extensions.Logging;
 
 namespace G07_Taijitan
 {
+    /* removed comments */
     public class Program
     {
         public static void Main(string[] args)
         {
-            //using (ApplicationDbContext context = new ApplicationDbContext())
-            //{
-            //    context.Database.EnsureDeleted();
-            //    context.Database.EnsureCreated();
-            //    new GebruikerDataInitializer(context).InitializeData();
-            //    var gebruikers = context.gebruikers.ToList();
-            //    gebruikers.ForEach(t => Console.WriteLine(t.Voornaam));
-            //    Console.WriteLine("Database created");
-            //}
             CreateWebHostBuilder(args).Build().Run();
         }
 

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace G07_Taijitan.Models.GebruikersViewModel
 {
+    /* change at 2402 added email  */
     public class GebruikersViewModel
     {
         [Required]
@@ -48,7 +49,7 @@ namespace G07_Taijitan.Models.GebruikersViewModel
             Telefoonnummer = gebruiker.Telefoonnummer;
             //geen email adres nodig om te registreren?
             //just mockupdata atm - to be replaced
-            Email = gebruiker.Naam + "@hotmail.com";
+            Email = gebruiker.Email;
         }
 
         public GebruikersViewModel() {

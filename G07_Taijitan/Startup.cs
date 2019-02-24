@@ -14,9 +14,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using G07_Taijitan.Models.Domain;
 using G07_Taijitan.Data.Repositories;
+using System.Security.Claims;
+using G07_Taijitan.Filters;
 
 namespace G07_Taijitan
 {
+    /* change at 2402 policy toegevoegd, appuser toegevoegd, seeding met task ipv methode*/
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -40,11 +43,21 @@ namespace G07_Taijitan
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DatabaseConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            //services.AddDefaultIdentity<IdentityUser>()
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Gebruiker", policy => policy.RequireClaim(ClaimTypes.Role, "Gebruiker"));
+            });
 
             services.AddScoped<IGebruikerRepository, GebruikerRepository>();
             services.AddScoped<GebruikerDataInitializer>();
+            services.AddScoped<GebruikerFilter>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -74,7 +87,7 @@ namespace G07_Taijitan
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            initializer.InitializeData();
+            initializer.InitializeData().Wait();
         }
     }
 }
