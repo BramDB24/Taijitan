@@ -1,8 +1,58 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+@{
+    ViewData["Title"] = "Taijitan Yoshin Ryu";
 }
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+<h2>@ViewData["Title"]</h2>
+
+<div class="container">
+    @*begin rij 1*@
+    <div class="row">
+        <div class="col-xs-12 col-sm-4">
+            <article class="text-center">
+                <img src="~/images/witteband.png" alt="Witte Band" class="img-responsive center-block"/>
+                <p>Kyu 1</p>
+            </article>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <article class="text-center">
+                <img src="~/images/witteband.png" alt="Blauwe Band" class="img-responsive center-block"/>
+                <p>Kyu 2</p>
+            </article>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <article class="text-center">
+                <img src="~/images/paarseband.png" alt="Paarse Band" class="img-responsive center-block"/>
+                <p>Kyu 3</p>
+            </article>
+        </div>
+    </div>
+    @*einde rij 1*@
+    @*begin rij 2*@
+    <div class="row">
+        <div class="col-xs-12 col-sm-4">
+            <article class="text-center">
+                <img src="~/images/bruineband.png" alt="Bruine Band" class="img-responsive center-block" />
+                <p>Dan 1</p>
+            </article>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <article class="text-center">
+                <img src="~/images/bruineband.png" alt="Zwarte Band" class="img-responsive center-block" />
+                <p>Dan 2</p>
+            </article>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <article class="text-center">
+                <img src="~/images/zwartrodeband.png" alt="Zwart-rode Band" class="img-responsive center-block" />
+                <p>Dan 3</p>
+            </article>
+        </div>
+    </div>
+    @*einde rij 2*@
+</div>
+
+@*<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -91,4 +141,4 @@
             <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
         </ul>
     </div>
-</div>
+</div>*@
