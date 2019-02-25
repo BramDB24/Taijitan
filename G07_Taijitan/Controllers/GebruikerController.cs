@@ -34,28 +34,18 @@ namespace G07_Taijitan.Controllers {
             Gebruiker gebruiker = _gebruikerRepository.GetByGebruikernaam(id);
             if(gebruiker == null)
                 return NotFound();
-            if(ModelState.IsValid) {
+            if(ModelState.IsValid) {                
                 try {
-                    //gebruiker.EditGebruiker(gvm.Email,gvm.Naam, gvm.Voornaam, gvm.Telefoonnummer, gvm.GeboorteDatum); //email staat ni in gebruiker?
-                    MapGebruikerEditToGebruiker(gvm, gebruiker);
-                    _gebruikerRepository.AddGebruiker(gebruiker);
+                    gebruiker.EditGebruiker(gvm.Email,gvm.Naam, gvm.Voornaam, gvm.Telefoonnummer, gvm.GeboorteDatum); //email staat ni in gebruiker?                    
                     _gebruikerRepository.SaveChanges();
                     TempData["message"] = $"Gebruiker {gebruiker.Voornaam} is succesvol aangepast";
+                    return RedirectToAction(nameof(Index), "Home");
                 } catch(Exception e) {
-                    ModelState.AddModelError("", e.Message);
+                    ModelState.AddModelError("", e.Message);                    
                 }
-                return RedirectToAction(nameof(Index), "Home");
             }
             return View(gvm);
         }
-
-        private void MapGebruikerEditToGebruiker(GebruikersViewModel editmodel, Gebruiker gebruiker)
-        {
-            gebruiker.Naam = editmodel.Naam;
-            gebruiker.Voornaam = editmodel.Voornaam;
-            gebruiker.Telefoonnummer = editmodel.Telefoonnummer;
-            gebruiker.Adres = editmodel.Adres;
-            gebruiker.Email = editmodel.Email;
-        }
+        
     }
 }
