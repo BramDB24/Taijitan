@@ -44,9 +44,9 @@ namespace G07_Taijitan.Data.Repositories
             return _gebruikers.FirstOrDefault(t => t.Email.Equals(email));
         }
 
-        public Gebruiker GetByGebruikernaam(string naam)
+        public Gebruiker GetByGebruikernaam(string gebruikersnaam)
         {
-            return _gebruikers.FirstOrDefault(t => t.Naam.Equals(naam));
+            return _gebruikers.FirstOrDefault(t => t.Gebruikersnaam.Equals(gebruikersnaam));
         }
     }
 }

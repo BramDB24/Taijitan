@@ -22,9 +22,13 @@ namespace G07_Taijitan.Controllers {
         }
 
         [Authorize(Policy = "Gebruiker")]
-        public IActionResult Edit(string id) { //id = gebruikersnaam    //! eig nog naam, moet nog aangepast worden (duplicates), zie repo
-            Gebruiker user = _gebruikerRepository.GetByGebruikernaam(id);
-            return View(new GebruikersViewModel(user));
+        public IActionResult Edit(string id) { 
+            if(User.Identity.Name == null || id != User.Identity.Name)
+                return NotFound();            
+            else {
+                Gebruiker user = _gebruikerRepository.GetByGebruikernaam(id);
+                return View(new GebruikersViewModel(user));
+            }
         }
         
         [HttpPost]

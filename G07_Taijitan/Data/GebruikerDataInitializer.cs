@@ -23,8 +23,7 @@ namespace G07_Taijitan.Data
         {
             _context.Database.EnsureDeleted();
             if (_context.Database.EnsureCreated())
-            {
-                await InitilizeUsers();
+            {   
                 //_context.SaveChanges();
                 if (!_context.gebruikers.Any())
                 {
@@ -42,12 +41,28 @@ namespace G07_Taijitan.Data
                         Geboortedatum = new DateTime(1998, 03, 13),
                         Gebruikersnaam = "jonah.desmet",
                         Telefoonnummer = "0476000000",
-                        AuthorityNaam = "Lid",
-                        Wachtwoord = "password",
+                        AuthorityNaam = "Gebruiker",
+                        Wachtwoord = "P@ssword1",
                         Graad = 1
                     };
 
+                    Gebruiker testUser2 = new Gebruiker() {
+                        Naam = "De Bleecker",
+                        Voornaam = "Bram",
+                        Adres = "Adress",
+                        Email = "debleecker.b@gmail.com",
+                        Geboortedatum = new DateTime(1999, 12, 24),
+                        Gebruikersnaam = "bram.debleecker",
+                        Telefoonnummer = "0476000002",
+                        AuthorityNaam = "Gebruiker",
+                        Wachtwoord = "P@ssword2",
+                        Graad = 1
+                    };
+                    await InitilizeUsers(testUser.Gebruikersnaam, testUser.Wachtwoord, testUser.AuthorityNaam);
+                    await InitilizeUsers(testUser2.Gebruikersnaam, testUser2.Wachtwoord, testUser2.AuthorityNaam);
+                    
                     _context.gebruikers.Add(testUser);
+                    _context.gebruikers.Add(testUser2);
 
                     //Gebruiker[] gebruikers = { gebruiker1, gebruiker2, gebruiker3, gebruiker4 };
                     //_context.gebruikers.AddRange(gebruikers);
@@ -58,12 +73,11 @@ namespace G07_Taijitan.Data
 
         }
 
-        private async Task InitilizeUsers()
-        {
-            string email = "jonah.desmet@hotmail.com";
-            var user = new IdentityUser { UserName = email, Email = email };
-            await _userManager.CreateAsync(user, "P@ssword1");
-            await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, "Gebruiker"));
+        private async Task InitilizeUsers(string username, /*string email,*/ string password, string role)
+        {   
+            var user = new IdentityUser { UserName = username/*, Email = email */};
+            await _userManager.CreateAsync(user, password);
+            await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, role));
         }
     }
 }
