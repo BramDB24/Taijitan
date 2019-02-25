@@ -36,7 +36,7 @@ namespace G07_Taijitan.Controllers {
                 return NotFound();
             if(ModelState.IsValid) {                
                 try {
-                    gebruiker.EditGebruiker(gvm.Email,gvm.Naam, gvm.Voornaam, gvm.Telefoonnummer, gvm.GeboorteDatum); //email staat ni in gebruiker?                    
+                    gebruiker.EditGebruiker(gvm.Email,gvm.Naam, gvm.Voornaam, gvm.Telefoonnummer, gvm.GeboorteDatum, gvm.Adres); //email staat ni in gebruiker?                    
                     _gebruikerRepository.SaveChanges();
                     TempData["message"] = $"Gebruiker {gebruiker.Voornaam} is succesvol aangepast";
                     return RedirectToAction(nameof(Index), "Home");

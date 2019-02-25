@@ -42,12 +42,13 @@ namespace G07_Taijitan.Models.Domain
 
         #region Methods
 
-        public void EditGebruiker(string email,string naam, string voornaam, string telefoonnummer, DateTime geboortedatum) {
+        public void EditGebruiker(string email,string naam, string voornaam, string telefoonnummer, DateTime geboortedatum, string adres) {
             Email = email;
             Naam = naam;
             Voornaam = voornaam;
             Telefoonnummer = telefoonnummer;
             Geboortedatum = geboortedatum;
+            Adres = adres;
         }
 
         #endregion
