@@ -11,11 +11,13 @@ namespace G07_Taijitan.Models.GebruikersViewModel
     public class GebruikersViewModel
     {
         [Required]
-        [Display(Name = "Geef indien u van naam wilt veranderen de nieuwe naam in")]
+        [StringLength(50, ErrorMessage = "Naam mag niet langer dan 50 tekens zijn")]
+        [Display(Name = "Geef de nieuwe naam in")]
         public string Naam { get; set; }
 
         [Required]
-        [Display(Name = "Geef indien u van voornaam wilt veranderen de niewe voornaam in")]
+        [StringLength(50, ErrorMessage = "Voornaam mag niet langer dan 50 tekens zijn")]
+        [Display(Name = "Geef de niewe voornaam in")]
         public string Voornaam { get; set; }
 
         [Required]
@@ -29,16 +31,14 @@ namespace G07_Taijitan.Models.GebruikersViewModel
 
         [Required]
         [Display(Name = "Geef het nieuwe telefoonnummer in")]
-        //verdere checks nodig?
-        [RegularExpression(@"[0-9]{9,10}", ErrorMessage ="Telefoonnumer is niet correct")]
+        [RegularExpression("[0,4|5]{2}[0-9]{7,8}", ErrorMessage ="Telefoonnumer is niet correct")]
         public string Telefoonnummer { get; set; }
 
         [Required]
         [Display(Name = "Geef je nieuwe e-mail in")]
         [DataType(DataType.EmailAddress)]
-        //nodig?
+        [StringLength(150,ErrorMessage = "E-mail mag niet langer dan 150 tekens zijn")]
         [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$", ErrorMessage ="Email is niet correct")]
-        //@"[A-Za-z0-9]*@[A-Za-z]*.[A-Za-z]{2,4}"
         public string Email { get; set; }
 
         public GebruikersViewModel(Gebruiker gebruiker)
@@ -48,8 +48,6 @@ namespace G07_Taijitan.Models.GebruikersViewModel
             GeboorteDatum = gebruiker.Geboortedatum;
             Adres = gebruiker.Adres;
             Telefoonnummer = gebruiker.Telefoonnummer;
-            //geen email adres nodig om te registreren?
-            //just mockupdata atm - to be replaced
             Email = gebruiker.Email;
         }
 

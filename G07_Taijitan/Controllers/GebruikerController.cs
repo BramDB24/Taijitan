@@ -36,14 +36,26 @@ namespace G07_Taijitan.Controllers {
                 return NotFound();
             if(ModelState.IsValid) {
                 try {
-                    gebruiker.EditGebruiker(gvm.Email,gvm.Naam, gvm.Voornaam, gvm.Telefoonnummer, gvm.GeboorteDatum); //email staat ni in gebruiker?
+                    //gebruiker.EditGebruiker(gvm.Email,gvm.Naam, gvm.Voornaam, gvm.Telefoonnummer, gvm.GeboorteDatum); //email staat ni in gebruiker?
+                    MapGebruikerEditToGebruiker(gvm, gebruiker);
+                    _gebruikerRepository.AddGebruiker(gebruiker);
                     _gebruikerRepository.SaveChanges();
-                } catch {
-                    TempData["error"] = "Sorry, something went wrong, user not updated";
+                    TempData["message"] = $"Gebruiker {gebruiker.Voornaam} is succesvol aangepast";
+                } catch(Exception e) {
+                    ModelState.AddModelError("", e.Message);
                 }
                 return RedirectToAction(nameof(Index), "Home");
             }
             return View(gvm);
+        }
+
+        private void MapGebruikerEditToGebruiker(GebruikersViewModel editmodel, Gebruiker gebruiker)
+        {
+            gebruiker.Naam = editmodel.Naam;
+            gebruiker.Voornaam = editmodel.Voornaam;
+            gebruiker.Telefoonnummer = editmodel.Telefoonnummer;
+            gebruiker.Adres = editmodel.Adres;
+            gebruiker.Email = editmodel.Email;
         }
     }
 }
