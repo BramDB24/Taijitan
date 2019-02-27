@@ -15,10 +15,20 @@ namespace G07_Taijitan.Tests.Models {
         private readonly DateTime _geboorteDatum = new DateTime(1999, 12, 24);
 
 
-        #region Constructors
+        //#region Constructors
         //[Fact]
-        //public void NewGebruiker_ValidData_CreateGebruiker() {
-        //    var gebruiker = new Gebruiker(_name, _voornaam, _adres, _telefoonnummer, _authorityNaam, _geboorteDatum);            
+        //public void NewGebruiker_ValidData_CreateGebruiker()
+        //{
+        //    var gebruiker = new Gebruiker(_name, _voornaam, _adres, _telefoonnummer, _authorityNaam, _geboorteDatum)
+        //    {
+        //        Gebruikersnaam = _naam,
+        //        Naam = _voornaam,
+        //        Adres = _adres,
+        //        Email = email,
+        //        Telefoonnummer = _telefoonnummer,
+        //        Geboortedatum = DateTime.Parse(geboorteDatum),
+        //        Graad = graad
+        //    }; ;
         //    Assert.Equal(_name, gebruiker.Naam);
         //    Assert.Equal(_voornaam, gebruiker.Voornaam);
         //    Assert.Equal(_adres, gebruiker.Adres);
@@ -32,7 +42,8 @@ namespace G07_Taijitan.Tests.Models {
         //[InlineData("")]
         //[InlineData(" ")]
         //[InlineData("123456789")]
-        //public void NewGebruiker_NaamOrVoornaamOrAdressNotValid_ThrowsArgumentException(string tekens) {
+        //public void NewGebruiker_NaamOrVoornaamOrAdressNotValid_ThrowsArgumentException(string tekens)
+        //{
         //    Assert.Throws<ArgumentException>(() => new Gebruiker(tekens, _voornaam, _adres, _telefoonnummer, _authorityNaam, _geboorteDatum));
         //    Assert.Throws<ArgumentException>(() => new Gebruiker(_name, tekens, _adres, _telefoonnummer, _authorityNaam, _geboorteDatum));
         //    Assert.Throws<ArgumentException>(() => new Gebruiker(_name, _voornaam, tekens, _telefoonnummer, _authorityNaam, _geboorteDatum));
@@ -44,10 +55,11 @@ namespace G07_Taijitan.Tests.Models {
         //[InlineData(" ")]
         //[InlineData("abcdefghij")]
         //[InlineData("abcfef1213fev")]
-        //public void NewGebruiker_TelefoonNummerNotValid_ThrowsArgumentException(string telefoonNummer) {
+        //public void NewGebruiker_TelefoonNummerNotValid_ThrowsArgumentException(string telefoonNummer)
+        //{
         //    Assert.Throws<ArgumentException>(() => new Gebruiker(_name, _voornaam, _adres, telefoonNummer, _authorityNaam, _geboorteDatum));
         //}
 
-        #endregion
+        //#endregion
     }
 }
