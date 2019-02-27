@@ -40,31 +40,53 @@ namespace G07_Taijitan.Tests.Controllers
         #endregion
 
         #region Edit
-        [Theory]
-        [InlineData("Scheirlinckx", "Scheirlinckx", "Lowie", "Adres 123", "054999999", "Lowiescheirlinckx@hotmail.com", "26/09/1998", 2)]
-        public void Edit_GebruikerAanwezig_NaamIsAangepast(string naamVoorWijziging, string naam, string voornaam, string adres, string telefoonnummer, string email, string geboorteDatum , int graad)
+        [Fact]
+        public void Edit_Gebruiker_GebruikerNaamIsAangepast()
         {
-            Gebruiker aangepasteUser = new Gebruiker
+            _gebruikersRepository.Setup(t => t.GetByGebruikernaam("string")).Returns(_dummyContext._gebruiker2);
+            GebruikersViewModel gebruikerEvm = new GebruikersViewModel(_dummyContext._gebruiker2)
             {
-                Gebruikersnaam = naam,
-                Naam = voornaam,
-                Adres = adres,
-                Email = email,
-                Telefoonnummer = telefoonnummer,
-                Geboortedatum = DateTime.Parse(geboorteDatum),
-                Graad = graad
+                Naam = "De Bleecker Edit"
             };
-
-            
-            _gebruikersRepository.Setup(v => v.GetByGebruikernaam(naam)).Returns(_dummyContext.Gebruikers.FirstOrDefault(t => t.Gebruikersnaam.Equals(naam)));
-
-            GebruikersViewModel gvm = new GebruikersViewModel(aangepasteUser);
-            _controller.Edit(naamVoorWijziging, gvm);
-            Assert.Equal(_gebruikersRepository.Object.GetByGebruikernaam(naam),aangepasteUser);
+            _controller.Edit("string", gebruikerEvm);
+            Gebruiker bram = _dummyContext._gebruiker2;
+            Assert.Equal("De Bleecker Edit", bram.Naam);
+            _gebruikersRepository.Verify(t => t.SaveChanges(), Times.Once());
         }
 
-        #endregion
+        [Fact]
+        public void Edit_Gebruiker_GebruikerAdresIsAangepast()
+        {
+            _gebruikersRepository.Setup(t => t.GetByGebruikernaam("string")).Returns(_dummyContext._gebruiker2);
+            GebruikersViewModel gebruikerEvm = new GebruikersViewModel(_dummyContext._gebruiker2)
+            {
+                Adres = "Adres Edit 154"
+            };
+            _controller.Edit("string", gebruikerEvm);
+            Gebruiker bram = _dummyContext._gebruiker2;
+            Assert.Equal("Adres Edit 154", bram.Adres);
+            _gebruikersRepository.Verify(t => t.SaveChanges(), Times.Once());
+        }
 
+        [Theory]
+        [InlineData("string")] //woord, mist @ gedeelte
+        [InlineData("12345")] //getal, mist @ gedeelte
+        [InlineData("string@string")] //geen .be ofzo
+        [InlineData("@string@string.be")] //meerdere @ in emailadres
+        [InlineData("string@string.stringstringstring")] //te lange string achter punt
+        public void Edit_Gebruiker_GebruikerEmailIsFout(string email)
+        {
+            _gebruikersRepository.Setup(t => t.GetByGebruikernaam("string")).Returns(_dummyContext._gebruiker3);
+            GebruikersViewModel gebruikerEvm = new GebruikersViewModel(_dummyContext._gebruiker3)
+            {
+                Email = email
+            };
+            _controller.Edit("string", gebruikerEvm);
+            Gebruiker johanna = _dummyContext._gebruiker3;
+            Assert.Throws<ArgumentException>( () => );
+            _gebruikersRepository.Verify(t => t.SaveChanges(), Times.Never());
+        }
+        #endregion
 
 
 
