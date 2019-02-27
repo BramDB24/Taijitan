@@ -68,16 +68,26 @@ namespace G07_Taijitan
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
-            }
+            } 
             else
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
 
+
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseStatusCodePages(async context => {
+                context.HttpContext.Response.ContentType = "text/plain";
+
+                await context.HttpContext.Response.WriteAsync(
+                    "U probeert een pagina te bezoeken die helaas niet bestaat :("
+                    );
+            });
 
             app.UseAuthentication();
 
