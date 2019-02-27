@@ -9,6 +9,7 @@ using Xunit;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using G07_Taijitan.Models.GebruikersViewModel;
 
 namespace G07_Taijitan.Tests.Controllers
 {
@@ -23,6 +24,8 @@ namespace G07_Taijitan.Tests.Controllers
         {
             _dummyContext = new DummyApplicationDbContext();
             _gebruikersRepository = new Mock<IGebruikerRepository>();
+            _controller = new GebruikerController(_gebruikersRepository.Object);
+
         }
 
         #region Index
@@ -35,5 +38,35 @@ namespace G07_Taijitan.Tests.Controllers
             Assert.Equal(2, gebruikers.Count());
         }
         #endregion
+
+        #region Edit
+        [Theory]
+        [InlineData("Scheirlinckx", "Scheirlinckx", "Lowie", "Adres 123", "054999999", "Lowiescheirlinckx@hotmail.com", "26/09/1998", 2)]
+        public void Edit_GebruikerAanwezig_NaamIsAangepast(string naamVoorWijziging, string naam, string voornaam, string adres, string telefoonnummer, string email, string geboorteDatum , int graad)
+        {
+            Gebruiker aangepasteUser = new Gebruiker
+            {
+                Gebruikersnaam = naam,
+                Naam = voornaam,
+                Adres = adres,
+                Email = email,
+                Telefoonnummer = telefoonnummer,
+                Geboortedatum = DateTime.Parse(geboorteDatum),
+                Graad = graad
+            };
+
+            
+            _gebruikersRepository.Setup(v => v.GetByGebruikernaam(naam)).Returns(_dummyContext.Gebruikers.FirstOrDefault(t => t.Gebruikersnaam.Equals(naam)));
+
+            GebruikersViewModel gvm = new GebruikersViewModel(aangepasteUser);
+            _controller.Edit(naamVoorWijziging, gvm);
+            Assert.Equal(_gebruikersRepository.Object.GetByGebruikernaam(naam),aangepasteUser);
+        }
+
+        #endregion
+
+
+
+
     }
 }
