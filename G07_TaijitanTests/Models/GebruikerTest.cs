@@ -21,14 +21,13 @@ namespace G07_Taijitan.Tests.Models {
         [Fact]
         public void NewGebruiker_EmptyData_CreateGebruiker()
         {
-            var gebruiker = new Gebruiker();
+            var gebruiker = new Lid();
             Assert.Null(gebruiker.Gebruikersnaam);
             Assert.Null(gebruiker.Naam);
             Assert.Null(gebruiker.Voornaam);
             Assert.Null(gebruiker.Adres);
             Assert.Null(gebruiker.Email);
-            Assert.Null(gebruiker.Telefoonnummer);
-            Assert.Null(gebruiker.AuthorityNaam);
+            Assert.Null(gebruiker.Telefoonnummer);            
             Assert.Null(gebruiker.Wachtwoord);
             Assert.Equal(new DateTime(), gebruiker.Geboortedatum);
             Assert.Equal(0, gebruiker.Graad);
@@ -36,7 +35,7 @@ namespace G07_Taijitan.Tests.Models {
         [Fact]
         public void NewGebruiker_ValidData_CreateGebruiker() //Overbodig?
         {
-            var gebruiker = new Gebruiker()
+            var gebruiker = new Lid()
             {
                 Naam = _naam,
                 Voornaam = _voornaam,
@@ -45,7 +44,6 @@ namespace G07_Taijitan.Tests.Models {
                 Geboortedatum = _geboorteDatum,
                 Gebruikersnaam = _gebruikersnaam,
                 Telefoonnummer = _telefoonnummer,
-                AuthorityNaam = _authorityNaam,
                 Wachtwoord = _wachtwoord,
                 Graad = _graad
             }; ;
@@ -55,8 +53,7 @@ namespace G07_Taijitan.Tests.Models {
             Assert.Equal(_email, gebruiker.Email);
             Assert.Equal(_geboorteDatum, gebruiker.Geboortedatum);
             Assert.Equal(_gebruikersnaam, gebruiker.Gebruikersnaam);
-            Assert.Equal(_telefoonnummer, gebruiker.Telefoonnummer);
-            Assert.Equal(_authorityNaam, gebruiker.AuthorityNaam);
+            Assert.Equal(_telefoonnummer, gebruiker.Telefoonnummer);            
             Assert.Equal(_wachtwoord, gebruiker.Wachtwoord);
             Assert.Equal(_graad, gebruiker.Graad);
         }

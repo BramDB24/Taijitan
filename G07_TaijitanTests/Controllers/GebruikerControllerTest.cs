@@ -18,15 +18,15 @@ namespace G07_Taijitan.Tests.Controllers
         private readonly GebruikerController _controller;
         private readonly DummyApplicationDbContext _dummyContext;
         private readonly Mock<IGebruikerRepository> _gebruikersRepository;
-
+        private readonly string _gebruiker1Id; 
 
         public GebruikerControllerTest()
         {
             _dummyContext = new DummyApplicationDbContext();
             _gebruikersRepository = new Mock<IGebruikerRepository>();
             _gebruikersRepository.Setup(v => v.GetAllGebruikers()).Returns(_dummyContext.Gebruikers);
-            _gebruikersRepository.Setup(t => t.GetByGebruikernaam("gebruikersnaam")).Returns(_dummyContext._gebruiker1);
-
+            _gebruikersRepository.Setup(t => t.GetByGebruikernaam("jonah.desmet")).Returns(_dummyContext._gebruiker1);
+            _gebruiker1Id = _dummyContext._gebruiker1.Gebruikersnaam;
             _controller = new GebruikerController(_gebruikersRepository.Object);
             
         }
@@ -42,7 +42,8 @@ namespace G07_Taijitan.Tests.Controllers
         }
         #endregion
 
-        #region Edit
+
+        #region Edit - HttpPost
         [Fact]
         public void Edit_Gebruiker_GebruikerNaamIsAangepast()
         {
@@ -51,7 +52,7 @@ namespace G07_Taijitan.Tests.Controllers
             {
                 Naam = "De Bleecker Edit"
             };
-            _controller.Edit("gebruikersnaam", gebruikerEvm);
+            _controller.Edit("jonah.desmet", gebruikerEvm);
             Gebruiker bram = _dummyContext._gebruiker1;
             Assert.Equal("De Bleecker Edit", bram.Naam);
             _gebruikersRepository.Verify(t => t.SaveChanges(), Times.Once());
@@ -65,31 +66,11 @@ namespace G07_Taijitan.Tests.Controllers
             {
                 Adres = "Adres Edit 154"
             };
-            _controller.Edit("gebruikersnaam", gebruikerEvm);
+            _controller.Edit("jonah.desmet", gebruikerEvm);
             Gebruiker bram = _dummyContext._gebruiker1;
             Assert.Equal("Adres Edit 154", bram.Adres);
             _gebruikersRepository.Verify(t => t.SaveChanges(), Times.Once());
         }
-
-        //[Theory]
-        //[InlineData("string")] //woord, mist @ gedeelte
-        //[InlineData("12345")] //getal, mist @ gedeelte
-        //[InlineData("string@string")] //geen .be ofzo
-        //[InlineData("@string@string.be")] //meerdere @ in emailadres
-        //[InlineData("string@string.stringstringstring")] //te lange string achter punt
-        //public void EditHttpPost_Gebruiker_GebruikerEmailIsFout(string email)
-        //{
-        //    //_gebruikersRepository.Setup(t => t.GetByGebruikernaam("gebruikersnaam")).Returns(_dummyContext._gebruiker3);
-        //    GebruikersViewModel gebruikerEvm = new GebruikersViewModel(_dummyContext._gebruiker1)
-        //    {
-        //        Email = email
-        //    };
-        //    _controller.Edit("gebruikersnaam", gebruikerEvm);
-        //    Gebruiker johanna = _dummyContext._gebruiker1;
-        //    // Assert.Throws<ArgumentException>( () => );
-        //    Assert.Equal("jonah.desmet@hotmail.com", johanna.Email);
-        //    _gebruikersRepository.Verify(t => t.SaveChanges(), Times.Never());
-        //}
 
         [Fact] //magnietwerken
         public void Edit_InvalidEdit_ReturnActionMethode()
@@ -99,16 +80,29 @@ namespace G07_Taijitan.Tests.Controllers
             {
                 Telefoonnummer = "047"
             };
-            RedirectToActionResult action = _controller.Edit("gebruikersnaam", gebruikerEvm) as RedirectToActionResult;
+            RedirectToActionResult action = _controller.Edit("jonah.desmet", gebruikerEvm) as RedirectToActionResult;
             Assert.Equal("Index", action?.ActionName);
         }
         #endregion
+
         #region Edit --get
+
+        [Fact]
+        public void EditHttpGet_ValidUserId_PassesUserDetailsInAnEditViewModelToView() {
+            var result = _controller.Edit("jonah.desmet") as ViewResult;
+            var userVm = result?.Model as GebruikersViewModel;
+            Assert.Equal("De Smet", userVm?.Naam);
+            Assert.Equal("Jonah", userVm?.Voornaam);
+            Assert.Equal("Adres 123", userVm.Adres);
+            Assert.Equal("jonah.desmet@hotmail.com", userVm.Email);
+            Assert.Equal("0476000999", userVm.Telefoonnummer);            
+        }
+
         [Fact] 
-        public void Edit_NonExistingUser_ReturnNotFound()
+        public void EditHttpGet_NonExistingUser_ReturnNotFound()
         {
             //_gebruikersRepository.Setup(t => t.GetByGebruikernaam("string")).Returns((Gebruiker)null);
-            IActionResult action = _controller.Edit("onbestaandeuser");
+            var action = _controller.Edit("onbestaandeuser");
             Assert.IsType<NotFoundResult>(action);
         }
         #endregion
