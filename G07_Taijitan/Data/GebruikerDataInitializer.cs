@@ -56,8 +56,8 @@ namespace G07_Taijitan.Data
                         Wachtwoord = "P@ssword2",
                         Graad = 1
                     };
-                    await InitilizeUsers(testUser.Gebruikersnaam, testUser.Wachtwoord, "lid");
-                    await InitilizeUsers(testUser2.Gebruikersnaam, testUser2.Wachtwoord, "lid");
+                    await InitilizeUsers(testUser.Gebruikersnaam, testUser.Wachtwoord, testUser.GetType().Name);
+                    await InitilizeUsers(testUser2.Gebruikersnaam, testUser2.Wachtwoord, testUser2.GetType().Name);
                     
                     _context.gebruikers.Add(testUser);
                     _context.gebruikers.Add(testUser2);

@@ -52,7 +52,7 @@ namespace G07_Taijitan
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("Gebruiker", policy => policy.RequireClaim(ClaimTypes.Role, "Gebruiker"));
+                options.AddPolicy("Lid", policy => policy.RequireClaim(ClaimTypes.Role, "Lid"));
             });
 
             services.AddScoped<GebruikerDataInitializer>();

@@ -18,7 +18,7 @@ namespace G07_Taijitan.Tests.Data {
 
             
 
-            _gebruiker1 = new Gebruiker()
+            _gebruiker1 = new Lid()
             {
                 Naam = "De Smet",
                 Voornaam = "Jonah",
@@ -26,12 +26,11 @@ namespace G07_Taijitan.Tests.Data {
                 Email = "jonah.desmet@hotmail.com",
                 Geboortedatum = new DateTime(1984, 2, 13),
                 Gebruikersnaam = "jonah.desmet",
-                Telefoonnummer = "0476000999",
-                AuthorityNaam = "Admin",
+                Telefoonnummer = "0476000999",                
                 Wachtwoord = "P@ssword1",
                 Graad = 3
             };
-            //_gebruiker2 = new Gebruiker
+            //_gebruiker2 = new Lesgever
             //{
             //    Naam = "De Bleecker",
             //    Voornaam = "Bram",
@@ -39,13 +38,12 @@ namespace G07_Taijitan.Tests.Data {
             //    Email = "debleecker.b@gmail.com",
             //    Geboortedatum = new DateTime(1999, 12, 24),
             //    Gebruikersnaam = "bram.debleecker",
-            //    Telefoonnummer = "0476000002",
-            //    AuthorityNaam = "Gebruiker",
+            //    Telefoonnummer = "0476000002",            
             //    Wachtwoord = "P@ssword2",
             //    Graad = 1
             //};
 
-            //_gebruiker3 = new Gebruiker
+            //_gebruiker3 = new Beheerder
             //{
             //    Gebruikersnaam = "De Bruycker",
             //    Naam = "Johanna",

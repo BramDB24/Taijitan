@@ -16,12 +16,13 @@ namespace G07_Taijitan.Controllers {
         public GebruikerController(IGebruikerRepository gebruikerRepository) {
             _gebruikerRepository = gebruikerRepository;
         }
+
         public IActionResult Index() {
             IEnumerable<Gebruiker> gebruikers = _gebruikerRepository.GetAllGebruikers();
             return View(gebruikers.OrderBy(v => v.Gebruikersnaam));
         }
 
-        [Authorize(Policy = "Gebruiker")]
+        [Authorize(Policy = "Lid")]
         public IActionResult Edit(string id) {
             if(User.Identity.Name == null || id != User.Identity.Name)
                 return NotFound();
@@ -34,7 +35,7 @@ namespace G07_Taijitan.Controllers {
         }
 
         [HttpPost]
-        [Authorize(Policy = "Gebruiker")]
+        [Authorize(Policy = "Lid")]
         [ServiceFilter(typeof(GebruikerFilter))]
         public IActionResult Edit(string id, GebruikersViewModel gvm) {
             //id = gebruikersnaam

@@ -12,8 +12,7 @@ namespace G07_Taijitan.Tests.Models {
         private const string _voornaam = "Bram";
         private const string _adres = "Adres 777";
         private const string _email = "debleecker.b@gmail.com";
-        private const string _telefoonnummer = "0476000002";
-        private const string _authorityNaam = "Gebruiker";
+        private const string _telefoonnummer = "0476000002";        
         private const string _wachtwoord = "p@ssword2";
         private readonly DateTime _geboorteDatum = new DateTime(1999, 12, 24);
         private const int _graad = 1;
