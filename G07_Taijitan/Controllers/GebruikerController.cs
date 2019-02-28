@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace G07_Taijitan.Controllers {
     /* change at 2402 authorize tagg en servicefilter tagg toegevoegd aan httppost*/
+    [ServiceFilter(typeof(GebruikerFilter))]
     public class GebruikerController : Controller {
         private readonly IGebruikerRepository _gebruikerRepository;
 
@@ -23,20 +24,24 @@ namespace G07_Taijitan.Controllers {
         }
 
         [Authorize(Policy = "Lid")]
-        public IActionResult Edit(string id) {
-            if(User.Identity.Name == null || id != User.Identity.Name)
-                return NotFound();
+        public IActionResult Edit(Gebruiker gebruiker) {
+            //if(User.Identity.Name == null || id != User.Identity.Name)
+            //    return NotFound();
 
-            Gebruiker user = _gebruikerRepository.GetByGebruikernaam(id);
-            if(user == null) {
+            //Gebruiker user = _gebruikerRepository.GetByGebruikernaam(id);
+            //if(user == null) {
+            //    return NotFound();
+            //}
+            if(gebruiker == null)
+            {
                 return NotFound();
             }
-            return View(new GebruikersViewModel(user));
+            
+            return View(new GebruikersViewModel(gebruiker)); //gebruiker moet aangepast worden zodat het een concreet type is
         }
 
         [HttpPost]
         [Authorize(Policy = "Lid")]
-        [ServiceFilter(typeof(GebruikerFilter))]
         public IActionResult Edit(string id, GebruikersViewModel gvm) {
             //id = gebruikersnaam
             if(ModelState.IsValid) {

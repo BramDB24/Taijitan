@@ -10,32 +10,32 @@ namespace G07_Taijitan.Models.GebruikersViewModel
     /* change at 2402 added email  */
     public class GebruikersViewModel
     {
-        [Required]
-        [StringLength(50, ErrorMessage = "Naam mag niet langer dan 50 tekens zijn")]
-        [Display(Name = "Geef de nieuwe naam in")]
+        [Required(ErrorMessage ="De achternaam mag niet leeg gelaten worden")]
+        [StringLength(50, ErrorMessage = "De achternaam mag niet langer dan 50 karakters zijn")]
+        [Display(Name = "Achternaam")]
         public string Naam { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="De voornaam mag niet leeg gelaten worden")]
         [StringLength(50, ErrorMessage = "Voornaam mag niet langer dan 50 tekens zijn")]
-        [Display(Name = "Geef de niewe voornaam in")]
+        [Display(Name = "Voornaam")]
         public string Voornaam { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="De geboortedatum mag niet leeg gelaten worden")]
         [DataType(DataType.Date)]
-        [Display(Name = "Geef de nieuwe geboortedatum in")]
+        [Display(Name = "Geboortedatum")]
         public DateTime GeboorteDatum { get; set; }
 
-        [Required]
-        [Display(Name = "Geef het nieuwe adres in")]
+        [Required(ErrorMessage ="Het adres mag niet leeg gelaten worden")]
+        [Display(Name = "Adres")]
         public string Adres { get; set; }
 
-        [Required]
-        [Display(Name = "Geef het nieuwe telefoonnummer in")]
+        [Required(ErrorMessage ="Het telefoonnummer mag niet leeg gelaten worden")]
+        [Display(Name = "Telefoonnummer")]
         [RegularExpression("[0,4|5]{2}[0-9]{7,8}", ErrorMessage ="Telefoonnumer is niet correct")]
         public string Telefoonnummer { get; set; }
 
-        [Required]
-        [Display(Name = "Geef je nieuwe e-mail in")]
+        [Required(ErrorMessage = "Het e-mailadres mag niet leeg gelaten worden")]
+        [Display(Name = "E-mail")]
         [DataType(DataType.EmailAddress)]
         [StringLength(150,ErrorMessage = "E-mail mag niet langer dan 150 tekens zijn")]
         [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$", ErrorMessage ="Email is niet correct")]

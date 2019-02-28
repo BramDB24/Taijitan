@@ -68,7 +68,6 @@ namespace G07_Taijitan.Data
 
                 }
             }
-
         }
 
         private async Task InitilizeUsers(string username, /*string email,*/ string password, string role)
