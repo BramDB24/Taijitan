@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace G07_Taijitan.Tests.Data {
     public class DummyApplicationDbContext {
-        private readonly Gebruiker _gebruiker1;
+        public Gebruiker _gebruiker1 { get; }
         public Gebruiker _gebruiker2 { get; }
 
         public Gebruiker _gebruiker3 { get; }
@@ -23,7 +23,7 @@ namespace G07_Taijitan.Tests.Data {
                 Naam = "De Smet",
                 Voornaam = "Jonah",
                 Adres = "Adres 123",
-                Email = "debleecker.b@gmail.com",
+                Email = "jonah.desmet@hotmail.com",
                 Geboortedatum = new DateTime(1984, 2, 13),
                 Gebruikersnaam = "jonah.desmet",
                 Telefoonnummer = "0476000999",
@@ -31,30 +31,30 @@ namespace G07_Taijitan.Tests.Data {
                 Wachtwoord = "P@ssword1",
                 Graad = 3
             };
-            _gebruiker2 = new Gebruiker
-            {
-                Naam = "De Bleecker",
-                Voornaam = "Bram",
-                Adres = "Adres 777",
-                Email = "debleecker.b@gmail.com",
-                Geboortedatum = new DateTime(1999, 12, 24),
-                Gebruikersnaam = "bram.debleecker",
-                Telefoonnummer = "0476000002",
-                AuthorityNaam = "Gebruiker",
-                Wachtwoord = "P@ssword2",
-                Graad = 1
-            };
+            //_gebruiker2 = new Gebruiker
+            //{
+            //    Naam = "De Bleecker",
+            //    Voornaam = "Bram",
+            //    Adres = "Adres 777",
+            //    Email = "debleecker.b@gmail.com",
+            //    Geboortedatum = new DateTime(1999, 12, 24),
+            //    Gebruikersnaam = "bram.debleecker",
+            //    Telefoonnummer = "0476000002",
+            //    AuthorityNaam = "Gebruiker",
+            //    Wachtwoord = "P@ssword2",
+            //    Graad = 1
+            //};
 
-            _gebruiker3 = new Gebruiker
-            {
-                Gebruikersnaam = "De Bruycker",
-                Naam = "Johanna",
-                Adres = "Adres 984",
-                Email = "johanna@telenet.be",
-                Telefoonnummer = "0485974525",
-                Geboortedatum = new DateTime(1997, 7, 8),
-                Graad = 2
-            };
+            //_gebruiker3 = new Gebruiker
+            //{
+            //    Gebruikersnaam = "De Bruycker",
+            //    Naam = "Johanna",
+            //    Adres = "Adres 984",
+            //    Email = "johanna@telenet.be",
+            //    Telefoonnummer = "0485974525",
+            //    Geboortedatum = new DateTime(1997, 7, 8),
+            //    Graad = 2
+            //};
         }
     }
 }
