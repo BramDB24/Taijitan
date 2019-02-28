@@ -24,7 +24,8 @@ namespace G07_Taijitan.Models.Domain
 
         public string Gebruikersnaam { get; set; }
         public string Wachtwoord { get; set; }
-        public string Naam {
+        public string Naam
+        {
             get
             {
                 return _naam;
@@ -48,9 +49,9 @@ namespace G07_Taijitan.Models.Domain
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("Naam mag niet leeg zijn");
+                    throw new ArgumentException("Voornaam mag niet leeg zijn");
                 if (value.Length > 50)
-                    throw new ArgumentException("Naam mag niet langer zijn dan 50 tekens");
+                    throw new ArgumentException("Voornaam mag niet langer zijn dan 50 tekens");
                 _voornaam = value;
             }
         }
@@ -77,7 +78,7 @@ namespace G07_Taijitan.Models.Domain
             }
             set
             {
-                string pattern = "[0, 4 | 5]{ 2}[0-9]{ 7,8}"; 
+                string pattern = "[0,4|5]{2}[0-9]{7,8}";
                 if (Regex.IsMatch(value, pattern))
                 {
                     _telefoonnummer = value;
@@ -86,7 +87,7 @@ namespace G07_Taijitan.Models.Domain
                 {
                     throw new ArgumentException("Telefoonnumer is niet correct");
                 }
-                
+
             }
         }
         public DateTime Geboortedatum
@@ -103,11 +104,12 @@ namespace G07_Taijitan.Models.Domain
                     if (value > DateTime.Today)
                         throw new ArgumentException("Geboortedatum kan niet in de toekomst liggen");
                     _geboortedatum = value;
-                } catch (Exception e)
+                }
+                catch (Exception e)
                 {
                     throw new ArgumentException("Geboortedatum is niet correct");
                 }
-                
+
             }
         }
         public string Email
@@ -156,7 +158,8 @@ namespace G07_Taijitan.Models.Domain
 
         #region Methods
 
-        public void EditGebruiker(string email,string naam, string voornaam, string telefoonnummer, DateTime geboortedatum, string adres) {
+        public void EditGebruiker(string email, string naam, string voornaam, string telefoonnummer, DateTime geboortedatum, string adres)
+        {
             Email = email;
             Naam = naam;
             Voornaam = voornaam;
