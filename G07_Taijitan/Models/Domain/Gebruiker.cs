@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace G07_Taijitan.Models.Domain
 {
-    public class Gebruiker
+    public abstract class Gebruiker
     {
         /* change at 2402 dropped ctor, util van prop */
         #region Properties
@@ -15,8 +15,7 @@ namespace G07_Taijitan.Models.Domain
         public string Naam { get; set; }
         public string Voornaam { get; set; }
         public string Adres { get; set; }
-        public string Telefoonnummer { get; set; }
-        public string AuthorityNaam { get; set; }
+        public string Telefoonnummer { get; set; }        
         public DateTime Geboortedatum { get; set; }
         public string Email { get; set; }
         public int Graad { get; set; }

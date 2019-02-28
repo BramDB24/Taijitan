@@ -33,33 +33,31 @@ namespace G07_Taijitan.Data
                     //Gebruiker gebruiker3 = new Gebruiker("De Bleecker", "Bram", "EenAdresBram", "0476000002", "Beheerder", new DateTime(1998, 01, 11), "bram.debleecker@test.com", "bram");
                     //Gebruiker gebruiker4 = new Gebruiker("De Bruycker", "Johanna", "EenAdresJohanna", "0476000003", "Lid", new DateTime(1998, 04, 10), "johanna.debruycker@test.com", "johanna");
 
-                    Gebruiker testUser = new Gebruiker() {
+                    Gebruiker testUser = new Lid() {
                         Naam = "De Smet",
                         Voornaam = "Jonah",
                         Adres = "EenAdres",
                         Email = "jonah.desmet@hotmail.com",
                         Geboortedatum = new DateTime(1998, 03, 13),
                         Gebruikersnaam = "jonah.desmet",
-                        Telefoonnummer = "0476000000",
-                        AuthorityNaam = "Gebruiker",
+                        Telefoonnummer = "0476000000",                        
                         Wachtwoord = "P@ssword1",
                         Graad = 1
                     };
 
-                    Gebruiker testUser2 = new Gebruiker() {
+                    Gebruiker testUser2 = new Lid() {
                         Naam = "De Bleecker",
                         Voornaam = "Bram",
                         Adres = "Adress",
                         Email = "debleecker.b@gmail.com",
                         Geboortedatum = new DateTime(1999, 12, 24),
                         Gebruikersnaam = "bram.debleecker",
-                        Telefoonnummer = "0476124578",
-                        AuthorityNaam = "Gebruiker",
+                        Telefoonnummer = "0476124578",                        
                         Wachtwoord = "P@ssword2",
                         Graad = 1
                     };
-                    await InitilizeUsers(testUser.Gebruikersnaam, testUser.Wachtwoord, testUser.AuthorityNaam);
-                    await InitilizeUsers(testUser2.Gebruikersnaam, testUser2.Wachtwoord, testUser2.AuthorityNaam);
+                    await InitilizeUsers(testUser.Gebruikersnaam, testUser.Wachtwoord, "lid");
+                    await InitilizeUsers(testUser2.Gebruikersnaam, testUser2.Wachtwoord, "lid");
                     
                     _context.gebruikers.Add(testUser);
                     _context.gebruikers.Add(testUser2);
