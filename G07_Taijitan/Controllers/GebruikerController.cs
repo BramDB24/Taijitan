@@ -35,6 +35,10 @@ namespace G07_Taijitan.Controllers
 
             //}
             Gebruiker user = _gebruikerRepository.GetByGebruikernaam(id);
+            if(user == null)
+            {
+                return NotFound();
+            }
             return View(new GebruikersViewModel(user));
         }
 
@@ -48,10 +52,10 @@ namespace G07_Taijitan.Controllers
             {
                 //if (gebruiker == null)
                 //    return NotFound();
-
+                Gebruiker gebruiker = null;
                 try
                 {
-                    Gebruiker gebruiker = _gebruikerRepository.GetByGebruikernaam(id);
+                    gebruiker = _gebruikerRepository.GetByGebruikernaam(id);
 
                     gebruiker.EditGebruiker(gvm.Email, gvm.Naam, gvm.Voornaam, gvm.Telefoonnummer, gvm.GeboorteDatum, gvm.Adres); //email staat ni in gebruiker?                    
                     _gebruikerRepository.SaveChanges();

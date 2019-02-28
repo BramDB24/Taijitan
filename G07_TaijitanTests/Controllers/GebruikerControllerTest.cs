@@ -83,12 +83,34 @@ namespace G07_Taijitan.Tests.Controllers
             };
             _controller.Edit("string", gebruikerEvm);
             Gebruiker johanna = _dummyContext._gebruiker3;
-            Assert.Throws<ArgumentException>( () => );
+           // Assert.Throws<ArgumentException>( () => );
             _gebruikersRepository.Verify(t => t.SaveChanges(), Times.Never());
+        }
+
+        [Fact] //magnietwerken
+        public void Edit_InvalidEdit_ReturnActionMethode()
+        {
+            _gebruikersRepository.Setup(t => t.GetByGebruikernaam("string")).Returns(_dummyContext._gebruiker2);
+            GebruikersViewModel gebruikerEvm = new GebruikersViewModel(_dummyContext._gebruiker2)
+            {
+                Telefoonnummer = "047"
+            };
+            RedirectToActionResult action = _controller.Edit("string", gebruikerEvm) as RedirectToActionResult;
+            Assert.Equal("Index", action?.ActionName);
+        }
+        #endregion
+        #region Edit --get
+        [Fact] 
+        public void Edit_NonExistingUser_ReturnNotFound()
+        {
+            _gebruikersRepository.Setup(t => t.GetByGebruikernaam("string")).Returns((Gebruiker)null);
+            IActionResult action = _controller.Edit("string");
+            Assert.IsType<NotFoundResult>(action);
         }
         #endregion
 
 
-
     }
 }
+
+

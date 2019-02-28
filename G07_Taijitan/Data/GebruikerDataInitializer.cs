@@ -53,7 +53,7 @@ namespace G07_Taijitan.Data
                         Email = "debleecker.b@gmail.com",
                         Geboortedatum = new DateTime(1999, 12, 24),
                         Gebruikersnaam = "bram.debleecker",
-                        Telefoonnummer = "0476000002",
+                        Telefoonnummer = "0476124578",
                         AuthorityNaam = "Gebruiker",
                         Wachtwoord = "P@ssword2",
                         Graad = 1
