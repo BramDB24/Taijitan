@@ -5,19 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace G07_Taijitan.Models.Domain
-{
-    public class GebruikerBinder : IModelBinder
-    {
+namespace G07_Taijitan.Models.Domain {
+    public class GebruikerBinder : IModelBinder {
         private readonly ApplicationDbContext _db;
-        public GebruikerBinder(ApplicationDbContext db)
-        {
+        public GebruikerBinder(ApplicationDbContext db) {
             _db = db;
         }
-        public Task BindModelAsync(ModelBindingContext bindingContext)
-        {
-            if (bindingContext == null)
-            {
+        public Task BindModelAsync(ModelBindingContext bindingContext) {
+            if(bindingContext == null) {
                 throw new ArgumentNullException(nameof(bindingContext));
             }
 
@@ -27,8 +22,7 @@ namespace G07_Taijitan.Models.Domain
             var valueProviderResult =
                 bindingContext.ValueProvider.GetValue(modelName);
 
-            if (valueProviderResult == ValueProviderResult.None)
-            {
+            if(valueProviderResult == ValueProviderResult.None) {
                 return Task.CompletedTask;
             }
 
@@ -38,8 +32,7 @@ namespace G07_Taijitan.Models.Domain
             var value = valueProviderResult.FirstValue;
 
             // Check if the argument value is null or empty
-            if (string.IsNullOrEmpty(value))
-            {
+            if(string.IsNullOrEmpty(value)) {
                 return Task.CompletedTask;
             }
 

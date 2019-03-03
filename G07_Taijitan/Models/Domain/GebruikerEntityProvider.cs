@@ -6,19 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace G07_Taijitan.Models.Domain
-{
-    public class GebruikerEntityProvider : IModelBinderProvider
-    {
-        public IModelBinder GetBinder(ModelBinderProviderContext context)
-        {
-            if (context == null)
-            {
+namespace G07_Taijitan.Models.Domain {
+    public class GebruikerEntityProvider : IModelBinderProvider {
+        public IModelBinder GetBinder(ModelBinderProviderContext context) {
+            if(context == null) {
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.Metadata.ModelType == typeof(Gebruiker))
-            {
+            if(context.Metadata.ModelType == typeof(Gebruiker)) {
                 return new BinderTypeModelBinder(typeof(GebruikerBinder));
             }
 
@@ -26,3 +21,4 @@ namespace G07_Taijitan.Models.Domain
         }
     }
 }
+

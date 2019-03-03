@@ -18,17 +18,15 @@ namespace G07_Taijitan.Tests.Controllers
         private readonly GebruikerController _controller;
         private readonly DummyApplicationDbContext _dummyContext;
         private readonly Mock<IGebruikerRepository> _gebruikersRepository;
-        private readonly Gebruiker _gebruiker;
-
+        
         public GebruikerControllerTest()
         {
             _dummyContext = new DummyApplicationDbContext();
             _gebruikersRepository = new Mock<IGebruikerRepository>();
             _gebruikersRepository.Setup(v => v.GetAllGebruikers()).Returns(_dummyContext.Gebruikers);
-            _gebruikersRepository.Setup(t => t.GetByGebruikernaam("jonah.desmet")).Returns(_dummyContext._gebruiker1);
+            _gebruikersRepository.Setup(t => t.GetByGebruikernaam("jonah.desmet")).Returns(_dummyContext._gebruiker1);            
             _controller = new GebruikerController(_gebruikersRepository.Object);
-            _gebruiker = new Lid();
-
+            
         }
 
         #region Index
@@ -88,24 +86,21 @@ namespace G07_Taijitan.Tests.Controllers
         #region Edit --get
 
         [Fact]
-        public void EditHttpGet_ValidUserId_PassesUserDetailsInAnEditViewModelToView()
-        {
-            var result = _controller.Edit(_gebruiker) as ViewResult;
+        public void EditHttpGet_ValidUserId_PassesUserDetailsInAnEditViewModelToView() {
+            var result = _controller.Edit(_dummyContext._gebruiker1) as ViewResult;
             var userVm = result?.Model as GebruikersViewModel;
-
             Assert.Equal("De Smet", userVm?.Naam);
             Assert.Equal("Jonah", userVm?.Voornaam);
             Assert.Equal("Adres 123", userVm.Adres);
             Assert.Equal("jonah.desmet@hotmail.com", userVm.Email);
-            Assert.Equal("0476000999", userVm.Telefoonnummer);
+            Assert.Equal("0476000999", userVm.Telefoonnummer);            
         }
 
-        [Fact]
+        [Fact] 
         public void EditHttpGet_NonExistingUser_ReturnNotFound()
         {
             //_gebruikersRepository.Setup(t => t.GetByGebruikernaam("string")).Returns((Gebruiker)null);
-            
-            var action = _controller.Edit(((Gebruiker)null));
+            var action = _controller.Edit(null);
             Assert.IsType<NotFoundResult>(action);
         }
         #endregion

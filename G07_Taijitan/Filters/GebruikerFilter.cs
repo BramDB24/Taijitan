@@ -19,9 +19,10 @@ namespace G07_Taijitan.Filters
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
-        {
-            context.ActionArguments["gebruiker"] = context.HttpContext.User.Identity.IsAuthenticated ? _gebruikerRepository.GetByGebruikernaam(context.HttpContext.User.Identity.Name) : null;
+        {         
+            context.ActionArguments["Gebruiker"] = context.HttpContext.User.Identity.IsAuthenticated ? _gebruikerRepository.GetByGebruikernaam(context.HttpContext.User.Identity.Name) : null;
             base.OnActionExecuting(context);
+            
         }
     }
 }
