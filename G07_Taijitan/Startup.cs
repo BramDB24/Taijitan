@@ -56,9 +56,12 @@ namespace G07_Taijitan
             });
 
             services.AddScoped<GebruikerDataInitializer>();
-            services.AddScoped<IGebruikerRepository, GebruikerRepository>();            
+            services.AddScoped<IGebruikerRepository, GebruikerRepository>();
             services.AddScoped<GebruikerFilter>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(options => {
+                options.ModelBinderProviders.Insert(0, new GebruikerEntityProvider());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,7 +71,7 @@ namespace G07_Taijitan
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
-            } 
+            }
             else
             {
                 app.UseExceptionHandler("/Home/Error");

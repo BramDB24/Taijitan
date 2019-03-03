@@ -8,23 +8,29 @@ using G07_Taijitan.Models.GebruikersViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace G07_Taijitan.Controllers {
+namespace G07_Taijitan.Controllers
+{
     /* change at 2402 authorize tagg en servicefilter tagg toegevoegd aan httppost*/
+
     [ServiceFilter(typeof(GebruikerFilter))]
-    public class GebruikerController : Controller {
+    public class GebruikerController : Controller
+    {
         private readonly IGebruikerRepository _gebruikerRepository;
 
-        public GebruikerController(IGebruikerRepository gebruikerRepository) {
+        public GebruikerController(IGebruikerRepository gebruikerRepository)
+        {
             _gebruikerRepository = gebruikerRepository;
         }
 
-        public IActionResult Index() {
+        public IActionResult Index()
+        {
             IEnumerable<Gebruiker> gebruikers = _gebruikerRepository.GetAllGebruikers();
             return View(gebruikers.OrderBy(v => v.Gebruikersnaam));
         }
 
         [Authorize(Policy = "Lid")]
-        public IActionResult Edit(Gebruiker gebruiker) {
+        public IActionResult Edit(Gebruiker gebruiker)
+        {
             //if(User.Identity.Name == null || id != User.Identity.Name)
             //    return NotFound();
 
@@ -32,29 +38,34 @@ namespace G07_Taijitan.Controllers {
             //if(user == null) {
             //    return NotFound();
             //}
-            if(gebruiker == null)
+            if (gebruiker == null)
             {
                 return NotFound();
             }
-            
+
             return View(new GebruikersViewModel(gebruiker)); //gebruiker moet aangepast worden zodat het een concreet type is
         }
 
         [HttpPost]
         [Authorize(Policy = "Lid")]
-        public IActionResult Edit(string id, GebruikersViewModel gvm) {
+        public IActionResult Edit(string id, GebruikersViewModel gvm)
+        {
             //id = gebruikersnaam
-            if(ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 //if (gebruiker == null)
                 //    return NotFound();
                 Gebruiker gebruiker = null;
-                try {
+                try
+                {
                     gebruiker = _gebruikerRepository.GetByGebruikernaam(id);
 
                     gebruiker.EditGebruiker(gvm.Email, gvm.Naam, gvm.Voornaam, gvm.Telefoonnummer, gvm.GeboorteDatum, gvm.Adres); //email staat ni in gebruiker?                    
                     _gebruikerRepository.SaveChanges();
                     TempData["message"] = $"Gebruiker {gebruiker.Voornaam} is succesvol aangepast";
-                } catch(Exception e) {
+                }
+                catch (Exception e)
+                {
                     ModelState.AddModelError("", e.Message);
                 }
 

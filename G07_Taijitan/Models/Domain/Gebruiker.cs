@@ -8,7 +8,7 @@ namespace G07_Taijitan.Models.Domain
 {
     public abstract class Gebruiker
     {
-        /* change at 2402 dropped ctor, util van prop */
+
         #region Fields
         private string _naam;
         private string _voornaam;
@@ -16,12 +16,9 @@ namespace G07_Taijitan.Models.Domain
         private string _telefoonnummer;
         private DateTime _geboortedatum;
         private string _email;
-
-
         #endregion
 
         #region Properties
-
         public string Gebruikersnaam { get; set; }
         public string Wachtwoord { get; set; }
         public string Naam
@@ -99,16 +96,11 @@ namespace G07_Taijitan.Models.Domain
             set
             {
 
-                try
+             if(value > DateTime.Today)
                 {
-                    if (value > DateTime.Today)
-                        throw new ArgumentException("Geboortedatum kan niet in de toekomst liggen");
-                    _geboortedatum = value;
+                    throw new ArgumentException("De Geboortedag kan niet in de toekomst liggen");
                 }
-                catch (Exception e)
-                {
-                    throw new ArgumentException("Geboortedatum is niet correct");
-                }
+                _geboortedatum = value;
 
             }
         }
@@ -131,29 +123,32 @@ namespace G07_Taijitan.Models.Domain
                 }
                 else
                 {
-                    throw new ArgumentException("Email is niet correct");
+                    throw new ArgumentException("Opgegeven e-mail is geen correct e-mailadres");
                 }
             }
         }
         public int Graad { get; set; }
+
+        //uncomment if needed
+        public DateTime InschrijvingsDatum { get; set; }
+        public string Straatnaam { get; set; }
+        public string Huisnummer { get; set; }
+        public string Postcode { get; set; }
+        public string Stad { get; set; }
+        public string Land { get; set; }
+        public string Rijksregisternummer { get; set; }
+        public string Gsm { get; set; }
+        public string EmailOuders { get; set; }
+        public string Geboorteplek { get; set; }
         #endregion
 
         //nodig voor het aanmaken van een nieuwe gebruiker
         #region Constructors
-        public Gebruiker()
+        protected Gebruiker()
         {
 
         }
-        //public Gebruiker(string naam, string voornaam, string adres, string telefoonnumer, string authorityNaam, DateTime geboortedatum, string email, string wachtwoord) {
-        //    this.Naam = naam;
-        //    this.Voornaam = voornaam;
-        //    this.Adres = adres;
-        //    this.Telefoonnummer = telefoonnumer;
-        //    this.AuthorityNaam = authorityNaam;
-        //    this.Geboortedatum = geboortedatum;
-        //    this.Email = email;
-        //    this.Wachtwoord = wachtwoord;
-        //}
+
         #endregion
 
         #region Methods

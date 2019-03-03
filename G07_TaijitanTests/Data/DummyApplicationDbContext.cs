@@ -26,7 +26,7 @@ namespace G07_Taijitan.Tests.Data {
                 Email = "jonah.desmet@hotmail.com",
                 Geboortedatum = new DateTime(1984, 2, 13),
                 Gebruikersnaam = "jonah.desmet",
-                Telefoonnummer = "0476000999",                
+                Telefoonnummer = "0478001144",                
                 Wachtwoord = "P@ssword1",
                 Graad = 3
             };

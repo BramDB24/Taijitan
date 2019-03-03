@@ -40,27 +40,38 @@ namespace G07_Taijitan.Data
                         Email = "jonah.desmet@hotmail.com",
                         Geboortedatum = new DateTime(1998, 03, 13),
                         Gebruikersnaam = "jonah.desmet",
-                        Telefoonnummer = "0476000000",                        
+                        Telefoonnummer = "054000000",
                         Wachtwoord = "P@ssword1",
-                        Graad = 1
+                        Graad = 1,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19980313000000",
+                        Gsm = "0476000000",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst"
+                       
                     };
 
-                    Gebruiker testUser2 = new Lid() {
-                        Naam = "De Bleecker",
-                        Voornaam = "Bram",
-                        Adres = "Adress",
-                        Email = "debleecker.b@gmail.com",
-                        Geboortedatum = new DateTime(1999, 12, 24),
-                        Gebruikersnaam = "bram.debleecker",
-                        Telefoonnummer = "0478124578",                        
-                        Wachtwoord = "P@ssword2",
-                        Graad = 1
-                    };
+                    //Gebruiker testUser2 = new Lid() {
+                    //    Naam = "De Bleecker",
+                    //    Voornaam = "Bram",
+                    //    Adres = "Adress",
+                    //    Email = "debleecker.b@gmail.com",
+                    //    Geboortedatum = new DateTime(1999, 12, 24),
+                    //    Gebruikersnaam = "bram.debleecker",
+                    //    Telefoonnummer = "0478124578",                        
+                    //    Wachtwoord = "P@ssword2",
+                    //    Graad = 1
+                    //};
                     await InitilizeUsers(testUser.Gebruikersnaam, testUser.Wachtwoord, testUser.GetType().Name);
-                    await InitilizeUsers(testUser2.Gebruikersnaam, testUser2.Wachtwoord, testUser2.GetType().Name);
+                   // await InitilizeUsers(testUser2.Gebruikersnaam, testUser2.Wachtwoord, testUser2.GetType().Name);
                     
                     _context.gebruikers.Add(testUser);
-                    _context.gebruikers.Add(testUser2);
+                   // _context.gebruikers.Add(testUser2);
 
                     //Gebruiker[] gebruikers = { gebruiker1, gebruiker2, gebruiker3, gebruiker4 };
                     //_context.gebruikers.AddRange(gebruikers);

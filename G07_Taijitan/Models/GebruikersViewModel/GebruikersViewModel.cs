@@ -41,14 +41,18 @@ namespace G07_Taijitan.Models.GebruikersViewModel
         [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$", ErrorMessage ="Email is niet correct")]
         public string Email { get; set; }
 
+        public Gebruiker Gebruiker { get; set; }
+
         public GebruikersViewModel(Gebruiker gebruiker)
         {
-            Naam = gebruiker.Naam;
-            Voornaam = gebruiker.Voornaam;
-            GeboorteDatum = gebruiker.Geboortedatum;
-            Adres = gebruiker.Adres;
-            Telefoonnummer = gebruiker.Telefoonnummer;
-            Email = gebruiker.Email;
+
+            Gebruiker = gebruiker;
+            Naam = this.Gebruiker.Naam;
+            Voornaam = this.Gebruiker.Voornaam;
+            GeboorteDatum = this.Gebruiker.Geboortedatum;
+            Adres = this.Gebruiker.Adres;
+            Telefoonnummer = this.Gebruiker.Telefoonnummer;
+            Email = this.Gebruiker.Email;
         }
 
         public GebruikersViewModel() {
