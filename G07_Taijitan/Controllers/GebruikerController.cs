@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace G07_Taijitan.Controllers {
     /* change at 2402 authorize tagg en servicefilter tagg toegevoegd aan httppost*/
+
     [ServiceFilter(typeof(GebruikerFilter))]
     public class GebruikerController : Controller {
         private readonly IGebruikerRepository _gebruikerRepository;

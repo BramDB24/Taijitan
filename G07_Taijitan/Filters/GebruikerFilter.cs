@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace G07_Taijitan.Filters
 {
     /* change at 2402 filter added voor users in databank */
-    [AttributeUsageAttribute(AttributeTargets.All, AllowMultiple = false)]
+    //[AttributeUsageAttribute(AttributeTargets.All, AllowMultiple = false)]
     public class GebruikerFilter : ActionFilterAttribute
     {
         private readonly IGebruikerRepository _gebruikerRepository;
@@ -19,9 +19,10 @@ namespace G07_Taijitan.Filters
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
-        {
-            context.ActionArguments["Gebruiker"] = context.HttpContext.User.Identity.IsAuthenticated ? _gebruikerRepository.GetByEmail(context.HttpContext.User.Identity.Name) : null;
+        {         
+            context.ActionArguments["Gebruiker"] = context.HttpContext.User.Identity.IsAuthenticated ? _gebruikerRepository.GetByGebruikernaam(context.HttpContext.User.Identity.Name) : null;
             base.OnActionExecuting(context);
+            
         }
     }
 }
