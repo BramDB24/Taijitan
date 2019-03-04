@@ -36,18 +36,18 @@ namespace G07_Taijitan.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            public string UserName { get; set; }
+            [Required (ErrorMessage = "Gebruikersnaam is niet ingevuld.")]
+            public string Gebruikersnaam { get; set; }
             //[Required]
             //[EmailAddress]
             //public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Wachtwoord is niet ingevuld.")]
             [DataType(DataType.Password)]
-            public string Password { get; set; }
+            public string Wachtwoord { get; set; }
 
-            [Display(Name = "Remember me?")]
-            public bool RememberMe { get; set; }
+            [Display(Name = "Onthoud mij?")]
+            public bool OnthoudMij { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -75,24 +75,24 @@ namespace G07_Taijitan.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: true);
+                var result = await _signInManager.PasswordSignInAsync(Input.Gebruikersnaam, Input.Wachtwoord, Input.OnthoudMij, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {   
-                    _logger.LogInformation("User logged in.");
+                    _logger.LogInformation("Gebruiker is aangemeld.");
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
                 {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.OnthoudMij });
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("User account locked out.");
+                    _logger.LogWarning("Gebruiker account is vergrendeld.");
                     return RedirectToPage("./Lockout");
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Ongeldige login.");
                     return Page();
                 }
             }
