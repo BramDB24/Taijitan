@@ -129,6 +129,8 @@ namespace G07_Taijitan.Models.Domain
         }
         public int Graad { get; set; }
 
+        public ICollection<GebruikerGraad> Graden { get; set; }
+
         //uncomment if needed
         public DateTime InschrijvingsDatum { get; set; }
         public string Straatnaam { get; set; }

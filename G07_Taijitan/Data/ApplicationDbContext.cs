@@ -11,7 +11,7 @@ namespace G07_Taijitan.Data
     public class ApplicationDbContext : IdentityDbContext
     {
         #region DbSets
-        public DbSet<Gebruiker> gebruikers { get; set; }
+        public DbSet<Gebruiker> gebruikers { get; set; }        
         #endregion
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> option)
@@ -23,6 +23,9 @@ namespace G07_Taijitan.Data
         {
             base.OnModelCreating(builder);
             builder.ApplyConfiguration(new GebruikersConfiguration());
+            builder.ApplyConfiguration(new GraadConfiguration());
+            builder.ApplyConfiguration(new OefeningConfiguration());
+            builder.ApplyConfiguration(new GebruikerGraadConfiguration());
         }
     }
 }
