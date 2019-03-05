@@ -16,7 +16,7 @@ namespace G07_Taijitan.Data.Repositories
         public GebruikerRepository(ApplicationDbContext context)
         {
             _context = context;
-            _gebruikers = _context.gebruikers;
+            _gebruikers = _context.Gebruikers;
         }
 
         public void AddGebruiker(Gebruiker gebruiker)

@@ -129,7 +129,7 @@ namespace G07_Taijitan.Models.Domain
         }
         public int Graad { get; set; }
 
-        public ICollection<GebruikerGraad> Graden { get; set; }
+        public ICollection<GebruikerOefening> Oefeningen { get; set; }
 
         //uncomment if needed
         public DateTime InschrijvingsDatum { get; set; }
@@ -141,7 +141,7 @@ namespace G07_Taijitan.Models.Domain
         public string Rijksregisternummer { get; set; }
         public string Gsm { get; set; }
         public string EmailOuders { get; set; }
-        public string Geboorteplek { get; set; }
+        public string Geboorteplek { get; set; }        
         #endregion
 
         //nodig voor het aanmaken van een nieuwe gebruiker

@@ -25,7 +25,7 @@ namespace G07_Taijitan.Data
             if (_context.Database.EnsureCreated())
             {   
                 //_context.SaveChanges();
-                if (!_context.gebruikers.Any())
+                if (!_context.Gebruikers.Any())
                 {
                     ////gebruikers
                     //Gebruiker gebruiker1 = new Gebruiker("De Smet", "Jonah", "EenAdres", "0476000000", "Lid", new DateTime(1998, 03, 13), "jonah.desmet@test.com", "jonah");
@@ -87,7 +87,7 @@ namespace G07_Taijitan.Data
                     await InitilizeUsers(testUser.Gebruikersnaam, testUser.Wachtwoord, testUser.GetType().Name);
                    // await InitilizeUsers(testUser2.Gebruikersnaam, testUser2.Wachtwoord, testUser2.GetType().Name);
                     
-                    _context.gebruikers.Add(testUser);
+                    _context.Gebruikers.Add(testUser);
                    // _context.gebruikers.Add(testUser2);
 
                     //Gebruiker[] gebruikers = { gebruiker1, gebruiker2, gebruiker3, gebruiker4 };

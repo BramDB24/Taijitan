@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace G07_Taijitan.Models.Domain
 {
-    public interface IGraadRepository
+    public interface IOefeningRepository
     {
-        IEnumerable<Graad> GetAll();
+        IEnumerable<Oefening> GetAll();
         IEnumerable<int> GetAvailable(int graad, Gebruiker gebruiker);
     }
 }

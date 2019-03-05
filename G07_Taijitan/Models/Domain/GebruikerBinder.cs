@@ -37,7 +37,7 @@ namespace G07_Taijitan.Models.Domain {
             }
 
             // Model will be null if not found
-            var model = _db.gebruikers.Find(value);
+            var model = _db.Gebruikers.Find(value);
             bindingContext.Result = ModelBindingResult.Success(model);
             return Task.CompletedTask;
         }

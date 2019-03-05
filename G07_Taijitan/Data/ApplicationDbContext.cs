@@ -11,8 +11,8 @@ namespace G07_Taijitan.Data
     public class ApplicationDbContext : IdentityDbContext
     {
         #region DbSets
-        public DbSet<Gebruiker> gebruikers { get; set; }   
-        public DbSet<Graad> graden { get; set; }
+        public DbSet<Gebruiker> Gebruikers { get; set; }   
+        public DbSet<Oefening> Oefeningen { get; set; }
         #endregion
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> option)
@@ -23,10 +23,9 @@ namespace G07_Taijitan.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.ApplyConfiguration(new GebruikersConfiguration());
-            builder.ApplyConfiguration(new GraadConfiguration());
+            builder.ApplyConfiguration(new GebruikersConfiguration());            
             builder.ApplyConfiguration(new OefeningConfiguration());
-            builder.ApplyConfiguration(new GebruikerGraadConfiguration());
+            builder.ApplyConfiguration(new GebruikerOefeningConfiguration());
         }
     }
 }

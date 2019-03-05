@@ -10,7 +10,7 @@ namespace G07_Taijitan.Data.Mappers {
     public class OefeningConfiguration : IEntityTypeConfiguration<Oefening> {
         public void Configure(EntityTypeBuilder<Oefening> builder) {
             builder.HasKey(b => b.OefeningId);
-            builder.Property(o => o.Naam).IsRequired();
+            builder.Property(o => o.Naam).IsRequired();                        
         }
     }
 }
