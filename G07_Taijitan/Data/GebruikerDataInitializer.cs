@@ -56,6 +56,23 @@ namespace G07_Taijitan.Data
                        
                     };
 
+                    //Graad kyu1 = new Graad()
+                    //{
+                    //    Naam = "Ichi-kyu",
+                    //    GraadNiveau = 1
+                    //};
+
+                    //Graad kyu2 = new Graad()
+                    //{
+                    //    Naam = "Ni-kyu",
+                    //    GraadNiveau = 2
+                    //};
+
+                    //Graad dan1 = new Graad()
+                    //{
+                    //    Naam = ""
+                    //};
+
                     //Gebruiker testUser2 = new Lid() {
                     //    Naam = "De Bleecker",
                     //    Voornaam = "Bram",
