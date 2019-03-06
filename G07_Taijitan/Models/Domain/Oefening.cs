@@ -9,9 +9,9 @@ namespace G07_Taijitan.Models.Domain {
 
         public string Naam { get; set; }
 
-        public Graad graad;
+        public Graad Graad { get; set; }
 
-        protected Oefening() { }
+        public Oefening() { }
         
         
     }

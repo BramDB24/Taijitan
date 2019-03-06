@@ -15,6 +15,10 @@ namespace G07_Taijitan.Data.Repositories
             _oefeningen = context.Oefeningen;
         }
 
+        public IEnumerable<Oefening> GetByGraad(int graad) {
+            return _oefeningen.Where(o => (int)o.graad == graad).ToList();
+        }
+
         public IEnumerable<Oefening> GetAll()
         {
             return _oefeningen.ToList();

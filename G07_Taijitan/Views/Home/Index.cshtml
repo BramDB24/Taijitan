@@ -9,12 +9,22 @@
         <!--EERSTE HUIDIGE-->
         <div class="col-xs-12 col-sm-8 col-md-6">
             <article class="text-center">
-                <img src="~/images/rood_.png" alt="Huidige graad" class="img-responsive center-block" />
-                <p>Huidige graad</p>
+                <a asp-controller="Home" asp-action="About" asp-route-id="@ViewData["Graad"]"><img src="~/images/@((int)ViewData["Graad"]).png" alt="Huidige graad" class="img-responsive center-block" /></a>
+                <p>Huidige (@((G07_Taijitan.Models.Domain.Graad)(int)ViewData["Graad"]))</p>
             </article>
         </div>
-        <!--EINDE EERSTE HUIDIGE-->
+        <!--EINDE EERSTE HUIDIGE-->        
+        @for(int i = 1; i<(int)ViewData["Graad"]; i++) {
         <div class="col-xs-6 col-sm-4 col-md-3">
+            <article class="text-center">
+                <a asp-controller="Home" asp-action="Oefeningen" asp-route-id="@i"><img src="~/images/@(i).png" alt="Witte band" class="img-responsive center-block" /></a>
+                    <p>@((G07_Taijitan.Models.Domain.Graad)i)</p>
+            </article>
+        </div>
+        }
+
+
+        @*<div class="col-xs-6 col-sm-4 col-md-3">
             <article class="text-center">
                 <img src="~/images/wit_.png" alt="Witte band" class="img-responsive center-block" />
                 <p>Kyu 6</p>
@@ -26,9 +36,9 @@
                 <img src="~/images/geel_.png" alt="Gele band" class="img-responsive center-block" />
                 <p>Kyu 5</p>
             </article>
-        </div>
+        </div>*@
         <!--clearfix small zodat deze automatisch naar een volgende lijn springt-->
-        <div class="clearfix visible-sm"></div>
+        @*<div class="clearfix visible-sm"></div>*
         <div class="col-xs-6 col-sm-4 col-md-3">
             <article class="text-center">
                 <img src="~/images/oranje_.png" alt="Oranje band" class="img-responsive center-block" />
@@ -132,7 +142,7 @@
                 <img src="~/images/witbreed_.png" alt="Witte brede band" class="img-responsive center-block" />
                 <p>Dan 12</p>
             </article>
-        </div>
+        </div>*@
     </div>
 </body>
 @*<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">

@@ -42,7 +42,7 @@ namespace G07_Taijitan.Data
                         Gebruikersnaam = "jonah.desmet",
                         Telefoonnummer = "054000000",
                         Wachtwoord = "P@ssword1",
-                        Graad = 1,
+                        Graad = 9,
                         InschrijvingsDatum = DateTime.Today,
                         Straatnaam = "straat",
                         Huisnummer = "1",
@@ -56,22 +56,22 @@ namespace G07_Taijitan.Data
                        
                     };
 
-                    //Graad kyu1 = new Graad()
-                    //{
-                    //    Naam = "Ichi-kyu",
-                    //    GraadNiveau = 1
-                    //};
+                    Oefening oefening1 = new Oefening() {
+                        Naam = "oefeningTest"
+                        
+                    };
 
-                    //Graad kyu2 = new Graad()
-                    //{
-                    //    Naam = "Ni-kyu",
-                    //    GraadNiveau = 2
-                    //};
-
-                    //Graad dan1 = new Graad()
-                    //{
-                    //    Naam = ""
-                    //};
+                    Oefening oefening2 = new Oefening() {
+                        Naam = "OefeningTest2"
+                    };
+                    Oefening oefening3 = new Oefening() {
+                        Naam = "OefeningTest3"
+                    };
+                    Oefening oefening4 = new Oefening() {
+                        Naam = "OefeningTest4"
+                    };
+                    _context.Oefeningen.AddRange(oefening1, oefening2, oefening3, oefening4);
+                    
 
                     //Gebruiker testUser2 = new Lid() {
                     //    Naam = "De Bleecker",
