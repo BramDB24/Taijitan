@@ -3,50 +3,60 @@
     ViewData["Title"] = "Persoonlijke gegevens";
 }
 
-<h2>@ViewData["Title"]</h2>
+<body style='background: #C5D7D1'>
+    <div class="container">
+        <h2>@ViewData["Title"]</h2>
 
-<form method="post">
-    <div asp-validation-summary="All"></div>
-    <div class="form-group">
-        <label asp-for="Naam"></label>
-        <input asp-for="Naam" class="form-control" />
-        <span asp-validation-for="Naam" class="text-danger"></span>
+        <form method="post">
+            <div asp-validation-summary="All"></div>
+            <div class="form-group col-md-12 col-lg-6">
+                <label asp-for="Naam"></label>
+                <input asp-for="Naam" class="form-control" />
+                <span asp-validation-for="Naam" class="text-danger"></span>
+            </div>
+            <div class="clearfix visible"></div>
+            <div class="form-group col-md-12 col-lg-6">
+                <label asp-for="Voornaam"></label>
+                <input asp-for="Voornaam" class="form-control" />
+                <span asp-validation-for="Voornaam" class="text-danger"></span>
+            </div>
+            <div class="clearfix visible"></div>
+            <div class="form-group col-md-12 col-lg-6">
+                <label asp-for="GeboorteDatum"></label>
+                <input asp-for="GeboorteDatum" class="form-control" />
+                <span asp-validation-for="GeboorteDatum" class="text-danger"></span>
+            </div>
+            <div class="clearfix visible"></div>
+            <div class="form-group col-md-12 col-lg-6">
+                <label asp-for="Telefoonnummer"></label>
+                <input asp-for="Telefoonnummer" class="form-control" />
+                <span asp-validation-for="Telefoonnummer" class="text-danger"></span>
+            </div>
+            <div class="clearfix visible"></div>
+            <div class="form-group col-md-12 col-lg-6">
+                <label asp-for="Adres"></label>
+                <input asp-for="Adres" class="form-control" />
+                <span asp-validation-for="Adres" class="text-danger"></span>
+            </div>
+            <div class="clearfix visible"></div>
+            <div class="form-group col-md-12 col-lg-6">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="clearfix visible"></div>
+            <div>
+                <button class="btn" type="submit" style="background-color:#A9B7BC; color:black;">Opslaan</button>
+                <a asp-action="Index" asp-controller="Home" class="btn" style="background-color:#A9B7BC; color:black;">Annuleren</a>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <label asp-for="Voornaam"></label>
-        <input asp-for="Voornaam" class="form-control" />
-        <span asp-validation-for="Voornaam" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="GeboorteDatum"></label>
-        <input asp-for="GeboorteDatum" class="form-control" />
-        <span asp-validation-for="GeboorteDatum" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Telefoonnummer"></label>
-        <input asp-for="Telefoonnummer" class="form-control" />
-        <span asp-validation-for="Telefoonnummer" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Adres"></label>
-        <input asp-for="Adres" class="form-control" />
-        <span asp-validation-for="Adres" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
-    <div>
-        <button class="btn btn-primary" type="submit">Opslaan</button>
-        <a asp-action="Index" asp-controller="Home">Annuleren</a>
-    </div>
-</form>
+</body>
 
-@section scripts {
-    <script asp-src-include="lib/jquery-validation/dist/jquery.validate.js"></script>
-    <script asp-src-include="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-}
+    @section scripts {
+        <script asp-src-include="lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script asp-src-include="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    }
 
 
 
