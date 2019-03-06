@@ -9,5 +9,6 @@ namespace G07_Taijitan.Models.Domain
     {
         IEnumerable<Oefening> GetAll();
         IEnumerable<int> GetAvailable(int graad, Gebruiker gebruiker);
+        IEnumerable<Oefening> GetByGraad(int graad);
     }
 }

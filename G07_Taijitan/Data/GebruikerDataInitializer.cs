@@ -57,18 +57,22 @@ namespace G07_Taijitan.Data
                     };
 
                     Oefening oefening1 = new Oefening() {
-                        Naam = "oefeningTest"
+                        Naam = "oefeningTest",
+                        Graad = Graad.Kyu1
                         
                     };
 
                     Oefening oefening2 = new Oefening() {
-                        Naam = "OefeningTest2"
+                        Naam = "OefeningTest2",
+                        Graad = Graad.Kyu1
                     };
                     Oefening oefening3 = new Oefening() {
-                        Naam = "OefeningTest3"
+                        Naam = "OefeningTest3",
+                        Graad = Graad.Kyu1
                     };
                     Oefening oefening4 = new Oefening() {
-                        Naam = "OefeningTest4"
+                        Naam = "OefeningTest4",
+                        Graad = Graad.Kyu1
                     };
                     _context.Oefeningen.AddRange(oefening1, oefening2, oefening3, oefening4);
                     

@@ -16,7 +16,7 @@ namespace G07_Taijitan.Data.Repositories
         }
 
         public IEnumerable<Oefening> GetByGraad(int graad) {
-            return _oefeningen.Where(o => (int)o.graad == graad).ToList();
+            return _oefeningen.Where(o => (int)o.Graad == graad).ToList();
         }
 
         public IEnumerable<Oefening> GetAll()

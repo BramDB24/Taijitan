@@ -10,8 +10,11 @@ using G07_Taijitan.Models.Domain;
 namespace G07_Taijitan.Controllers {
     public class HomeController : Controller {
         IGebruikerRepository _gebruikerRepository;
-        public HomeController(IGebruikerRepository gebruikerRepository) {
+        IOefeningRepository _oefeningRepository;
+
+        public HomeController(IGebruikerRepository gebruikerRepository, IOefeningRepository oefeningRepository) {
             _gebruikerRepository = gebruikerRepository;
+            _oefeningRepository = oefeningRepository;
         }
 
         public IActionResult Index() {
@@ -19,9 +22,8 @@ namespace G07_Taijitan.Controllers {
             return View();
         }
 
-        public IActionResult Oefeningen(int id) {
-            Gebruiker user = HttpContext.User.Identity.IsAuthenticated ? _gebruikerRepository.GetByGebruikernaam(HttpContext.User.Identity.Name) : null;
-            return View(user.Oefeningen);
+        public IActionResult Oefeningen(int id) { //id = graad
+            return View(_oefeningRepository.GetByGraad(id));
         }
 
 
