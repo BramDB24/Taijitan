@@ -26,6 +26,7 @@ namespace G07_Taijitan.Data
             builder.ApplyConfiguration(new GebruikersConfiguration());            
             builder.ApplyConfiguration(new OefeningConfiguration());
             builder.ApplyConfiguration(new GebruikerOefeningConfiguration());
+            builder.ApplyConfiguration(new LesmateriaalConfiguration());
         }
     }
 }

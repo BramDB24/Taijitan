@@ -9,9 +9,9 @@ namespace G07_Taijitan.Models.Domain
     {
         IEnumerable<Gebruiker> GetAllGebruikers();
         //Gebruiker GetByEmail(string email);
-        void AddGebruiker(Gebruiker gebruiker);
-        void RemoveGebruiker(Gebruiker gebruiker);
+        //void AddGebruiker(Gebruiker gebruiker);
+        //void RemoveGebruiker(Gebruiker gebruiker);
         void SaveChanges();
-        Gebruiker GetByGebruikernaam(string naam);
+        Gebruiker GetByGebruikernaam(string gebruikersnaam);
     }
 }

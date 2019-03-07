@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using G07_Taijitan.Models;
 using G07_Taijitan.Models.Domain;
+using Microsoft.AspNetCore.Authorization;
 
 namespace G07_Taijitan.Controllers {
     public class HomeController : Controller {
@@ -17,16 +18,20 @@ namespace G07_Taijitan.Controllers {
             _oefeningRepository = oefeningRepository;
         }
 
+        [Authorize(Policy = "Lid")]
         public IActionResult Index() {
-            ViewData["Graad"] = HttpContext.User.Identity.IsAuthenticated? _gebruikerRepository.GetByGebruikernaam(HttpContext.User.Identity.Name).Graad : 1;
+            ViewData["Graad"] = HttpContext.User.Identity.IsAuthenticated? _gebruikerRepository.GetByGebruikernaam(HttpContext.User.Identity.Name).Graad : 0;
             return View();
         }
 
+        [Authorize(Policy = "Lid")]
         public IActionResult Oefeningen(int id) { //id = graad
             return View(_oefeningRepository.GetByGraad(id));
         }
 
-
+        public IActionResult Lesmateriaal(int id) { //id = OefeningId
+            return View();
+        }
         public IActionResult About() {
             ViewData["Message"] = "Your application description page.";
 
