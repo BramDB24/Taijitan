@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using G07_Taijitan.Models.Domain.Gebruiker;
 using Xunit;
 
 namespace G07_Taijitan.Tests.Models {

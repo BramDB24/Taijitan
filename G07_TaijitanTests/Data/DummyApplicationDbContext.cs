@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using G07_Taijitan.Models.Domain.Gebruiker;
 
 namespace G07_Taijitan.Tests.Data {
     public class DummyApplicationDbContext {

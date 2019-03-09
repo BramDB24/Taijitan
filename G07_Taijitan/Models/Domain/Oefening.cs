@@ -1,10 +1,12 @@
-﻿using System;
+﻿using G07_Taijitan.Models.Domain.LesMateriaal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace G07_Taijitan.Models.Domain {
-    public class Oefening {
+    public class Oefening
+    {
         public int OefeningId { get; set; }
 
         public string Naam { get; set; }
@@ -13,6 +15,7 @@ namespace G07_Taijitan.Models.Domain {
 
         public IEnumerable<Lesmateriaal> Lesmateriaal { get; set; }
 
+        public int TypeId { get; set; }
         public Oefening() { }
         
         

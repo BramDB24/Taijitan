@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using G07_Taijitan.Models.Domain.RepoInterface;
 
 namespace G07_Taijitan.Data.Repositories
 {
@@ -24,6 +25,9 @@ namespace G07_Taijitan.Data.Repositories
             return _oefeningen.ToList();
         }
 
-       
+        public IEnumerable<Oefening> GetByType(int type)
+        {
+            return _oefeningen.Where(t => t.TypeId == type).ToList();
+        }
     }
 }

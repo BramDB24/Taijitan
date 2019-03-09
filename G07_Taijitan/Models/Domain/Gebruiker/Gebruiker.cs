@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
-namespace G07_Taijitan.Models.Domain
+namespace G07_Taijitan.Models.Domain.Gebruiker
 {
     public abstract class Gebruiker
     {

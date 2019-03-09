@@ -1,9 +1,11 @@
 ﻿using G07_Taijitan.Models.Domain;
 using Microsoft.AspNetCore.Identity;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using G07_Taijitan.Models.Domain.Gebruiker;
 
 namespace G07_Taijitan.Data
 {
@@ -58,8 +60,7 @@ namespace G07_Taijitan.Data
 
                     Oefening oefening1 = new Oefening() {
                         Naam = "oefeningTest",
-                        Graad = Graad.Kyu1
-                        
+                        Graad = Graad.Kyu1,
                     };
 
                     Oefening oefening2 = new Oefening() {
@@ -75,27 +76,20 @@ namespace G07_Taijitan.Data
                         Graad = Graad.Kyu1
                     };
                     _context.Oefeningen.AddRange(oefening1, oefening2, oefening3, oefening4);
-                    
 
-                    //Gebruiker testUser2 = new Lid() {
-                    //    Naam = "De Bleecker",
-                    //    Voornaam = "Bram",
-                    //    Adres = "Adress",
-                    //    Email = "debleecker.b@gmail.com",
-                    //    Geboortedatum = new DateTime(1999, 12, 24),
-                    //    Gebruikersnaam = "bram.debleecker",
-                    //    Telefoonnummer = "0478124578",                        
-                    //    Wachtwoord = "P@ssword2",
-                    //    Graad = 1
-                    //};
+                    
+                    OefeningType OefeningType1 = new OefeningType()
+                    {
+                        TypeNaam = "Schouder Worp",
+                        OefeningenReeks = null
+
+                    };
+                    _context.Types.AddRange(OefeningType1);
+
                     await InitilizeUsers(testUser.Gebruikersnaam, testUser.Wachtwoord, testUser.GetType().Name);
-                   // await InitilizeUsers(testUser2.Gebruikersnaam, testUser2.Wachtwoord, testUser2.GetType().Name);
                     
                     _context.Gebruikers.Add(testUser);
-                   // _context.gebruikers.Add(testUser2);
 
-                    //Gebruiker[] gebruikers = { gebruiker1, gebruiker2, gebruiker3, gebruiker4 };
-                    //_context.gebruikers.AddRange(gebruikers);
                     _context.SaveChanges();
 
                 }

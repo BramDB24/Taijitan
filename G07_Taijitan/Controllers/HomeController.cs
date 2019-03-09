@@ -8,6 +8,8 @@ using G07_Taijitan.Models;
 using G07_Taijitan.Models.Domain;
 using Microsoft.AspNetCore.Authorization;
 using G07_Taijitan.Filters;
+using G07_Taijitan.Models.Domain.Gebruiker;
+using G07_Taijitan.Models.Domain.RepoInterface;
 
 namespace G07_Taijitan.Controllers {
     public class HomeController : Controller {

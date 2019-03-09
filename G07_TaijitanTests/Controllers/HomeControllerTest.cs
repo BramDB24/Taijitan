@@ -7,6 +7,7 @@ using Moq;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using G07_Taijitan.Models.Domain.RepoInterface;
 using Xunit;
 
 namespace G07_Taijitan.Tests.Controllers

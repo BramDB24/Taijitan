@@ -8,6 +8,8 @@ using Moq;
 using Xunit;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using System.Linq;
+using G07_Taijitan.Models.Domain.Gebruiker;
+using G07_Taijitan.Models.Domain.RepoInterface;
 using Microsoft.AspNetCore.Mvc;
 using G07_Taijitan.Models.GebruikersViewModel;
 
