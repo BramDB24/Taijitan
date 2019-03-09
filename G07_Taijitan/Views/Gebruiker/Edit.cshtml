@@ -2,8 +2,9 @@
 @{
     ViewData["Title"] = "Persoonlijke gegevens";
 }
+<link href="~/css/website.css" rel="stylesheet" type="text/css">
 
-<body style='background: #C5D7D1'>
+<body>
     <div class="container">
         <h2>@ViewData["Title"]</h2>
 
@@ -53,10 +54,10 @@
     </div>
 </body>
 
-    @section scripts {
-        <script asp-src-include="lib/jquery-validation/dist/jquery.validate.js"></script>
-        <script asp-src-include="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-    }
+@section scripts {
+    <script asp-src-include="lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script asp-src-include="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
 
 
 

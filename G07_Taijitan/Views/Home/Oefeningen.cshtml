@@ -4,13 +4,15 @@
     ViewData["Title"] = "Uw Oefeningen";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/css/website.css" rel="stylesheet" type="text/css">
 
 <h2>@ViewData["Title"]</h2>
-@foreach(var oefening in Model) {
-<div class="container">      
-    <div class="col-xs-6 col-sm-4 col-md-3">
-        <h3>@oefening.Naam</h3>
+@foreach (var oefening in Model)
+{
+    <div class="container">
+        <div class="col-xs-6 col-sm-4 col-md-3">
+            <h3>@oefening.Naam</h3>
+        </div>
     </div>
-</div>
 }
 
