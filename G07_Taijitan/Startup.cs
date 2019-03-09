@@ -16,6 +16,7 @@ using G07_Taijitan.Models.Domain;
 using G07_Taijitan.Data.Repositories;
 using System.Security.Claims;
 using G07_Taijitan.Filters;
+using G07_Taijitan.Helpers;
 
 namespace G07_Taijitan
 {

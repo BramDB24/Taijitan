@@ -48,19 +48,17 @@ namespace G07_Taijitan.Controllers
 
         [HttpPost]
         [Authorize(Policy = "Lid")]
-        public IActionResult Edit(string id, GebruikersViewModel gvm)
-        {
-            //id = gebruikersnaam
+        public IActionResult Edit(Gebruiker gebruiker, GebruikersViewModel gvm)
+        {   
             if (ModelState.IsValid)
             {
                 //if (gebruiker == null)
                 //    return NotFound();
-                Gebruiker gebruiker = null;
+                
                 try
                 {
-                    gebruiker = _gebruikerRepository.GetByGebruikernaam(id);
-
-                    gebruiker.EditGebruiker(gvm.Email, gvm.Naam, gvm.Voornaam, gvm.Telefoonnummer, gvm.GeboorteDatum, gvm.Adres); //email staat ni in gebruiker?                    
+                    Gebruiker _gebruiker = gebruiker;
+                    _gebruiker.EditGebruiker(gvm.Email, gvm.Naam, gvm.Voornaam, gvm.Telefoonnummer, gvm.GeboorteDatum, gvm.Adres);
                     _gebruikerRepository.SaveChanges();
                     TempData["message"] = $"Gebruiker {gebruiker.Voornaam} is succesvol aangepast";
                 }

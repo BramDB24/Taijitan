@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using G07_Taijitan.Models;
 using G07_Taijitan.Models.Domain;
 using Microsoft.AspNetCore.Authorization;
+using G07_Taijitan.Filters;
 
 namespace G07_Taijitan.Controllers {
     public class HomeController : Controller {
@@ -18,9 +19,15 @@ namespace G07_Taijitan.Controllers {
             _oefeningRepository = oefeningRepository;
         }
 
+        [ServiceFilter(typeof(GebruikerFilter))]
         [Authorize(Policy = "Lid")]
-        public IActionResult Index() {
-            ViewData["Graad"] = HttpContext.User.Identity.IsAuthenticated? _gebruikerRepository.GetByGebruikernaam(HttpContext.User.Identity.Name).Graad : 0;
+        public IActionResult Index(Gebruiker gebruiker) {
+            Graad graad = gebruiker.Graad;
+            //ICollection<Graad> graden = new List<Graad>();
+            //for(int i = 0; i<=(int)graad; i++) {
+            //    graden.Add((Graad)i);                   
+            //}
+            ViewData["Graad"] = gebruiker.Graad;
             return View();
         }
 
