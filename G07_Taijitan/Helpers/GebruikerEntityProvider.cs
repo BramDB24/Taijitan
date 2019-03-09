@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace G07_Taijitan.Models.Domain {
+namespace G07_Taijitan.Helpers {
     public class GebruikerEntityProvider : IModelBinderProvider {
         public IModelBinder GetBinder(ModelBinderProviderContext context) {
             if(context == null) {

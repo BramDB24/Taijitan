@@ -127,7 +127,7 @@ namespace G07_Taijitan.Models.Domain
                 }
             }
         }
-        public int Graad { get; set; }
+        public Graad Graad { get; set; }
 
         public ICollection<GebruikerOefening> Oefeningen { get; set; }
 

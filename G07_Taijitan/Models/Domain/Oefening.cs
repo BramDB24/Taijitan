@@ -11,6 +11,8 @@ namespace G07_Taijitan.Models.Domain {
 
         public Graad Graad { get; set; }
 
+        public IEnumerable<Lesmateriaal> Lesmateriaal { get; set; }
+
         public Oefening() { }
         
         

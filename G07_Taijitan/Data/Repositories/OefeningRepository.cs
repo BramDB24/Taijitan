@@ -24,9 +24,6 @@ namespace G07_Taijitan.Data.Repositories
             return _oefeningen.ToList();
         }
 
-        public IEnumerable<int> GetAvailable(int graad, Gebruiker gebruiker)
-        {   
-           return Enum.GetValues(typeof(Graad)).Cast<int>().Where(t => gebruiker.Graad >=t).ToList(); //<big oof
-        }
+       
     }
 }

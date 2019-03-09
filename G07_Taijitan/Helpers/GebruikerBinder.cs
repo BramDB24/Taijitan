@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace G07_Taijitan.Models.Domain {
+namespace G07_Taijitan.Helpers {
     public class GebruikerBinder : IModelBinder {
         private readonly ApplicationDbContext _db;
         public GebruikerBinder(ApplicationDbContext db) {

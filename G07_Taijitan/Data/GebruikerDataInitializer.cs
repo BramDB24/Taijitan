@@ -42,7 +42,7 @@ namespace G07_Taijitan.Data
                         Gebruikersnaam = "jonah.desmet",
                         Telefoonnummer = "054000000",
                         Wachtwoord = "P@ssword1",
-                        Graad = 9,
+                        Graad = Graad.Dan3,
                         InschrijvingsDatum = DateTime.Today,
                         Straatnaam = "straat",
                         Huisnummer = "1",

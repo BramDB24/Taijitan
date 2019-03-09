@@ -7,8 +7,7 @@ namespace G07_Taijitan.Models.Domain
 {
     public interface IOefeningRepository
     {
-        IEnumerable<Oefening> GetAll();
-        IEnumerable<int> GetAvailable(int graad, Gebruiker gebruiker);
+        IEnumerable<Oefening> GetAll();        
         IEnumerable<Oefening> GetByGraad(int graad);
     }
 }
