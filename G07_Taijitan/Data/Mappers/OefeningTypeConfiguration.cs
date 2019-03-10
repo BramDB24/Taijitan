@@ -14,7 +14,7 @@ namespace G07_Taijitan.Data.Mappers
         {
             builder.HasKey(t => t.TypeId);
             builder.Property(t => t.TypeNaam).IsRequired();
-            //builder.HasMany(o => o.OefeningenReeks).WithOne().HasForeignKey(t => t.TypeId);
+            builder.HasMany(o => o.OefeningenReeks).WithOne().HasForeignKey(t => t.TypeId);
         }
     }
 }

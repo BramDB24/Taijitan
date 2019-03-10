@@ -9,7 +9,9 @@ namespace G07_Taijitan.Models.Domain
     {
         public int TypeId { get; set; }
         public string TypeNaam { get; set; }
-        public IEnumerable<Oefening> OefeningenReeks { get; set; }
+
+        //Temporary, moet IEnumerable worden, just for datainitializer purposes atm
+        public IList<Oefening> OefeningenReeks { get; set; }
         public OefeningType()
         {
                 
