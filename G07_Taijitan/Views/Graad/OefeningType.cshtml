@@ -1,0 +1,13 @@
+﻿@model IEnumerable<G07_Taijitan.Models.Domain.OefeningType>
+@{
+    ViewData["Title"] = "Oefening types";
+}
+<link href="~/css/website.css" rel="stylesheet" />
+<h2>Oefning Types</h2>
+@foreach (var item in Model)
+{
+    <div class="col-md-4">
+        <a asp-controller="Graad" asp-action="OefeningTypes" asp-route="@item.TypeId"></a> <p class="text-center"><strong>@item.TypeNaam</strong></p>
+    </div>
+}
+

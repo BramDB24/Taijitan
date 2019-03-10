@@ -1,7 +1,15 @@
-﻿
+﻿@model IEnumerable<G07_Taijitan.Models.Domain.Oefening>
 @{
     ViewData["Title"] = "Oefening";
 }
+<link href="~/css/website.css" rel="stylesheet" />
+<h2>Oefeningen</h2>
+@foreach (var item in Model)
+{
+    <div class="col-md-4">
+        <a asp-controller="Graad" asp-action="Oefeningen" asp-route="@item.OefeningId"></a> <p class="text-center"><strong>@item.Naam</strong></p>
+    </div>
+}
 
-<h2>Oefening</h2>
+
 
