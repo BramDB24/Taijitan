@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<G07_Taijitan.Models.Domain.Graad>
+@using G07_Taijitan.Helpers
 @{
     ViewData["Title"] = "Taijitan Yoshin Ryu";
 }
@@ -10,145 +11,21 @@
 
     <div class="container">
         <!--EERSTE HUIDIGE-->
-        @if ((int)ViewData["Graad"] > 0)
-        {
-            <div class="col-xs-12 col-sm-4 ">
-                <article class="text-center">
-                    <a asp-controller="Graad" asp-action="OefeningType"><img src="~/images/@((int)ViewData["Graad"]).png" alt="Huidige graad" class="img-responsive center-block" /></a>
-                    <p>Huidige (@((G07_Taijitan.Models.Domain.Graad)(int)ViewData["Graad"]))</p>
-                </article>
-            </div>
-        }
+        <div class="col-xs-12 col-sm-4 ">
+            <article class="text-center">
+                <a asp-controller="Graad" asp-action="OefeningType"><img src="~/images/@((int)ViewData["HuidigeGraad"]).png" alt="Huidige graad" class="img-responsive center-block" /></a>
+                <p>Huidige (@ViewData["HuidigeGraad"])</p>
+            </article>
+        </div>
         <!--EINDE EERSTE HUIDIGE-->
-        @for (int i = 1; i < (int)ViewData["Graad"]; i++)
-        {
+
+        @foreach(var graad in Model) {
             <div class="col-xs-4 col-sm-2">
                 <article class="text-center">
-                    <a asp-controller="Graad" asp-action="OefeningType"><img src="~/images/@(i).png" alt="@((G07_Taijitan.Models.Domain.Graad)(int)ViewData["Graad"])" class="img-responsive center-block" /></a>
-                    <p>@((G07_Taijitan.Models.Domain.Graad)i)</p>
+                    <a asp-controller="Graad" asp-action="OefeningType"><img src="~/images/@((int)graad).png" alt="@(graad.GetDisplayName())" class="img-responsive center-block" /></a>
+                    <p>@(graad.GetDisplayName())</p>
                 </article>
             </div>
         }
-
-
-        @*<div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/wit_.png" alt="Witte band" class="img-responsive center-block" />
-                <p>Kyu 6</p>
-            </article>
-        </div>
-
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/geel_.png" alt="Gele band" class="img-responsive center-block" />
-                <p>Kyu 5</p>
-            </article>
-        </div>*@
-        <!--clearfix small zodat deze automatisch naar een volgende lijn springt-->
-        @*<div class="clearfix visible-sm"></div>*
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/oranje_.png" alt="Oranje band" class="img-responsive center-block" />
-                <p>Kyu 4</p>
-            </article>
-        </div>
-
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/groen_.png" alt="Groene band" class="img-responsive center-block" />
-                <p>Kyu 3</p>
-            </article>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/blauw_.png" alt="Blauwe band" class="img-responsive center-block" />
-                <p>Kyu 2</p>
-            </article>
-        </div>
-
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/bruin_.png" alt="Bruine band" class="img-responsive center-block" />
-                <p>Kyu 1</p>
-            </article>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/zwart_.png" alt="Zwarte band" class="img-responsive center-block" />
-                <p>Dan 1</p>
-            </article>
-        </div>
-
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/zwart1_.png" alt="Zwarte band met 1 streepje" class="img-responsive center-block" />
-                <p>Dan 2</p>
-            </article>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/zwart2_.png" alt="Zwarte band met 2 streepjes" class="img-responsive center-block" />
-                <p>Dan 3</p>
-            </article>
-        </div>
-
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/zwart3_.png" alt="Zwarte band met 3 streepjes" class="img-responsive center-block" />
-                <p>Dan 4</p>
-            </article>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/zwart4_.png" alt="Zwarte band met 4 streepjes" class="img-responsive center-block" />
-                <p>Dan 5</p>
-            </article>
-        </div>
-
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/roodwit_.png" alt="Rood-witte band" class="img-responsive center-block" />
-                <p>Dan 6</p>
-            </article>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/roodwit_.png" alt="Rood-witte band" class="img-responsive center-block" />
-                <p>Dan 7</p>
-            </article>
-        </div>
-
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/roodwit_.png" alt="Rood-witte Band" class="img-responsive center-block" />
-                <p>Dan 8</p>
-            </article>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/rood_.png" alt="Rode band" class="img-responsive center-block" />
-                <p>Dan 9</p>
-            </article>
-        </div>
-
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/rood_.png" alt="Rode band" class="img-responsive center-block" />
-                <p>Dan 10</p>
-            </article>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/rood_.png" alt="Rode band" class="img-responsive center-block" />
-                <p>Dan 11</p>
-            </article>
-        </div>
-
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <article class="text-center">
-                <img src="~/images/witbreed_.png" alt="Witte brede band" class="img-responsive center-block" />
-                <p>Dan 12</p>
-            </article>
-        </div>*@
     </div>
 </body>

@@ -23,14 +23,10 @@ namespace G07_Taijitan.Controllers {
 
         [ServiceFilter(typeof(GebruikerFilter))]
         [Authorize(Policy = "Lid")]
-        public IActionResult Index(Gebruiker gebruiker) {
-            Graad graad = gebruiker.Graad;
-            //ICollection<Graad> graden = new List<Graad>();
-            //for(int i = 0; i<=(int)graad; i++) {
-            //    graden.Add((Graad)i);                   
-            //}
-            ViewData["Graad"] = gebruiker.Graad;
-            return View();
+        public IActionResult Index(Gebruiker gebruiker) {            
+            IEnumerable<Graad> graden = Enum.GetValues(typeof(Graad)).Cast<Graad>().Where(x=>x<gebruiker.Graad).ToList();
+            ViewData["HuidigeGraad"] = gebruiker.Graad;
+            return View(graden);
         }
 
         [Authorize(Policy = "Lid")]

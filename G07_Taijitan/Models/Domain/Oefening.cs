@@ -12,9 +12,7 @@ namespace G07_Taijitan.Models.Domain {
         public string Naam { get; set; }
 
         public Graad Graad { get; set; }
-
         public IEnumerable<Lesmateriaal> Lesmateriaal { get; set; }
-
         public int TypeId { get; set; }
         public Oefening() { }
         
