@@ -7,7 +7,7 @@
 @foreach (var item in Model)
 {
     <div class="col-md-4">
-        <a asp-controller="Graad" asp-action="Oefeningen" asp-route="@item.OefeningId"></a> <p class="text-center"><strong>@item.Naam</strong></p>
+        <a asp-controller="Graad" asp-action="Oefeningen" asp-route-id="@item.OefeningId"></a> <p class="text-center"><strong>@item.Naam</strong></p>
     </div>
 }
 

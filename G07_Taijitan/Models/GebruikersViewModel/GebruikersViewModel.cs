@@ -1,6 +1,7 @@
 ﻿using G07_Taijitan.Models.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
@@ -41,6 +42,10 @@ namespace G07_Taijitan.Models.GebruikersViewModel
         [StringLength(150,ErrorMessage = "E-mail mag niet langer dan 150 tekens zijn")]
         [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$", ErrorMessage ="Email is niet correct")]
         public string Email { get; set; }
+
+        [ReadOnly(true)]
+        [Display(Name = "Geboorte plek")]
+        public string GeboortePlek { get; set; }
 
         public Gebruiker Gebruiker { get; set; }
 

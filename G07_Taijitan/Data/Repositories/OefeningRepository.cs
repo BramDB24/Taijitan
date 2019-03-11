@@ -16,18 +16,19 @@ namespace G07_Taijitan.Data.Repositories
             _oefeningen = context.Oefeningen;
         }
 
-        public IEnumerable<Oefening> GetByGraad(int graad) {
-            return _oefeningen.Where(o => (int)o.Graad == graad).ToList();
-        }
-
         public IEnumerable<Oefening> GetAll()
         {
             return _oefeningen.ToList();
         }
 
-        public IEnumerable<Oefening> GetByType(int type)
+        public IEnumerable<Oefening> GetByGraadAndType(int graad, int type)
         {
-            return _oefeningen.Where(t => t.TypeId == type).ToList();
+            return _oefeningen.Where(t => t.TypeId == type && (int)t.Graad == graad).ToList();
+        }
+
+        public IEnumerable<Oefening> GetByGraad(int graad)
+        {
+            return _oefeningen.Where(o => (int)o.Graad == graad).ToList();
         }
     }
 }

@@ -60,6 +60,7 @@ namespace G07_Taijitan
             services.AddScoped<GebruikerDataInitializer>();
             services.AddScoped<IGebruikerRepository, GebruikerRepository>();
             services.AddScoped<IOefeningRepository, OefeningRepository>();
+            services.AddScoped<IOefeningTypeRepository, OefeningTypeRepository>();
             services.AddScoped<GebruikerFilter>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMvc(options => {

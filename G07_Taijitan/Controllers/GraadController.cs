@@ -12,19 +12,22 @@ namespace G07_Taijitan.Controllers
     public class GraadController : Controller
     {
         private readonly IOefeningTypeRepository _oefeningTypeRepository;
-
-        public GraadController(IOefeningTypeRepository oefeningTypeRepository)
+        private readonly IOefeningRepository _oefeningRepository;
+        private int graadid;
+        public GraadController(IOefeningTypeRepository oefeningTypeRepository, IOefeningRepository oefeningRepository)
         {
             _oefeningTypeRepository = oefeningTypeRepository;
+            _oefeningRepository = oefeningRepository;
         }
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpPost]
-        public IActionResult OefeningTypes()
+        
+        public IActionResult OefeningType(int graadid)
         {
+            this.graadid = graadid;
             IEnumerable<OefeningType> oefeningTypes = _oefeningTypeRepository.GetAll();
             if (oefeningTypes == null)
                 return NotFound();
@@ -32,10 +35,10 @@ namespace G07_Taijitan.Controllers
             return View(oefeningTypes);
         }
 
-        [HttpPost]
-        public IActionResult Oefeningen(OefeningType type)
+        
+        public IActionResult Oefening(int id)
         {
-            IEnumerable<Oefening> oefeningen = type.OefeningenReeks;
+            IEnumerable<Oefening> oefeningen = _oefeningRepository.GetByGraadAndType(graadid,id);
             if (oefeningen == null)
                 return NotFound();
             return View(oefeningen);

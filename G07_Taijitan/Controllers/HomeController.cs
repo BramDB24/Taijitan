@@ -38,22 +38,12 @@ namespace G07_Taijitan.Controllers {
             return View(_oefeningRepository.GetByGraad(id));
         }
 
+        public IActionResult OefeningTypes()
+        {
+            return View();
+        }
+
         public IActionResult Lesmateriaal(int id) { //id = OefeningId
-            return View();
-        }
-        public IActionResult About() {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact() {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy() {
             return View();
         }
 

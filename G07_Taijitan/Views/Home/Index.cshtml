@@ -14,7 +14,7 @@
         {
             <div class="col-xs-12 col-sm-4 ">
                 <article class="text-center">
-                    <a asp-controller="Home" asp-action="Oefeningen" asp-route-id="@ViewData["Graad"]"><img src="~/images/@((int)ViewData["Graad"]).png" alt="Huidige graad" class="img-responsive center-block" /></a>
+                    <a asp-controller="Graad" asp-action="OefeningType"><img src="~/images/@((int)ViewData["Graad"]).png" alt="Huidige graad" class="img-responsive center-block" /></a>
                     <p>Huidige (@((G07_Taijitan.Models.Domain.Graad)(int)ViewData["Graad"]))</p>
                 </article>
             </div>
@@ -24,7 +24,7 @@
         {
             <div class="col-xs-4 col-sm-2">
                 <article class="text-center">
-                    <a asp-controller="Home" asp-action="Oefeningen" asp-route-id="@i"><img src="~/images/@(i).png" alt="@((G07_Taijitan.Models.Domain.Graad)(int)ViewData["Graad"])" class="img-responsive center-block" /></a>
+                    <a asp-controller="Graad" asp-action="OefeningType"><img src="~/images/@(i).png" alt="@((G07_Taijitan.Models.Domain.Graad)(int)ViewData["Graad"])" class="img-responsive center-block" /></a>
                     <p>@((G07_Taijitan.Models.Domain.Graad)i)</p>
                 </article>
             </div>

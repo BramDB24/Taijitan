@@ -75,6 +75,12 @@ namespace G07_Taijitan.Data {
                         Graad = Graad.Kyu1,
                         Lesmateriaal = null
                     };
+                    Oefening oefening5 = new Oefening()
+                    {
+                        Naam = "OefeningTest5",
+                        Graad = Graad.Dan3,
+                        Lesmateriaal = null
+                    };
                     // _context.Oefeningen.AddRange(oefening1, oefening2); /*, oefening3, oefening4);*/
 
 
@@ -82,7 +88,12 @@ namespace G07_Taijitan.Data {
                         TypeNaam = "Schouder Worp",
                         OefeningenReeks = new List<Oefening>{oefening1, oefening2, oefening3, oefening4}
                     };
-                    _context.Types.AddRange(OefeningType1);
+                    OefeningType OefeningType2 = new OefeningType()
+                    {
+                        TypeNaam = "Heup worp",
+                        OefeningenReeks = new List<Oefening> { oefening5 }
+                    };
+                    _context.Types.AddRange(OefeningType1, OefeningType2);
 
                     await InitilizeUsers(testUser.Gebruikersnaam, testUser.Wachtwoord, testUser.GetType().Name);
 
