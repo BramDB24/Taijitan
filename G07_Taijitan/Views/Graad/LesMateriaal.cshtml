@@ -1,7 +1,14 @@
-﻿
+﻿@model IEnumerable<G07_Taijitan.Models.Domain.LesMateriaal.Video>
 @{
     ViewData["Title"] = "LesMateriaal";
 }
 <link href="~/css/website.css" rel="stylesheet" />
 <h2>LesMateriaal</h2>
-<iframe src="@Url.Action("Materiaal","Graad")" width="400", height="300"></iframe>
+@foreach(var video in Model) {
+    <iframe width="560" height="315"
+            src="@video.Url"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
+}

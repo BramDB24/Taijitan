@@ -14,7 +14,7 @@ namespace G07_Taijitan.Data
         #region DbSets
         public DbSet<Gebruiker> Gebruikers { get; set; }   
         public DbSet<Oefening> Oefeningen { get; set; }
-        public DbSet<OefeningType> Types { get; set; }
+        //public DbSet<OefeningType> Types { get; set; }
         #endregion
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> option)
@@ -29,7 +29,7 @@ namespace G07_Taijitan.Data
             builder.ApplyConfiguration(new OefeningConfiguration());
             builder.ApplyConfiguration(new GebruikerOefeningConfiguration());
             builder.ApplyConfiguration(new LesmateriaalConfiguration());
-            builder.ApplyConfiguration(new OefeningTypeConfiguration());
+            //builder.ApplyConfiguration(new OefeningTypeConfiguration());
 
         }
     }

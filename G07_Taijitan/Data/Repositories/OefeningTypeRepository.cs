@@ -8,17 +8,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace G07_Taijitan.Data.Repositories
 {
-    public class OefeningTypeRepository : IOefeningTypeRepository
-    {
-        private DbSet<OefeningType> _oefeningTypes;
+    //public class OefeningTypeRepository : IOefeningTypeRepository
+    //{
+    //    private DbSet<OefeningType> _oefeningTypes;
 
-        public OefeningTypeRepository(ApplicationDbContext context)
-        {
-            _oefeningTypes = context.Types;
-        }
-        public IEnumerable<OefeningType> GetAll()
-        {
-            return _oefeningTypes.ToList();
-        }
-    }
+    //    public OefeningTypeRepository(ApplicationDbContext context)
+    //    {
+    //        _oefeningTypes = context.Types;
+    //    }
+    //    public IEnumerable<OefeningType> GetAll()
+    //    {
+    //        return _oefeningTypes.ToList();
+    //    }
+    //}
 }

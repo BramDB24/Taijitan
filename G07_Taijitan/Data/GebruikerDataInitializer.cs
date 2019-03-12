@@ -6,10 +6,11 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using G07_Taijitan.Models.Domain.Gebruiker;
+using G07_Taijitan.Models.Domain.LesMateriaal;
 
 namespace G07_Taijitan.Data {
     public class GebruikerDataInitializer {
-        /* change at 2402 databank seeding aangepast, prop instead of ctor, initializeuser methode voor gebruiker die kan aanmelden gedefined */
+        
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
@@ -21,7 +22,6 @@ namespace G07_Taijitan.Data {
         public async Task InitializeData() {
             _context.Database.EnsureDeleted();
             if(_context.Database.EnsureCreated()) {
-                //_context.SaveChanges();
                 if(!_context.Gebruikers.Any()) {
                     ////gebruikers
                     //Gebruiker gebruiker1 = new Gebruiker("De Smet", "Jonah", "EenAdres", "0476000000", "Lid", new DateTime(1998, 03, 13), "jonah.desmet@test.com", "jonah");
@@ -52,61 +52,62 @@ namespace G07_Taijitan.Data {
 
                     };
 
-                    Oefening oefening1 = new Oefening() {                        
-                        Naam = "oefeningTest",
-                        Graad = Graad.Kyu1,
-                        Lesmateriaal = null
+                    Lesmateriaal lesmateriaal = new Video() {
+                        Naam = "Test",
+                        Url = "https://www.youtube.com/embed/AQY814Q--Hs"
+                    };
+                    Lesmateriaal vid2 = new Video() {
+                        Naam = "Video2",
+                        Url = "https://www.youtube.com/watch?v=jkbYYnGOeb8"
                     };
 
-                    Oefening oefening2 = new Oefening() {                        
+                    Oefening oefening1 = new Oefening() {
+                        Naam = "oefeningTestMetVid",
+                        Graad = Graad.Kyu1,
+                        OefeningType = OefeningType.Beenworpen,
+                        Lesmateriaal = new List<Lesmateriaal> {lesmateriaal}
+                    };
+
+                    Oefening oefening2 = new Oefening() {
                         Naam = "OefeningTest2",
                         Graad = Graad.Kyu1,
-                        Lesmateriaal = null
+                        OefeningType = OefeningType.Armstoten,
+                        Lesmateriaal = new List<Lesmateriaal> {vid2}
                     };
 
                     Oefening oefening3 = new Oefening() {
                         Naam = "OefeningTest3",
                         Graad = Graad.Kyu1,
-                        Lesmateriaal = null
+                        OefeningType = OefeningType.Armstoten,
+                        Lesmateriaal = new List<Lesmateriaal> {}
 
                     };
                     Oefening oefening4 = new Oefening() {
                         Naam = "OefeningTest4",
                         Graad = Graad.Kyu1,
-                        Lesmateriaal = null
+                        OefeningType = OefeningType.Armstoten,
+                        Lesmateriaal = new List<Lesmateriaal> {}
                     };
                     Oefening oefening5 = new Oefening()
                     {
                         Naam = "OefeningTest5",
                         Graad = Graad.Dan3,
-                        Lesmateriaal = null
+                        OefeningType = OefeningType.Kopstoten,
+                        Lesmateriaal = new List<Lesmateriaal> {}
                     };
-                    // _context.Oefeningen.AddRange(oefening1, oefening2); /*, oefening3, oefening4);*/
-
-
-                    OefeningType OefeningType1 = new OefeningType() {                        
-                        TypeNaam = "Schouder Worp",
-                        OefeningenReeks = new List<Oefening>{oefening1, oefening2, oefening3, oefening4}
-                    };
-                    OefeningType OefeningType2 = new OefeningType()
-                    {
-                        TypeNaam = "Heup worp",
-                        OefeningenReeks = new List<Oefening> { oefening5 }
-                    };
-                    _context.Types.AddRange(OefeningType1, OefeningType2);
+                    
+                    _context.Oefeningen.AddRange(oefening1, oefening2, oefening3, oefening4);
 
                     await InitilizeUsers(testUser.Gebruikersnaam, testUser.Wachtwoord, testUser.GetType().Name);
 
                     _context.Gebruikers.Add(testUser);
-
                     _context.SaveChanges();
-
                 }
             }
         }
 
-        private async Task InitilizeUsers(string username, /*string email,*/ string password, string role) {
-            var user = new IdentityUser { UserName = username/*, Email = email */};
+        private async Task InitilizeUsers(string username, string password, string role) {
+            var user = new IdentityUser { UserName = username};
             await _userManager.CreateAsync(user, password);
             await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, role));
         }

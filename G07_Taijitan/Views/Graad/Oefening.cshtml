@@ -5,9 +5,9 @@
 <link href="~/css/website.css" rel="stylesheet" />
 <h2>Oefeningen</h2>
 @foreach (var item in Model)
-{
+{   
     <div class="col-md-4">
-        <a asp-controller="Graad" asp-action="Oefeningen" asp-route-id="@item.OefeningId"></a> <p class="text-center"><strong>@item.Naam</strong></p>
+        <a asp-controller="Graad" asp-action="Lesmateriaal" asp-route-oefeningid="@item.OefeningId">@item.Naam</a> <p class="text-center"></p>
     </div>
 }
 

@@ -12,7 +12,7 @@ namespace G07_Taijitan.Data.Mappers {
             builder.HasKey(b => b.OefeningId);
             builder.Property(o => o.Naam).IsRequired();
             builder.Property(o => o.Graad).IsRequired();
-            builder.HasMany(o => o.Lesmateriaal).WithOne().HasForeignKey(l => l.LesmateriaalId);
+            builder.HasMany(o => o.Lesmateriaal).WithOne().HasForeignKey(l=>l.OefeningId).IsRequired();
         }
     }
 }

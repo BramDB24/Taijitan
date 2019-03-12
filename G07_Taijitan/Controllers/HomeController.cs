@@ -29,20 +29,6 @@ namespace G07_Taijitan.Controllers {
             return View(graden);
         }
 
-        [Authorize(Policy = "Lid")]
-        public IActionResult Oefeningen(int id) { //id = graad
-            return View(_oefeningRepository.GetByGraad(id));
-        }
-
-        public IActionResult OefeningTypes()
-        {
-            return View();
-        }
-
-        public IActionResult Lesmateriaal(int id) { //id = OefeningId
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error() {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
