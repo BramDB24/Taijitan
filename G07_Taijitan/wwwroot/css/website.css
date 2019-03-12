@@ -35,3 +35,44 @@ body {
         display: none;
     }
 }
+
+.test {
+    width: 200px;
+    padding: 20px;
+    font-size: 18px;
+    background-color: #346567;
+    text-decoration: none;
+    color: white;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.test:hover, .test:visited, .test:link, .test:active {
+    text-decoration: none;
+}
+
+.nav, .navbar, .navbar-inverse .navbar-fixed-top {
+    background-color: #346567;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
+.navbar-btn {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
+.navbar-btn:hover, .navbar-btn:visited, .navbar-btn:link, .navbar-btn:active {
+    text-decoration: none;
+}
+
+h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #346567;
+    margin-bottom: 20px;
+}

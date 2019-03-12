@@ -2,17 +2,22 @@
 @{
     ViewData["Title"] = "Oefening types";
 }
-<link href="~/css/website.css" rel="stylesheet" />
-<h2>Oefening Types</h2>
-@foreach (var item in Model)
-{
-    <ul class="list-group">
-        <a asp-controller="Graad" asp-action="Oefening" asp-route-graadid="@ViewData["Graad"]" asp-route-typeid="@((int)item)">
-            
-        <li><strong>@item</strong></li>
 
-    </a>
-</ul>
+<link href="~/css/website.css" rel="stylesheet">
 
-}
-
+<body>
+    <div class="container">
+        <h2>Oefening Types</h2>
+        
+        <div>
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-6 col-md-3">
+                    <a class="test text-center" asp-controller="Graad" asp-action="Oefening" asp-route-graadid="@ViewData["Graad"]" asp-route-typeid="@((int)item)">
+                        @item
+                    </a>
+                </div>
+            }
+        </div>
+        </div>
+</body>
