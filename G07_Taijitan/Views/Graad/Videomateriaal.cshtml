@@ -9,7 +9,7 @@
 
     <p class="btn btn-primary, col-xs-12 col-sm-4 ">Videomateriaal</p>
     <a class="btn btn-default, col-xs-12 col-sm-4 " asp-controller="Graad" asp-action="Afbeeldingen" asp-route-oefeningid="@Model.FirstOrDefault().OefeningId">Afbeeldingen</a>
-    <a class="btn btn-default, col-xs-12 col-sm-4 " asp-controller="Graad" asp-action="Tekstmateriaal" asp-route-oefeningid="@Model.FirstOrDefault().OefeningId">Tekstmateriaal</a>
+    <a class="btn btn-default, col-xs-12 col-sm-4 " asp-controller="Graad" asp-action="Tekstbestanden" asp-route-oefeningid="@Model.FirstOrDefault().OefeningId">Tekstmateriaal</a>
 
     @foreach(var video in Model) {
         <iframe width="560" height="315"

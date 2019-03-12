@@ -155,6 +155,10 @@ namespace G07_Taijitan.Data
                         Image = Convert.FromBase64String("/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgICAgJCAkKCgkNDgwODRMREBARExwUFhQWFBwrGx8bGx8bKyYuJSMlLiZENS8vNUROQj5CTl9VVV93cXecnNH/2wBDAQgICAgJCAkKCgkNDgwODRMREBARExwUFhQWFBwrGx8bGx8bKyYuJSMlLiZENS8vNUROQj5CTl9VVV93cXecnNH/wgARCAA3ADEDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAMEBQIB/8QAGQEAAwEBAQAAAAAAAAAAAAAAAgMEAAUB/9oADAMBAAIQAxAAAAE9fOybtPJH0OuE3WQpHFE7sxXnM613ilLejYxdFqdEySiaRg6KqhcNuPJ0VUYYhIxfUIMCOgCEWHmQB6P/xAAgEAACAgICAwEBAAAAAAAAAAABAgADERIEEyEjMRQz/9oACAEBAAEFAtQJjMJVZuphWYmJiWPqNCYUldnnExFsQzb39yEm5JcRvX5GsUeytdrNK2bStTcoERwk/UZXkn+cVYVMsfawfJSMm75xi+NbHnWpt+DsmSsusMSx0h5Nxi8hlFlrOcz/xAAeEQACAgEFAQAAAAAAAAAAAAAAAQIRAwQQEhMxUf/aAAgBAwEBPwHq7crZHTwS8NRgUZWiiEUntkjyR0kfCz7s2Wy3RZ//xAAeEQABAwUBAQAAAAAAAAAAAAABAAIRAxASEyExUf/aAAgBAgEBPwE1NdMLa+fVQqkiDZ7yeWY6CFsTpyRRPRC6oCgLEfLf/8QAJRAAAgEDAgUFAAAAAAAAAAAAAAERAiExECASIkFRcQMyQpHR/9oACAEBAAY/AtcbbZZcscL17C7QyCD06lqmT5MH4UeSWYJKaifizNimldNr4X1OZ/RKeFfbys95EIvp/8QAIRABAAIDAAIBBQAAAAAAAAAAAQARITFBUWGBECBxkaH/2gAIAQEAAT8h1TrcGsTC9lDOU6H2FKvAJgoj1fHIqhp+ik9q8Myv0/ZDgH3BLnfqB7GGP4WWjKXQwBXIB61bb1LGzuGGmBbN4VlT3ZYJ44mbHnPzOBUNEvGQYWWHcyZ8SvUZKNEpgw3mWHUWUVeIxgkwSu25XyQ1GorA/mZamF0/wQAaO+4OVrQcl5//2gAMAwEAAgADAAAAEHndgUM0Pb8GjfIPwv/EABwRAAMAAgMBAAAAAAAAAAAAAAABESFREDFhQf/aAAgBAwEBPxDylEFCAMFDw0V8HGjHsJZaWLIq2Mh6D+wo/8QAGREAAwEBAQAAAAAAAAAAAAAAAAERECEx/9oACAECAQE/EJBel2YqgqIDHJpLtAkcKYipYJz6iLoiP//EACEQAQEBAAEEAgMBAAAAAAAAAAERACExQVFxEGGBkaHx/9oACAEBAAE/EAcZRe9IhW5ofPc5AkUzAHa1/BWFDekZIYd9aKow9QvRze+zKg1S97N2Fc9HMIQ+gOlxyXrmUU5KG49ef5PwuHbvpu6QNPd3EYXehkgMrskW4RqpngMKwp4PO/zTPm9wDobg6FR6ZUKWEEvvOlbUgH8y0wN9tMno5WrXBDRMMJ8Hmspm7eM/O6JsI84AIHIeD4wgUWdG1OWRr1u4PoL+jStjW9b8uh6PFHw//9k=")
                     };
 
+                    Lesmateriaal tekst = new Tekst() {
+                        Naam = "TextFile",
+                        
+                    };
                     #endregion
 
                     #region BeenWorpenVideo
@@ -235,7 +239,7 @@ namespace G07_Taijitan.Data
                         Naam = "DummyOefening_Beenworp_Kyu1",
                         Graad = Graad.Kyu1,
                         OefeningType = OefeningType.Beenworpen,
-                        Lesmateriaal = new List<Lesmateriaal> { lesmateriaal1, bevrapp }
+                        Lesmateriaal = new List<Lesmateriaal> { lesmateriaal1, bevrapp, tekst }
                     };
 
                     Oefening oefening6 = new Oefening()
