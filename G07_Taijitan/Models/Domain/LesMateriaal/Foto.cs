@@ -1,5 +1,13 @@
-﻿namespace G07_Taijitan.Models.Domain.LesMateriaal {
+﻿using System.IO;
+
+
+namespace G07_Taijitan.Models.Domain.LesMateriaal {
     public class Foto : Lesmateriaal{
-        public byte[] Image { get; set; }
+        private byte[] _image;
+        public byte[] Image { get; set;}
+
+        public Foto(){
+
+        }
     }
 }

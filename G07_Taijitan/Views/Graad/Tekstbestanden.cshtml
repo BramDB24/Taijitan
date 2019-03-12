@@ -1,0 +1,12 @@
+﻿@model IEnumerable<G07_Taijitan.Models.Domain.LesMateriaal.Tekst>
+
+@{
+    ViewData["Title"] = "Tekstbestanden";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/website.css" rel="stylesheet" type="text/css">
+<h2>Tekstbestanden</h2>
+@foreach(var tekst in Model) {
+    <p>@tekst.Naam</p>    
+}
