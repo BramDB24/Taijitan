@@ -1,0 +1,21 @@
+﻿@model IEnumerable<G07_Taijitan.Models.Domain.LesMateriaal.Video>
+@{
+    ViewData["Title"] = "Video materiaal";
+}
+<link href="~/css/website.css" rel="stylesheet" type="text/css">
+<body>
+
+    <h2>@ViewData["Title"]</h2>
+
+    <p class="btn btn-primary, col-xs-12 col-sm-4 ">Videomateriaal</p>
+    <a class="btn btn-default, col-xs-12 col-sm-4 " asp-controller="Graad" asp-action="Afbeeldingen" asp-route-oefeningid="@Model.FirstOrDefault().OefeningId">Afbeeldingen</a>
+    <a class="btn btn-default, col-xs-12 col-sm-4 " asp-controller="Graad" asp-action="Tekstmateriaal" asp-route-oefeningid="@Model.FirstOrDefault().OefeningId">Tekstmateriaal</a>
+
+    @foreach(var video in Model) {
+        <iframe width="560" height="315"
+                src="@video.Url"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+    }
+</body>

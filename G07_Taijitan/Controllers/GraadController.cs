@@ -40,7 +40,7 @@ namespace G07_Taijitan.Controllers {
             return View(oefeningen);
         }
 
-        public IActionResult Lesmateriaal(int oefeningid) {
+        public IActionResult Videomateriaal(int oefeningid) {
             Oefening oefening = _oefeningRepository.GetBy(oefeningid);
             if(oefening == null) {
                 return NotFound();
@@ -54,6 +54,34 @@ namespace G07_Taijitan.Controllers {
 
             //if(materiaal == null)
             //    return NotFound();
+            return View(lijst);
+        }
+
+        public IActionResult Afbeeldingen(int oefeningid) {
+            Oefening oefening = _oefeningRepository.GetBy(oefeningid);
+            if(oefening == null) {
+                return NotFound();
+            }
+            IEnumerable<Lesmateriaal> materiaal = oefening.Lesmateriaal.ToList();
+            IList<Foto> lijst = new List<Foto>();
+            foreach(var x in materiaal) {
+                if(x is Foto)
+                    lijst.Add((Foto)x);
+            }
+            return View(lijst);
+        }
+
+        public IActionResult Tekstbestanden(int oefeningid) {
+            Oefening oefening = _oefeningRepository.GetBy(oefeningid);
+            if(oefening == null) {
+                return NotFound();
+            }
+            IEnumerable<Lesmateriaal> materiaal = oefening.Lesmateriaal.ToList();
+            IList<Tekst> lijst = new List<Tekst>();
+            foreach(var x in materiaal) {
+                if(x is Tekst)
+                    lijst.Add((Tekst)x);
+            }
             return View(lijst);
         }
     }
