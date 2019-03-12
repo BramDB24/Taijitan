@@ -6,9 +6,13 @@
 <h2>Oefening Types</h2>
 @foreach (var item in Model)
 {
-    @*<ul class="list-group">
-        <a asp-controller="Graad" asp-action="Oefeningen" asp-route="@item.TypeId"> <li><strong>@item.TypeNaam</strong></li></a>
-    </ul>*@
-<a asp-controller="Graad" asp-action="Oefening" asp-route-graadid="@ViewData["Graad"]" asp-route-typeid="@((int)item)">@item</a>
+    <ul class="list-group">
+        <a asp-controller="Graad" asp-action="Oefening" asp-route-graadid="@ViewData["Graad"]" asp-route-typeid="@((int)item)">
+            
+        <li><strong>@item</strong></li>
+
+    </a>
+</ul>
+
 }
 
