@@ -11,28 +11,28 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace G07_Taijitan.Controllers {
-    public class GraadController : Controller {        
+    [Authorize(Policy = "Lid")]
+    public class GraadController : Controller {
         private readonly IOefeningRepository _oefeningRepository;
-        public GraadController(IOefeningRepository oefeningRepository) {            
+        public GraadController(IOefeningRepository oefeningRepository) {
             _oefeningRepository = oefeningRepository;
         }
 
-        [ServiceFilter(typeof(GebruikerFilter))]
-        [Authorize(Policy = "Lid")]
+        [ServiceFilter(typeof(GebruikerFilter))]        
         public IActionResult Index(Gebruiker gebruiker) {
             IEnumerable<Graad> graden = Enum.GetValues(typeof(Graad)).Cast<Graad>().Where(x => x < gebruiker.Graad).ToList();
             ViewData["HuidigeGraad"] = gebruiker.Graad;
             return View(graden);
         }
 
-        
-        public IActionResult OefeningType(int graadid) {            
+
+        public IActionResult OefeningType(int graadid) {
             IEnumerable<OefeningType> oefeningTypes = Enum.GetValues(typeof(OefeningType)).Cast<OefeningType>();
             ViewData["Graad"] = graadid;
             return View(oefeningTypes);
         }
 
-        
+
         public IActionResult Oefening(int graadid, int typeid) {
             IEnumerable<Oefening> oefeningen = _oefeningRepository.GetByGraadAndType(graadid, typeid);
             if(oefeningen == null)
@@ -40,9 +40,10 @@ namespace G07_Taijitan.Controllers {
             return View(oefeningen);
         }
 
-        public IActionResult Videomateriaal(int oefeningid) {
+        [ServiceFilter(typeof(GebruikerFilter))]
+        public IActionResult Videomateriaal(Gebruiker gebruiker, int oefeningid) {
             Oefening oefening = _oefeningRepository.GetBy(oefeningid);
-            if(oefening == null) {
+            if(oefening == null || gebruiker.Graad < oefening.Graad) {
                 return NotFound();
             }
             IEnumerable<Lesmateriaal> materiaal = oefening.Lesmateriaal.ToList();
@@ -51,15 +52,15 @@ namespace G07_Taijitan.Controllers {
                 if(x is Video)
                     lijst.Add((Video)x);
             }
-
-            //if(materiaal == null)
-            //    return NotFound();
+            if(lijst == null)
+                return NotFound();
             return View(lijst);
         }
 
-        public IActionResult Afbeeldingen(int oefeningid) {
+        [ServiceFilter(typeof(GebruikerFilter))]
+        public IActionResult Afbeeldingen(Gebruiker gebruiker, int oefeningid) {
             Oefening oefening = _oefeningRepository.GetBy(oefeningid);
-            if(oefening == null) {
+            if(oefening == null || gebruiker.Graad < oefening.Graad) {
                 return NotFound();
             }
             IEnumerable<Lesmateriaal> materiaal = oefening.Lesmateriaal.ToList();
@@ -68,12 +69,16 @@ namespace G07_Taijitan.Controllers {
                 if(x is Foto)
                     lijst.Add((Foto)x);
             }
+            if(lijst == null) {
+                return NotFound();
+            }
             return View(lijst);
         }
 
-        public IActionResult Tekstbestanden(int oefeningid) {
+        [ServiceFilter(typeof(GebruikerFilter))]
+        public IActionResult Tekstbestanden(Gebruiker gebruiker, int oefeningid) {
             Oefening oefening = _oefeningRepository.GetBy(oefeningid);
-            if(oefening == null) {
+            if(oefening == null || gebruiker.Graad < oefening.Graad) {
                 return NotFound();
             }
             IEnumerable<Lesmateriaal> materiaal = oefening.Lesmateriaal.ToList();
@@ -81,6 +86,9 @@ namespace G07_Taijitan.Controllers {
             foreach(var x in materiaal) {
                 if(x is Tekst)
                     lijst.Add((Tekst)x);
+            }
+            if(lijst == null) {
+                return NotFound();
             }
             return View(lijst);
         }

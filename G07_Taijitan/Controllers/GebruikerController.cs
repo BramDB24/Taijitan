@@ -14,6 +14,7 @@ namespace G07_Taijitan.Controllers
 {
     /* change at 2402 authorize tagg en servicefilter tagg toegevoegd aan httppost*/
 
+    [Authorize(Policy = "Lid")]
     [ServiceFilter(typeof(GebruikerFilter))]
     public class GebruikerController : Controller
     {
@@ -30,16 +31,8 @@ namespace G07_Taijitan.Controllers
             return View(gebruikers.OrderBy(v => v.Gebruikersnaam));
         }
 
-        [Authorize(Policy = "Lid")]
         public IActionResult Edit(Gebruiker gebruiker)
-        {
-            //if(User.Identity.Name == null || id != User.Identity.Name)
-            //    return NotFound();
-
-            //Gebruiker user = _gebruikerRepository.GetByGebruikernaam(id);
-            //if(user == null) {
-            //    return NotFound();
-            //}
+        {   
             if (gebruiker == null)
             {
                 return NotFound();
@@ -48,15 +41,11 @@ namespace G07_Taijitan.Controllers
             return View(new GebruikersViewModel(gebruiker)); //gebruiker moet aangepast worden zodat het een concreet type is
         }
 
-        [HttpPost]
-        [Authorize(Policy = "Lid")]
+        [HttpPost]        
         public IActionResult Edit(Gebruiker gebruiker, GebruikersViewModel gvm)
         {   
             if (ModelState.IsValid)
-            {
-                //if (gebruiker == null)
-                //    return NotFound();
-                
+            {                
                 try
                 {
                     Gebruiker _gebruiker = gebruiker;

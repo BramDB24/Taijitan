@@ -8,13 +8,13 @@
 <h2>@ViewData["Title"]</h2>
 <div>
     <div class="col-sm-4 col-md-4">
-        <a class="btn btn-default, text-center, test" asp-controller="Graad" asp-action="Videomateriaal" asp-route-oefeningid="@Model.FirstOrDefault().OefeningId">Videomateriaal</a>       
+        <a class="btn btn-default, text-center, keuze" asp-controller="Graad" asp-action="Videomateriaal" asp-route-oefeningid="@Model.FirstOrDefault().OefeningId">Videomateriaal</a>       
     </div>
     <div class="col-sm-4 col-md-4">
-        <p class="btn btn-primary, text-center, test">@ViewData["Title"]</p>
+        <p class="btn btn-primary, text-center, keuze">@ViewData["Title"]</p>
     </div>
     <div class="col-sm-4 col-md-4">
-        <a class="btn btn-default, text-center, test" asp-controller="Graad" asp-action="Tekstbestanden" asp-route-oefeningid="@Model.FirstOrDefault().OefeningId">Tekstmateriaal</a>
+        <a class="btn btn-default, text-center, keuze" asp-controller="Graad" asp-action="Tekstbestanden" asp-route-oefeningid="@Model.FirstOrDefault().OefeningId">Tekstmateriaal</a>
     </div>
 </div>
 @foreach(var foto in Model) {
