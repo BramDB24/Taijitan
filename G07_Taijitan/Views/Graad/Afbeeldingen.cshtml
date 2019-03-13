@@ -6,13 +6,23 @@
 }
 <link href="~/css/website.css" rel="stylesheet" type="text/css">
 <h2>@ViewData["Title"]</h2>
-
+<div>
+    <div class="col-sm-4 col-md-4">
+        <a class="btn btn-default, text-center, test" asp-controller="Graad" asp-action="Videomateriaal" asp-route-oefeningid="@Model.FirstOrDefault().OefeningId">Videomateriaal</a>       
+    </div>
+    <div class="col-sm-4 col-md-4">
+        <p class="btn btn-primary, text-center, test">@ViewData["Title"]</p>
+    </div>
+    <div class="col-sm-4 col-md-4">
+        <a class="btn btn-default, text-center, test" asp-controller="Graad" asp-action="Tekstbestanden" asp-route-oefeningid="@Model.FirstOrDefault().OefeningId">Tekstmateriaal</a>
+    </div>
+</div>
 @foreach(var foto in Model) {
-    
+        <h3>@foto.Naam</h3>
         var base64 = Convert.ToBase64String(foto.Image);
         var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
     
     <img src="@imgSrc" />
-    <p>@foto.Naam</p>
+    
 }
 
