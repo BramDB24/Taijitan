@@ -4,15 +4,29 @@
     ViewData["Title"] = "Afbeeldingen";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/css/website.css" rel="stylesheet" type="text/css">
-<h2>@ViewData["Title"]</h2>
-
-@foreach(var foto in Model) {
-    
-        var base64 = Convert.ToBase64String(foto.Image);
-        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-    
-    <img src="@imgSrc" />
-    <p>@foto.Naam</p>
-}
+<body>
+    <link href="~/css/website.css" rel="stylesheet" type="text/css">
+    <h2>@ViewData["Title"]</h2>
+    <div>
+        <div class="col-sm-4 col-md-4">
+            <a class="btn btn-default, text-center, keuze" asp-controller="Graad" asp-action="Videomateriaal" asp-route-oefeningid="@((int)ViewData["oefeningid"])">Videomateriaal</a>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <p class="btn btn-primary, text-center, keuze">@ViewData["Title"]</p>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <a class="btn btn-default, text-center, keuze" asp-controller="Graad" asp-action="Tekstbestanden" asp-route-oefeningid="@((int)ViewData["oefeningid"])">Tekstmateriaal</a>
+        </div>
+    </div>
+    <div class="container">
+        @foreach(var foto in Model) {
+            var base64 = Convert.ToBase64String(foto.Image);
+            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+            <div class="col-md-4">
+                <h3 class="text-center">@foto.Naam</h3>
+                <img class="displayed" src="@imgSrc" />
+            </div>
+        }
+        </div>
+</body>
 

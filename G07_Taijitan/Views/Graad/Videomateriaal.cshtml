@@ -6,16 +6,27 @@
 <body>
 
     <h2>@ViewData["Title"]</h2>
-
-    <p class="btn btn-primary, col-xs-12 col-sm-4 ">Videomateriaal</p>
-    <a class="btn btn-default, col-xs-12 col-sm-4 " asp-controller="Graad" asp-action="Afbeeldingen" asp-route-oefeningid="@Model.FirstOrDefault().OefeningId">Afbeeldingen</a>
-    <a class="btn btn-default, col-xs-12 col-sm-4 " asp-controller="Graad" asp-action="Tekstmateriaal" asp-route-oefeningid="@Model.FirstOrDefault().OefeningId">Tekstmateriaal</a>
-
-    @foreach(var video in Model) {
-        <iframe width="560" height="315"
+    <div>
+        <div class="col-sm-4 col-md-4">
+            <p class="btn btn-primary text-center keuze">@ViewData["Title"]</p>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <a class="btn btn-default text-center keuze" asp-controller="Graad" asp-action="Afbeeldingen" asp-route-oefeningid="@((int)ViewData["oefeningid"])">Afbeeldingen</a>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <a class="btn btn-default text-center keuze" asp-controller="Graad" asp-action="Tekstbestanden" asp-route-oefeningid="@((int)ViewData["oefeningid"])">Tekstmateriaal</a>
+        </div>
+    </div>
+    @foreach (var video in Model)
+    {
+    <div class="col-md-12 resp-container">
+        <iframe class="resp-iframe"
                 src="@video.Url"
                 frameborder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+                allowfullscreen>
+
+        </iframe>
+    </div>
     }
 </body>
