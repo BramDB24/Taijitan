@@ -54,6 +54,7 @@ namespace G07_Taijitan.Controllers {
             }
             if(lijst == null)
                 return NotFound();
+            ViewData["oefeningid"] = oefeningid;
             return View(lijst);
         }
 
@@ -72,6 +73,7 @@ namespace G07_Taijitan.Controllers {
             if(lijst == null) {
                 return NotFound();
             }
+            ViewData["oefeningid"] = oefeningid;
             return View(lijst);
         }
 
@@ -90,6 +92,7 @@ namespace G07_Taijitan.Controllers {
             if(lijst == null) {
                 return NotFound();
             }
+            ViewData["oefeningid"] = oefeningid;
             return View(lijst);
         }
     }

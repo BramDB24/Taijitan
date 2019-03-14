@@ -11,10 +11,10 @@
             <p class="btn btn-primary text-center keuze">@ViewData["Title"]</p>
         </div>
         <div class="col-sm-4 col-md-4">
-            <a class="btn btn-default text-center keuze" asp-controller="Graad" asp-action="Afbeeldingen" asp-route-oefeningid="@Model.FirstOrDefault().OefeningId">Afbeeldingen</a>
+            <a class="btn btn-default text-center keuze" asp-controller="Graad" asp-action="Afbeeldingen" asp-route-oefeningid="@((int)ViewData["oefeningid"])">Afbeeldingen</a>
         </div>
         <div class="col-sm-4 col-md-4">
-            <a class="btn btn-default text-center keuze" asp-controller="Graad" asp-action="Tekstbestanden" asp-route-oefeningid="@Model.FirstOrDefault().OefeningId">Tekstmateriaal</a>
+            <a class="btn btn-default text-center keuze" asp-controller="Graad" asp-action="Tekstbestanden" asp-route-oefeningid="@((int)ViewData["oefeningid"])">Tekstmateriaal</a>
         </div>
     </div>
     @foreach (var video in Model)
