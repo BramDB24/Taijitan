@@ -52,7 +52,7 @@ namespace G07_Taijitan.Tests.Controllers
             {
                 Naam = "De Bleecker Edit"
             };
-            _controller.Edit("jonah.desmet", gebruikerEvm);
+            _controller.Edit(_dummyContext._gebruiker1, gebruikerEvm);
             Gebruiker bram = _dummyContext._gebruiker1;
             Assert.Equal("De Bleecker Edit", bram.Naam);
             _gebruikersRepository.Verify(t => t.SaveChanges(), Times.Once());
@@ -66,7 +66,7 @@ namespace G07_Taijitan.Tests.Controllers
             {
                 Adres = "Adres Edit 154"
             };
-            _controller.Edit("jonah.desmet", gebruikerEvm);
+            _controller.Edit( _dummyContext._gebruiker1, gebruikerEvm);
             Gebruiker bram = _dummyContext._gebruiker1;
             Assert.Equal("Adres Edit 154", bram.Adres);
             _gebruikersRepository.Verify(t => t.SaveChanges(), Times.Once());
@@ -80,7 +80,7 @@ namespace G07_Taijitan.Tests.Controllers
             {
                 Telefoonnummer = "047"
             };
-            RedirectToActionResult action = _controller.Edit("jonah.desmet", gebruikerEvm) as RedirectToActionResult;
+            RedirectToActionResult action = _controller.Edit(_dummyContext._gebruiker1, gebruikerEvm) as RedirectToActionResult;
             Assert.Equal("Index", action?.ActionName);
         }
         #endregion
