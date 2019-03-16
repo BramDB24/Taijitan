@@ -29,7 +29,7 @@ namespace G07_Taijitan.Tests.Data {
                 Gebruikersnaam = "jonah.desmet",
                 Telefoonnummer = "0478001144",                
                 Wachtwoord = "P@ssword1",
-                Graad = 3
+                Graad = Graad.Kyu4
             };
             //_gebruiker2 = new Lesgever
             //{
