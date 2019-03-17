@@ -57,12 +57,14 @@ namespace G07_Taijitan.Tests.Data {
 
             _oefening1 = new Oefening {
                 Naam = "Vallen",
+                Graad = Graad.Kyu4,
                 OefeningType = OefeningType.Beenworpen,
                 Lesmateriaal = _lesmateriaal1
             };
 
             _oefening2 = new Oefening {
-                Naam = "slaan",
+                Naam = "Slaan",
+                Graad = Graad.Kyu4,
                 OefeningType = OefeningType.Armstoten,
                 Lesmateriaal = _lesmateriaal2
             };
