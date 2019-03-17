@@ -95,7 +95,7 @@ namespace G07_Taijitan.Tests.Controllers
             Assert.Equal("Jonah", userVm?.Voornaam);
             Assert.Equal("Adres 123", userVm.Adres);
             Assert.Equal("jonah.desmet@hotmail.com", userVm.Email);
-            Assert.Equal("0476000999", userVm.Telefoonnummer);            
+            Assert.Equal("0478001144", userVm.Telefoonnummer);            
         }
 
         [Fact] 

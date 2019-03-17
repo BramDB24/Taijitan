@@ -19,14 +19,18 @@
         </div>
     </div>
     <div class="container">
-        @foreach(var foto in Model) {
+        @*@foreach(var foto in Model) {
             var base64 = Convert.ToBase64String(foto.Image);
             var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
             <div class="col-md-4">
                 <h3 class="text-center">@foto.Naam</h3>
                 <img class="displayed" src="@imgSrc" />
             </div>
-        }
+        }*@
+        <div class="col-md-4">
+            <h3 class="text-center">o-soto-gari</h3>
+            <img class="displayed" src="~/images/o-soto-gari.png" />
+        </div>
         </div>
 </body>
 

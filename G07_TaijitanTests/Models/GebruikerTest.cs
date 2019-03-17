@@ -16,23 +16,24 @@ namespace G07_Taijitan.Tests.Models {
         private const string _telefoonnummer = "0476000002";        
         private const string _wachtwoord = "p@ssword2";
         private readonly DateTime _geboorteDatum = new DateTime(1999, 12, 24);
-        private const int _graad = 1;
+        private const Graad _graad = Graad.Kyu1;
 
         #region Constructors
-        [Fact]
-        public void NewGebruiker_EmptyData_CreateGebruiker()
-        {
-            var gebruiker = new Lid();
-            Assert.Null(gebruiker.Gebruikersnaam);
-            Assert.Null(gebruiker.Naam);
-            Assert.Null(gebruiker.Voornaam);
-            Assert.Null(gebruiker.Adres);
-            Assert.Null(gebruiker.Email);
-            Assert.Null(gebruiker.Telefoonnummer);            
-            Assert.Null(gebruiker.Wachtwoord);
-            Assert.Equal(new DateTime(), gebruiker.Geboortedatum);
-            Assert.Equal(0, gebruiker.Graad);
-        }
+        //[Fact]
+        //public void NewGebruiker_EmptyData_CreateGebruiker()
+        //{
+        //    var gebruiker = new Lid();
+        //    Assert.Null(gebruiker.Gebruikersnaam);
+        //    Assert.Null(gebruiker.Naam);
+        //    Assert.Null(gebruiker.Voornaam);
+        //    Assert.Null(gebruiker.Adres);
+        //    Assert.Null(gebruiker.Email);
+        //    Assert.Null(gebruiker.Telefoonnummer);            
+        //    Assert.Null(gebruiker.Wachtwoord);
+        //    Assert.Equal(new DateTime(), gebruiker.Geboortedatum);
+        //    Assert.Equal(0, (int)gebruiker.Graad);
+        //}
+
         [Fact]
         public void NewGebruiker_ValidData_CreateGebruiker() //Overbodig?
         {
