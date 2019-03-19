@@ -1,14 +1,14 @@
-﻿@model IEnumerable<G07_Taijitan.Models.Domain.Sessie>
+﻿@model G07_Taijitan.Models.Domain.Sessie
 @{
     ViewData["Title"] = "index";
 }
 
 <body>
     <table>
-    @foreach (var x in Model)
+    @foreach (var x in Model.Ledenlijst)
     {
         <tr>
-            <th>@x.Aanwezigheden</th>
+            <th>@x.Gebruikersnaam</th>
         </tr>
     }
     </table>

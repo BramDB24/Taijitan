@@ -30,6 +30,7 @@ namespace G07_Taijitan.Data
             builder.ApplyConfiguration(new GebruikerOefeningConfiguration());
             builder.ApplyConfiguration(new LesmateriaalConfiguration());
             builder.ApplyConfiguration(new SessieConfiguration());
+            builder.ApplyConfiguration(new LidSessieConfiguration());
             //builder.ApplyConfiguration(new OefeningTypeConfiguration());
 
         }

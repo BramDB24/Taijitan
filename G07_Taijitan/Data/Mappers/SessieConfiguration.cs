@@ -13,7 +13,6 @@ namespace G07_Taijitan.Data.Mappers
         public void Configure(EntityTypeBuilder<Sessie> builder)
         {
             builder.HasKey(t => t.SessieDatum);
-            builder.Property(t => t.Aanwezigheden).IsRequired();
         }
 
       

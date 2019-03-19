@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using G07_Taijitan.Models.Domain;
+using G07_Taijitan.Models.Domain.Gebruiker;
 using G07_Taijitan.Models.Domain.RepoInterface;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,15 +11,19 @@ namespace G07_Taijitan.Controllers
 {
     public class SessieController : Controller
     {
-        private readonly Sessie _sessie;
+        private IGebruikerRepository _gebruikerRepository;
 
-        public SessieController(Sessie sessie)
+        public SessieController(Sessie sessie, IGebruikerRepository gebruikerRepository)
         {
-            _sessie = sessie;
+            _gebruikerRepository = gebruikerRepository;
         }
-        public IActionResult Index()
+
+
+        public IActionResult Aanwezigheden(Lesgever lesgever)
         {
-            return View(_sessie.Aanwezigheden);
+            IEnumerable<Lid> gebruikersLijst = (IEnumerable<Lid>)_gebruikerRepository.GetAllGebruikers();
+            Sessie sessie = lesgever.startSessie(gebruikersLijst);
+            return View();
         }
     }
 }
