@@ -2,14 +2,21 @@
 @{
     ViewData["Title"] = "Aanwezigheden";
 }
-
 <body>
-    <table>
-        @foreach (var x in Model.Ledenlijst)
-        {
+    <div class="container">
+        <h2>Leden</h2>
+        <table id="sessietable">
             <tr>
-                <th>@x.Gebruikersnaam</th>
+                <th>Naam</th>
             </tr>
-        }
-    </table>
+            @foreach (var x in Model.Ledenlijst)
+            {           
+            <tr>
+                <td>
+                    @x.Gebruikersnaam
+                </td>                              
+            </tr>
+            }
+        </table>
+    </div>
 </body>
