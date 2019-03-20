@@ -31,6 +31,8 @@ namespace G07_Taijitan.Data
             builder.ApplyConfiguration(new LesmateriaalConfiguration());
             builder.ApplyConfiguration(new SessieConfiguration());
             builder.ApplyConfiguration(new LidSessieConfiguration());
+            builder.ApplyConfiguration(new FormuleConfiguration());
+            builder.ApplyConfiguration(new CommentaarConfiguration());
             //builder.ApplyConfiguration(new OefeningTypeConfiguration());
 
         }

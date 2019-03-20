@@ -38,7 +38,7 @@ namespace G07_Taijitan.Controllers
                 return NotFound();
             }
 
-            return View(new GebruikersViewModel(gebruiker)); //gebruiker moet aangepast worden zodat het een concreet type is
+            return View(new GebruikersViewModel(gebruiker)); 
         }
 
         [HttpPost]        

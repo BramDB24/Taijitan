@@ -53,16 +53,7 @@ namespace G07_Taijitan.Data.Repositories
 
         public IEnumerable<Lid> GetAllLeden()
         {
-            IEnumerable<Gebruiker> gebruikers = _gebruikers.ToList();
-            IList<Lid> leden = new List<Lid>();
-            foreach(var gebruiker in gebruikers)
-            {
-                if(gebruiker is Lid)
-                {
-                    leden.Add((Lid)gebruiker);
-                }
-            }
-            return leden;
+            return _gebruikers.OfType<Lid>().OrderBy(l => l.Naam).ToList();
         }
     }
 }

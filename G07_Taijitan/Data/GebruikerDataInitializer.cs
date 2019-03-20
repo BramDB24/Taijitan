@@ -29,6 +29,24 @@ namespace G07_Taijitan.Data
             {
                 if (!_context.Gebruikers.Any())
                 {
+                    Formule di = new Formule() {
+                        FormuleNaam = "DI",
+                        Punten = 5
+                    };
+                    Formule dond = new Formule() {
+                        FormuleNaam = "DO",
+                        Punten = 5
+                    };
+
+                    Formule vrij = new Formule() {
+                        FormuleNaam = "VR",
+                        Punten = 5
+                    };
+
+                    Formule dovr = new Formule() {
+                        FormuleNaam = "DO,VR",
+                        Punten = 10
+                    };
                     ////Gebruikers
                     Gebruiker Jonah = new Lesgever()
                     {
@@ -52,8 +70,7 @@ namespace G07_Taijitan.Data
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst"
                     };
-                    Gebruiker Bram = new Lid()
-                    {
+                    Gebruiker Bram = new Lid() {
                         Naam = "De Bleecker",
                         Voornaam = "Bram",
                         Adres = "EenAdres1",
@@ -72,7 +89,9 @@ namespace G07_Taijitan.Data
                         Rijksregisternummer = "19990212000000",
                         Gsm = "0476000001",
                         EmailOuders = "ouders@hotmail.com",
-                        Geboorteplek = "Aalst"
+                        Geboorteplek = "Aalst",
+                        Formule = di,
+                        Score = 0
                     };
                     Gebruiker Johanna = new Lid()
                     {
@@ -94,7 +113,9 @@ namespace G07_Taijitan.Data
                         Rijksregisternummer = "19970111000000",
                         Gsm = "0476000002",
                         EmailOuders = "ouders@hotmail.com",
-                        Geboorteplek = "Aalst"
+                        Geboorteplek = "Aalst",
+                        Formule = dond,
+                        Score = 0
                     };
                     Gebruiker Lowie = new Lid()
                     {
@@ -116,7 +137,9 @@ namespace G07_Taijitan.Data
                         Rijksregisternummer = "19981210000000",
                         Gsm = "0476000002",
                         EmailOuders = "ouders@hotmail.com",
-                        Geboorteplek = "Aalst"
+                        Geboorteplek = "Aalst",
+                        Formule = dovr,
+                        Score = 0
                     };
 
                     ////LesMateriaal
