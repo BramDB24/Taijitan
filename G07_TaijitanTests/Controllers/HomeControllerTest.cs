@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Text;
 using G07_Taijitan.Models.Domain.RepoInterface;
 using Xunit;
+using G07_Taijitan.Models.Domain.Gebruiker;
 
 namespace G07_Taijitan.Tests.Controllers
 {
@@ -16,36 +17,30 @@ namespace G07_Taijitan.Tests.Controllers
     {
         private readonly HomeController _controller;
         private readonly DummyApplicationDbContext _dummyContext;
-        private readonly Mock<IOefeningRepository> _oefeningRepository;
-        private readonly Mock<IGebruikerRepository> _gebruikerRepository;
 
         public HomeControllerTest()
         {
             _dummyContext = new DummyApplicationDbContext();
-            _oefeningRepository = new Mock<IOefeningRepository>();
-            _gebruikerRepository = new Mock<IGebruikerRepository>();
-            _controller = new HomeController(_gebruikerRepository.Object, _oefeningRepository.Object);
+            _controller = new HomeController();
         }
-        #region Index
+        #region KeuzeScherm
         [Fact]
-        public void Index_GebruikerZijnGraad_ViewDataIsNietNull()
+        public void KeuzeScherm_LesgeverIsAangemeld_EenSchermWordtGetoondVoorDeLesgever()
         {
-            var result = _controller.Index() as ViewResult;
-            ViewDataDictionary viewData = result.ViewData;
-            Assert.True(viewData["Graad"] != null);
+            Gebruiker user = _dummyContext._gebruiker2;
+            var result = _controller.KeuzeScherm(user);
+            Assert.IsType<ViewResult>(result);
+        }
+
+        [Fact]
+        public void KeuzeScherm_LidIsAangemeld_ErWordtGeenSpeciaalSchermGetoond()
+        {
+            Gebruiker user = _dummyContext._gebruiker1;
+            var result = _controller.KeuzeScherm(user);
+            Assert.IsType<RedirectToActionResult>(result);
         }
         #endregion
 
-        #region Oefening -HttpGet
-        [Fact]
-        public void Oefening_CorrecteOefening_DeCorrecteOefeningIsIngeladenInDeView()
-        {
-            var oefening = _oefeningRepository.Setup(t => t.GetByGraad(1)).Returns(_dummyContext.Oefeningen);
-            var result = _controller.Oefeningen(1) as ViewResult;
-            
-
-        }
-        #endregion
 
     }
 }

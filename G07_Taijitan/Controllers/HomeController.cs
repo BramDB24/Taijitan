@@ -15,13 +15,9 @@ namespace G07_Taijitan.Controllers
 {
     public class HomeController : Controller
     {
-        IGebruikerRepository _gebruikerRepository;
-        IOefeningRepository _oefeningRepository;
 
-        public HomeController(IGebruikerRepository gebruikerRepository, IOefeningRepository oefeningRepository)
+        public HomeController()
         {
-            _gebruikerRepository = gebruikerRepository;
-            _oefeningRepository = oefeningRepository;
         }
 
         [ServiceFilter(typeof(GebruikerFilter))]
@@ -36,10 +32,5 @@ namespace G07_Taijitan.Controllers
 
         }
 
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
     }
 }

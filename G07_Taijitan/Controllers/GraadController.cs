@@ -35,7 +35,7 @@ namespace G07_Taijitan.Controllers {
 
         public IActionResult Oefening(int graadid, int typeid) {
             IEnumerable<Oefening> oefeningen = _oefeningRepository.GetByGraadAndType(graadid, typeid);
-            if(oefeningen == null)
+            if(oefeningen.Count() == 0)
                 return NotFound();
             return View(oefeningen);
         }

@@ -20,15 +20,15 @@ namespace G07_Taijitan.Tests.Controllers
         private readonly GebruikerController _controller;
         private readonly DummyApplicationDbContext _dummyContext;
         private readonly Mock<IGebruikerRepository> _gebruikersRepository;
-        
+
         public GebruikerControllerTest()
         {
             _dummyContext = new DummyApplicationDbContext();
             _gebruikersRepository = new Mock<IGebruikerRepository>();
             _gebruikersRepository.Setup(v => v.GetAllGebruikers()).Returns(_dummyContext.Gebruikers);
-            _gebruikersRepository.Setup(t => t.GetByGebruikernaam("jonah.desmet")).Returns(_dummyContext._gebruiker1);            
+            _gebruikersRepository.Setup(t => t.GetByGebruikernaam("jonah.desmet")).Returns(_dummyContext._gebruiker1);
             _controller = new GebruikerController(_gebruikersRepository.Object);
-            
+
         }
 
         #region Index
@@ -38,7 +38,7 @@ namespace G07_Taijitan.Tests.Controllers
             //_gebruikersRepository.Setup(v => v.GetAllGebruikers()).Returns(_dummyContext.Gebruikers);
             ViewResult actionresult = _controller.Index() as ViewResult;
             var gebruikers = actionresult?.Model as IEnumerable<Gebruiker>;
-            Assert.Equal(2, gebruikers.Count());
+            Assert.Equal(2,gebruikers.Count());
         }
         #endregion
 
@@ -66,40 +66,49 @@ namespace G07_Taijitan.Tests.Controllers
             {
                 Adres = "Adres Edit 154"
             };
-            _controller.Edit( _dummyContext._gebruiker1, gebruikerEvm);
+            _controller.Edit(_dummyContext._gebruiker1, gebruikerEvm);
             Gebruiker bram = _dummyContext._gebruiker1;
             Assert.Equal("Adres Edit 154", bram.Adres);
             _gebruikersRepository.Verify(t => t.SaveChanges(), Times.Once());
         }
 
-        [Fact] //magnietwerken
-        public void Edit_InvalidEdit_ReturnActionMethode()
+        [Fact]
+        public void Edit_InvalidEdit_DataWordtNietGeupdate()
         {
-            //_gebruikersRepository.Setup(t => t.GetByGebruikernaam("string")).Returns(_dummyContext._gebruiker2);
             GebruikersViewModel gebruikerEvm = new GebruikersViewModel(_dummyContext._gebruiker1)
             {
-                Telefoonnummer = "047"
+                Telefoonnummer = ""
             };
-            RedirectToActionResult action = _controller.Edit(_dummyContext._gebruiker1, gebruikerEvm) as RedirectToActionResult;
-            Assert.Equal("Index", action?.ActionName);
+            Gebruiker jonah = _dummyContext._gebruiker1;
+            Assert.Equal("0478001144", jonah.Telefoonnummer);
+        }
+
+        [Fact]
+        public void Edit_InvalidEditModelStateError_DataWordtNietGeupdate()
+        {
+            GebruikersViewModel gebruikerEvm = new GebruikersViewModel(_dummyContext._gebruiker1)
+            {
+                Voornaam = ""
+            };
+            _controller.ModelState.AddModelError("", "Error message");
+            ViewResult result = _controller.Edit(_dummyContext._gebruiker1, gebruikerEvm) as ViewResult;
+            Assert.Equal("Jonah", _dummyContext._gebruiker1.Voornaam);
+
         }
         #endregion
 
         #region Edit --get
 
         [Fact]
-        public void EditHttpGet_ValidUserId_PassesUserDetailsInAnEditViewModelToView() {
-            var result = _controller.Edit(_dummyContext._gebruiker1) as ViewResult;
-            var userVm = result?.Model as GebruikersViewModel;
-            Assert.Equal("De Smet", userVm?.Naam);
-            Assert.Equal("Jonah", userVm?.Voornaam);
-            Assert.Equal("Adres 123", userVm.Adres);
-            Assert.Equal("jonah.desmet@hotmail.com", userVm.Email);
-            Assert.Equal("0476000999", userVm.Telefoonnummer);            
+        public void Edit_GeeftGebruikerMeeAanViewModel()
+        {
+            IActionResult action = _controller.Edit(_dummyContext._gebruiker1);
+            GebruikersViewModel vm = (action as ViewResult)?.Model as GebruikersViewModel;
+            Assert.Equal("Jonah", vm?.Voornaam);
         }
 
-        [Fact] 
-        public void EditHttpGet_NonExistingUser_ReturnNotFound()
+        [Fact]
+        public void Edit_NonExistingUser_ReturnNotFound()
         {
             //_gebruikersRepository.Setup(t => t.GetByGebruikernaam("string")).Returns((Gebruiker)null);
             var action = _controller.Edit(null);
