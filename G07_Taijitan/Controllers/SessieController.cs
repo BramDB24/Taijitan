@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using G07_Taijitan.Filters;
 using G07_Taijitan.Models.Domain;
 using G07_Taijitan.Models.Domain.Gebruiker;
 using G07_Taijitan.Models.Domain.RepoInterface;
@@ -13,17 +14,17 @@ namespace G07_Taijitan.Controllers
     {
         private IGebruikerRepository _gebruikerRepository;
 
-        public SessieController(Sessie sessie, IGebruikerRepository gebruikerRepository)
+        public SessieController(IGebruikerRepository gebruikerRepository)
         {
             _gebruikerRepository = gebruikerRepository;
         }
 
-
+        [ServiceFilter(typeof(GebruikerFilter))]
         public IActionResult Aanwezigheden(Lesgever lesgever)
         {
-            IEnumerable<Lid> gebruikersLijst = (IEnumerable<Lid>)_gebruikerRepository.GetAllGebruikers();
+            IEnumerable<Lid> gebruikersLijst = _gebruikerRepository.GetAllLeden().AsEnumerable();
             Sessie sessie = lesgever.startSessie(gebruikersLijst);
-            return View();
+            return View(sessie);
         }
     }
 }

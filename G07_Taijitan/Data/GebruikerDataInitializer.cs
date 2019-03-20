@@ -30,7 +30,7 @@ namespace G07_Taijitan.Data
                 if (!_context.Gebruikers.Any())
                 {
                     ////Gebruikers
-                    Gebruiker Jonah = new Lid()
+                    Gebruiker Jonah = new Lesgever()
                     {
                         Naam = "De Smet",
                         Voornaam = "Jonah",
@@ -395,6 +395,10 @@ namespace G07_Taijitan.Data
             var user = new IdentityUser { UserName = username };
             await _userManager.CreateAsync(user, password);
             await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, role));
+            if(role == "Lesgever")
+            {
+                await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, "Lid"));
+            }
         }
     }
 }

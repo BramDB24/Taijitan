@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using G07_Taijitan.Models.Domain.Gebruiker;
+using System.Collections.Generic;
 
 namespace G07_Taijitan.Models.Domain.RepoInterface
 {
@@ -7,5 +8,6 @@ namespace G07_Taijitan.Models.Domain.RepoInterface
         IEnumerable<Gebruiker.Gebruiker> GetAllGebruikers();
         void SaveChanges();
         Gebruiker.Gebruiker GetByGebruikernaam(string gebruikersnaam);
+        IEnumerable<Lid> GetAllLeden();
     }
 }

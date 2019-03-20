@@ -103,7 +103,7 @@ namespace G07_Taijitan
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Graad}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=KeuzeScherm}/{id?}");
             });
             initializer.InitializeData().Wait();
         }
