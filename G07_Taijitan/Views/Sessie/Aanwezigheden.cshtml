@@ -2,21 +2,23 @@
 @{
     ViewData["Title"] = "Aanwezigheden";
 }
+
 <body>
     <div class="container">
         <h2>Leden</h2>
-        <table id="sessietable">
-            <tr>
-                <th>Naam</th>
-            </tr>
+        <div id="ledenLijst" class="col-md-12">
+
+            <div class="keuze">
+                Naam
+            </div>
+
             @foreach (var x in Model.Ledenlijst)
-            {           
-            <tr>
-                <td>
-                    @x.Gebruikersnaam
-                </td>                              
-            </tr>
+            {<div class="col-md-6">
+                    <div class="lijst text-center" id="@x.Gebruikersnaam" onclick="registreerAanwezigheid('@x.Gebruikersnaam')">
+                        @x.Gebruikersnaam
+                    </div>
+                </div>
             }
-        </table>
+        </div>
     </div>
 </body>

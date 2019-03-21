@@ -100,39 +100,17 @@ h2 {
     margin-left: auto;
     margin-right: auto
 }
-#sessietable {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;   
+/*tijdelijke opmaak*/
+.lijst {
+    width: 100%;
+    padding: 20Px;
+    font-size: 18px;
+    background-color: #FFFFFF;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
 }
-    #sessietable td, #sessietable th {
-        border: 1px solid #ddd;
-        padding: 8px;
-
-    }
-    #sessietable td {
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
-
-
-#sessietable tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-#sessietable tr:hover {
-    background-color: #ddd;
-}
-#sessietable tr:focus {
-    background-color: red;
-}
-
-    #sessietable th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #346567;
-        color: #9d9d9d;
-        font-size: 18px;
-    }
 
