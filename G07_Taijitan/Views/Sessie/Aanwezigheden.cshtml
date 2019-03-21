@@ -11,14 +11,15 @@
             <div class="keuze">
                 Naam
             </div>
-
-            @foreach (var x in Model.Ledenlijst)
-            {<div class="col-md-6">
-                    <div class="lijst text-center" id="@x.Gebruikersnaam" onclick="registreerAanwezigheid('@x.Gebruikersnaam')">
-                        @x.Gebruikersnaam
+            <div id="leden">
+                @foreach (var x in Model.Ledenlijst)
+                {<div class="col-md-6">
+                        <div class="leden lijst text-center" id="@x.Gebruikersnaam" onclick="registreerAanwezigheid('@x.Gebruikersnaam')">
+                            @x.Gebruikersnaam
+                        </div>
                     </div>
+                }
                 </div>
-            }
-        </div>
+            </div>
     </div>
 </body>
