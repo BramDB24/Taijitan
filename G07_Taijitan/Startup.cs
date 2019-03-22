@@ -64,7 +64,8 @@ namespace G07_Taijitan
             //services.AddScoped<IOefeningTypeRepository, OefeningTypeRepository>();
             services.AddScoped<GebruikerFilter>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddMvc(options => {
+            services.AddMvc(options =>
+            {
                 options.ModelBinderProviders.Insert(0, new GebruikerEntityProvider());
             });
         }
@@ -89,13 +90,7 @@ namespace G07_Taijitan
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseStatusCodePages(async context => {
-                context.HttpContext.Response.ContentType = "text/plain";
-
-                await context.HttpContext.Response.WriteAsync(
-                    "U probeert een pagina te bezoeken die helaas niet bestaat :("
-                    );
-            });
+            app.UseStatusCodePagesWithRedirects("/Home/Error");
 
             app.UseAuthentication();
 

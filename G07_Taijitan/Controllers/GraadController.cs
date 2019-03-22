@@ -39,6 +39,16 @@ namespace G07_Taijitan.Controllers {
                 return NotFound();
             return View(oefeningen);
         }
+        
+        [HttpPost]
+        public IActionResult OefeningMateriaal(int oefeningId)
+        {
+            var materiaal = _oefeningRepository.GetBy(oefeningId).Lesmateriaal.ToList();
+            
+            return Json(materiaal);
+        }
+
+        #region ReplaceMe
 
         [ServiceFilter(typeof(GebruikerFilter))]
         public IActionResult Videomateriaal(Gebruiker gebruiker, int oefeningid) {
@@ -57,6 +67,8 @@ namespace G07_Taijitan.Controllers {
             ViewData["oefeningid"] = oefeningid;
             return View(lijst);
         }
+
+       
 
         [ServiceFilter(typeof(GebruikerFilter))]
         public IActionResult Afbeeldingen(Gebruiker gebruiker, int oefeningid) {
@@ -95,5 +107,7 @@ namespace G07_Taijitan.Controllers {
             ViewData["oefeningid"] = oefeningid;
             return View(lijst);
         }
+        #endregion
+
     }
 }
