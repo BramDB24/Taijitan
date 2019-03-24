@@ -4,25 +4,41 @@
 // Write your JavaScript code. 
 var aanwezigeLeden = new Array();
 var afwezigeLeden = new Array();
-    Array.from(document.getElementsByClassName("leden")).forEach(function (element) {
+Array.from(document.getElementsByClassName("leden")).forEach(function (element) {
     afwezigeLeden.push(element.id);
 });
 
 
-    function registreerAanwezigheid(id)
-    {
-        if (aanwezigeLeden.includes(id)) {
-            afwezigeLeden.push(id);
-            var index = aanwezigeLeden.indexOf(id);
-            if (index !== -1) aanwezigeLeden.splice(index, 1);
-            document.getElementById(id).style.backgroundColor = "#FFFFFF"; // backcolor
+function registreerAanwezigheid(id) {
+    if (aanwezigeLeden.includes(id)) {
+        afwezigeLeden.push(id);
+        var index = aanwezigeLeden.indexOf(id);
+        if (index !== -1) aanwezigeLeden.splice(index, 1);
+        document.getElementById(id).style.backgroundColor = "#FFFFFF"; // backcolor
 
-        } else {
-            aanwezigeLeden.push(id);
-            if (index !== -1) afwezigeLeden.splice(index, 1);
-            document.getElementById(id).style.backgroundColor = "#7FFF00"; // backcolor
-            
-        } 
-        return false;
+    } else {
+        aanwezigeLeden.push(id);
+        if (index !== -1) afwezigeLeden.splice(index, 1);
+        document.getElementById(id).style.backgroundColor = "#7FFF00"; // backcolor
+
     }
+    return false;
+}
+function determineMaterial(id) {
+    $.ajax({
+        type: "get",
+        url: `/graad/ongetmateriaal?oefeningid=${id}`,
+        success: function (response_data_json) {
+            view_data = response_data_json.view_data;
+            console.log(view_data); 
+            doWork(view_data);
+        },
+        failure: function x(response) {
+            alert(respone);
+        }
+    });
+}
 
+function doWork(para){
+    console.log('dowork');
+}

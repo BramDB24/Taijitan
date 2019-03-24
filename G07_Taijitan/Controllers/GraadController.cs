@@ -40,12 +40,18 @@ namespace G07_Taijitan.Controllers {
             return View(oefeningen);
         }
         
-        [HttpPost]
-        public IActionResult OefeningMateriaal(int oefeningId)
+
+        public JsonResult OnGetMateriaal(int oefeningId)
         {
-            var materiaal = _oefeningRepository.GetBy(oefeningId).Lesmateriaal.ToList();
-            
-            return Json(materiaal);
+            var result = _oefeningRepository.GetBy(oefeningId).Lesmateriaal.ToList();
+            return  new JsonResult(result);
+        }
+
+        public IActionResult OefeningMaterialView(int oefeningId)
+        {
+            int id = oefeningId;
+            ViewData["oefeningid"] = oefeningId;
+            return View();
         }
 
         #region ReplaceMe
