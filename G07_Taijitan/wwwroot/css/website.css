@@ -114,3 +114,7 @@ h2 {
     margin-bottom: 20px;
 }
 
+.tekstpdf {
+    width: inherit;
+    height: 800px;
+}

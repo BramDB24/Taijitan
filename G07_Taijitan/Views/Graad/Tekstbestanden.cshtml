@@ -19,10 +19,22 @@
         <p class="btn btn-primary text-center keuze">@ViewData["Title"]</p>
     </div>
 </div>
-@foreach(var tekst in Model) {
-    <h3>@tekst.Naam</h3>
 
-    //PROBEERSEL
+<div class="container">
+    @foreach (var tekst in Model)
+    {
+
+        var base64 = Convert.ToBase64String(tekst.File);
+        var tekstSrc = String.Format("data:application/pdf;base64,{0}", base64);
+    <div class="col-sm-12 col-md-12 text-center">
+        <h3 class="text-center">@tekst.Naam</h3>
+        @*<img class="displayed" src="@tekstSrc" />*@
+        <embed src="@tekstSrc" type="application/pdf" class="tekstpdf">
+
+    </div>
+    }
+</div>
+@*//PROBEERSEL
     <div id="Iframe-Master-CC-and-Rs" class="set-margin set-padding set-border set-box-shadow center-block-horiz">
         <div class="responsive-wrapper
      responsive-wrapper-wxh-572x612"
@@ -38,5 +50,5 @@
             </iframe>
 
         </div>
-    </div>
-}
+    </div>*@
+
