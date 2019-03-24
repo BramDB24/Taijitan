@@ -9,6 +9,7 @@ Array.from(document.getElementsByClassName("leden")).forEach(function (element) 
 });
 
 
+
 function registreerAanwezigheid(id) {
     if (aanwezigeLeden.includes(id)) {
         afwezigeLeden.push(id);
@@ -24,13 +25,12 @@ function registreerAanwezigheid(id) {
     }
     return false;
 }
-function determineMaterial(id) {
+function determineMaterial(id, materialType) {
     $.ajax({
         type: "get",
         url: `/graad/ongetmateriaal?oefeningid=${id}`,
         success: function (result) {
-            alert(result[1]);
-            alert(result[0].url);
+            doWork(result, materialType)
         },
         failure: function x(response) {
             alert(respone);
@@ -38,6 +38,34 @@ function determineMaterial(id) {
     });
 }
 
-function doWork(para){
-    console.log('dowork');
+function doWork(expectedMaterial, materialType) {
+    switch (materialType) {
+        case "video":
+            createVideoHtml(expectedMaterial);
+            break;
+        case "afbeelding":
+            createAfbeeldingHtml(expectedMaterial);
+            break;
+        case "tekst":
+            createTekstHtml(expectedMaterial);
+            break;
+    }
+}
+
+function createVideoHtml(material) {
+    const mydiv = document.createElement('div');
+    mydiv.setAttribute('class', 'col-md-12 resp-container');
+
+    var myIframe = document.createElement('iframe');
+    myIframe.setAttribute('class', 'resp-iframe');
+    myIframe.src = material[0].url;
+    myIframe.frameBorder = 0;
+    myIframe.allowFullscreen;
+    mydiv.appendChild(myIframe);
+
+    document.getElementById('Material').appendChild(mydiv);
+}
+
+function createAfbeeldingHtml(material) {
+    document.getElementById('Material').innerHTML = '';
 }

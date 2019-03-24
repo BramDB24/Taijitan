@@ -43,12 +43,14 @@ namespace G07_Taijitan.Controllers {
 
         public JsonResult OnGetMateriaal(int oefeningId)
         {
+            ///geeft een lijst terug van al het oefening materiaal en return dit als jsonresult
             var result = _oefeningRepository.GetBy(oefeningId).Lesmateriaal.ToList();
-            return  new JsonResult(result);
+            return new JsonResult(result);
         }
 
         public IActionResult OefeningMaterialView(int oefeningId)
         {
+            ///methode voor het tonen van de view
             int id = oefeningId;
             ViewData["oefeningid"] = oefeningId;
             return View();
