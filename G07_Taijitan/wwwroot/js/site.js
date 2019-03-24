@@ -28,10 +28,9 @@ function determineMaterial(id) {
     $.ajax({
         type: "get",
         url: `/graad/ongetmateriaal?oefeningid=${id}`,
-        success: function (response_data_json) {
-            view_data = response_data_json.view_data;
-            console.log(view_data); 
-            doWork(view_data);
+        success: function (result) {
+            alert(result[1]);
+            alert(result[0].url);
         },
         failure: function x(response) {
             alert(respone);
