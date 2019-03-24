@@ -30,7 +30,7 @@ function determineMaterial(id, materialType) {
         type: "get",
         url: `/graad/ongetmateriaal?oefeningid=${id}`,
         success: function (result) {
-            doWork(result, materialType)
+            checkType(result);
         },
         failure: function x(response) {
             alert(respone);
@@ -38,27 +38,50 @@ function determineMaterial(id, materialType) {
     });
 }
 
-function doWork(expectedMaterial, materialType) {
-    switch (materialType) {
-        case "video":
-            createVideoHtml(expectedMaterial);
-            break;
-        case "afbeelding":
-            createAfbeeldingHtml(expectedMaterial);
-            break;
-        case "tekst":
-            createTekstHtml(expectedMaterial);
-            break;
-    }
+//function doWork(expectedMaterial, materialType) {
+//    switch (materialType) {
+//        case "video":
+//            createVideoHtml(expectedMaterial);
+//            break;
+//        case "afbeelding":
+//            createAfbeeldingHtml(expectedMaterial);
+//            break;
+//        case "tekst":
+//            createTekstHtml(expectedMaterial);
+//            break;
+//    }
+//}
+
+function checkType(result) {
+    Array.from(result).forEach(function (element) {
+        //if (element.url) {
+        //    createVideoHtml(element);
+        //    if (element.image) {
+        //        createAfbeeldingHtml(element);
+        //        if (element.file) {
+        //            createTekstHtml(element);
+        //        }
+        //    }
+        //}
+
+        switch (element) {
+            case element.url:
+                createVideoHtml(element);
+                break;
+            
+        }
+    })
 }
 
 function createVideoHtml(material) {
+    clearContentOfScreen();
+
     const mydiv = document.createElement('div');
     mydiv.setAttribute('class', 'col-md-12 resp-container');
 
     var myIframe = document.createElement('iframe');
     myIframe.setAttribute('class', 'resp-iframe');
-    myIframe.src = material[0].url;
+    myIframe.src = material.url;
     myIframe.frameBorder = 0;
     myIframe.allowFullscreen;
     mydiv.appendChild(myIframe);
@@ -67,5 +90,58 @@ function createVideoHtml(material) {
 }
 
 function createAfbeeldingHtml(material) {
-    document.getElementById('Material').innerHTML = '';
+    ///clear content
+    clearContentOfScreen();
+
+    const myContainer = document.createElement('div');
+    myContainer.setAttribute('class', 'container');
+
+    var image = new Image();
+    image.src = `data:image/gif;base64,${material.image}`
+
+    const myDiv = document.createElement('div');
+    myDiv.setAttribute('class', 'col-md-12');
+
+    const myh3 = document.createElement('h3');
+    myh3.setAttribute('class', 'text-center');
+    const myh3TextNode = document.createTextNode(material.naam);
+    myh3.appendChild(myh3TextNode);
+    myDiv.appendChild(myh3);
+    myDiv.appendChild(image);
+
+    myContainer.appendChild(myDiv);
+    document.getElementById('Material').appendChild(myDiv);
+
+}
+
+function createTekstHtml(material) {
+    clearContentOfScreen();
+
+    const myContainer = document.createElement('div');
+    myContainer.setAttribute('class', 'container');
+
+    var myembed = document.createElement('embed');
+    myembed.src = `data:application/pdf;base64,${material.file}`;
+    myembed.type = 'application/pdf'
+    myembed.setAttribute('class', 'tekstpdf');
+
+    const myDiv = document.createElement('div');
+    myDiv.setAttribute('class', 'col-sm-12 col-md-12 text-center');
+
+    const myh3 = document.createElement('h3');
+    myh3.setAttribute('class', 'text-center');
+    const myh3TextNode = document.createTextNode(material.naam);
+    myh3.appendChild(myh3TextNode);
+    myDiv.appendChild(myh3);
+    myDiv.appendChild(myembed);
+
+    myContainer.appendChild(myDiv);
+    document.getElementById('Material').appendChild(myDiv);
+
+}
+
+function clearContentOfScreen() {
+    var node = document.getElementById('Material');
+    var cnode = node.cloneNode(false);
+    node.parentNode.replaceChild(cnode, node);
 }
