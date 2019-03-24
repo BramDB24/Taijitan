@@ -7,7 +7,7 @@
 <body>
     <link href="~/css/website.css" rel="stylesheet" type="text/css">
     <h2>@ViewData["Title"]</h2>
-    <div>
+    <div class="container">
         <div class="col-sm-4 col-md-4">
             <a class="btn btn-default, text-center, keuze" asp-controller="Graad" asp-action="Videomateriaal" asp-route-oefeningid="@((int)ViewData["oefeningid"])">Videomateriaal</a>
         </div>
@@ -18,15 +18,39 @@
             <a class="btn btn-default, text-center, keuze" asp-controller="Graad" asp-action="Tekstbestanden" asp-route-oefeningid="@((int)ViewData["oefeningid"])">Tekstmateriaal</a>
         </div>
     </div>
-    <div class="container">
-        @foreach(var foto in Model) {
-            var base64 = Convert.ToBase64String(foto.Image);
-            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-            <div class="col-md-12">
-                <h3 class="text-center">@foto.Naam</h3>
-                <img class="displayed" src="@imgSrc" />
-            </div>
-        }
+    <div>
+        <div class="slideshow-container">
+            <!--<div class="container">-->
+            @foreach (var foto in Model)
+            {
+                var base64 = Convert.ToBase64String(foto.Image);
+                var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                <div class="mySlides">
+                    <h3 class="text-center">@foto.Naam</h3>
+                    <img class="displayed" src="@imgSrc" />
+                </div>
+            }
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            @*
+            @foreach (var foto in Model)
+            {
+                var base64 = Convert.ToBase64String(foto.Image);
+                var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                <div class="col-md-12">
+                    <h3 class="text-center">@foto.Naam</h3>
+                    <img class="displayed" src="@imgSrc" />
+                </div>
+            }*@
+            <!--</div>-->
         </div>
+        <!-- The dots/circles -->
+        <div class="text-center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </div>
+    <script src="~/js/afbeeldingen.js"></script>
 </body>
 

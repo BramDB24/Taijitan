@@ -7,9 +7,9 @@ namespace G07_Taijitan.Models.Domain {
 
     public enum OefeningType {
         Beenworpen = 1,
-        Armstoten = 2,
+        Heupworpen = 2,
         Wurggrepen = 3,
-        Kopstoten = 4
+        Schouderworpen = 4
     }
     //public class OefeningType {
 
