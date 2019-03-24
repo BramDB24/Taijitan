@@ -3,24 +3,25 @@
     ViewData["Title"] = "OefeningMateriaal";
    
 }
+
 <h2>@ViewData["Title"]</h2>
 <div>
     <div class="col-sm-4 col-md-4">
-        <p class="btn btn-primary text-center keuze" onclick="determineMaterial(@((int)ViewData["oefeningid"]),'url')">Video</p>
+        <p class="btn btn-primary text-center keuze" onclick="checkType(lesmateriaal, 'url')">Video</p>
     </div>
     <div class="col-sm-4 col-md-4">
-        <a class="btn btn-default text-center keuze" onclick="determineMaterial(@((int)ViewData["oefeningid"]),'image')">Afbeeldingen</a>
+        <a class="btn btn-default text-center keuze" onclick="checkType(lesmateriaal, 'image')">Afbeeldingen</a>
     </div>
     <div class="col-sm-4 col-md-4">
-        <a class="btn btn-default text-center keuze" onclick="determineMaterial(@((int)ViewData["oefeningid"]),'file')">Tekstmateriaal</a>
+        <a class="btn btn-default text-center keuze" onclick="checkType(lesmateriaal, 'file')">Tekstmateriaal</a>
     </div>
 </div>
 
-<body>
+<body onload="determineMaterial(@((int)ViewData["oefeningid"]),'url')">
     <div id='Material'>
 
     </div>
-    <script src="~/js/site.js"></script>
+
 </body>
 
 

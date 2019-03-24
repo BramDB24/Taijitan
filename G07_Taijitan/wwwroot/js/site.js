@@ -4,6 +4,8 @@
 // Write your JavaScript code. 
 var aanwezigeLeden = new Array();
 var afwezigeLeden = new Array();
+var lesmateriaal = new Array();
+
 Array.from(document.getElementsByClassName("leden")).forEach(function (element) {
     afwezigeLeden.push(element.id);
 });
@@ -30,7 +32,8 @@ function determineMaterial(id, materialType) {
         type: "get",
         url: `/graad/ongetmateriaal?oefeningid=${id}`,
         success: function (result) {
-            checkType(result, materialType);
+            lesmateriaal = result;
+            checkType(lesmateriaal, materialType);
         },
         failure: function x(response) {
             alert(respone);
@@ -38,26 +41,10 @@ function determineMaterial(id, materialType) {
     });
 }
 
-//function doWork(expectedMaterial, materialType) {
-//    switch (materialType) {
-//        case "video":
-//            createVideoHtml(expectedMaterial);
-//            break;
-//        case "afbeelding":
-//            createAfbeeldingHtml(expectedMaterial);
-//            break;
-//        case "tekst":
-//            createTekstHtml(expectedMaterial);
-//            break;
-//    }
-//}
-
 function checkType(result, materialType) {
     clearContentOfScreen();
-    Array.from(result).forEach(function (element) {
-        
-        if (element.hasOwnProperty(materialType)) {
-            
+    Array.from(result).forEach(function (element) {    
+        if (element.hasOwnProperty(materialType)) {          
             switch (materialType) {
                 case 'url': createVideoHtml(element); break;
                 case 'image': createAfbeeldingHtml(element); break;
@@ -68,7 +55,6 @@ function checkType(result, materialType) {
 }
 
 function createVideoHtml(material) {
-
     const mydiv = document.createElement('div');
     mydiv.setAttribute('class', 'col-md-12 resp-container');
 
@@ -83,7 +69,6 @@ function createVideoHtml(material) {
 }
 
 function createAfbeeldingHtml(material) {
-    ///clear content
 
     const myContainer = document.createElement('div');
     myContainer.setAttribute('class', 'container');
