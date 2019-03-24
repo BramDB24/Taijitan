@@ -30,7 +30,7 @@ function determineMaterial(id, materialType) {
         type: "get",
         url: `/graad/ongetmateriaal?oefeningid=${id}`,
         success: function (result) {
-            checkType(result);
+            checkType(result, materialType);
         },
         failure: function x(response) {
             alert(respone);
@@ -52,29 +52,22 @@ function determineMaterial(id, materialType) {
 //    }
 //}
 
-function checkType(result) {
+function checkType(result, materialType) {
+    clearContentOfScreen();
     Array.from(result).forEach(function (element) {
-        //if (element.url) {
-        //    createVideoHtml(element);
-        //    if (element.image) {
-        //        createAfbeeldingHtml(element);
-        //        if (element.file) {
-        //            createTekstHtml(element);
-        //        }
-        //    }
-        //}
-
-        switch (element) {
-            case element.url:
-                createVideoHtml(element);
-                break;
+        
+        if (element.hasOwnProperty(materialType)) {
             
-        }
+            switch (materialType) {
+                case 'url': createVideoHtml(element); break;
+                case 'image': createAfbeeldingHtml(element); break;
+                case 'file': createTekstHtml(element); break;
+            }
+        }                 
     })
 }
 
 function createVideoHtml(material) {
-    clearContentOfScreen();
 
     const mydiv = document.createElement('div');
     mydiv.setAttribute('class', 'col-md-12 resp-container');
@@ -91,7 +84,6 @@ function createVideoHtml(material) {
 
 function createAfbeeldingHtml(material) {
     ///clear content
-    clearContentOfScreen();
 
     const myContainer = document.createElement('div');
     myContainer.setAttribute('class', 'container');
@@ -115,7 +107,6 @@ function createAfbeeldingHtml(material) {
 }
 
 function createTekstHtml(material) {
-    clearContentOfScreen();
 
     const myContainer = document.createElement('div');
     myContainer.setAttribute('class', 'container');
