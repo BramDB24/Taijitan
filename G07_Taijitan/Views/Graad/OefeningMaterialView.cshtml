@@ -1,21 +1,26 @@
 ﻿
 @{
     ViewData["Title"] = "OefeningMateriaal";
+   
 }
 <h2>@ViewData["Title"]</h2>
 <div>
     <div class="col-sm-4 col-md-4">
-        <p class="btn btn-primary text-center keuze" onclick="determineMaterial(@((int)ViewData["oefeningid"]))">Video</p>
+        <p class="btn btn-primary text-center keuze" onclick="determineMaterial(@((int)ViewData["oefeningid"]),'video')">Video</p>
     </div>
     <div class="col-sm-4 col-md-4">
-        <a class="btn btn-default text-center keuze" onclick="determineMaterial(@((int)ViewData["oefeningid"]))">Afbeeldingen</a>
+        <a class="btn btn-default text-center keuze" onclick="determineMaterial(@((int)ViewData["oefeningid"]),'afbeelding')">Afbeeldingen</a>
     </div>
     <div class="col-sm-4 col-md-4">
-        <a class="btn btn-default text-center keuze" onclick="determineMaterial(@((int)ViewData["oefeningid"]))">Tekstmateriaal</a>
+        <a class="btn btn-default text-center keuze" onclick="determineMaterial(@((int)ViewData["oefeningid"]),'tekst')">Tekstmateriaal</a>
     </div>
 </div>
 
-<div id="Material">
+<body>
+    <div id='Material'>
 
-</div>
+    </div>
+    <script src="~/js/site.js"></script>
+</body>
+
 
