@@ -53,6 +53,13 @@ body {
     .keuze:hover, .keuze:visited, .keuze:link, .keuze:active {
         text-decoration: none;
     }
+.carousel-inner > .item > img {
+    height: 360px;
+}
+
+.carousel-inner {
+    height: 360px !important;
+}
 
 .nav, .navbar, .navbar-inverse .navbar-fixed-top {
     background-color: #346567;

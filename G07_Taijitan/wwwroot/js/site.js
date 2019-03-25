@@ -79,11 +79,14 @@ function checkOnEmptyTextArea() {
 
 function checkType(result, materialType) {
     clearContentOfScreen();
+
+    var check = true;
+
     Array.from(result).forEach(function (element) {
         if (element.hasOwnProperty(materialType)) {
             switch (materialType) {
                 case 'url': createVideoHtml(element); break;
-                case 'image': createAfbeeldingHtml(element); break;
+                case 'image': createAfbeeldingHtml(element, check); check = false ; break;
                 case 'file': createTekstHtml(element); break;
             }
         }
@@ -104,26 +107,102 @@ function createVideoHtml(material) {
     document.getElementById('Material').appendChild(mydiv);
 }
 
-function createAfbeeldingHtml(material) {
+function createAfbeeldingHtml(material, check) {
 
-    const myContainer = document.createElement('div');
-    myContainer.setAttribute('class', 'container');
+    //const myContainer = document.createElement('div');
+    //myContainer.setAttribute('class', 'container');
+
+    //var image = new Image();
+    //image.src = `data:image/gif;base64,${material.image}`
+
+    //const myDiv = document.createElement('div');
+    //myDiv.setAttribute('class', 'col-md-12');
+
+    //const myh3 = document.createElement('h3');
+    //myh3.setAttribute('class', 'text-center');
+    //const myh3TextNode = document.createTextNode(material.naam);
+    //myh3.appendChild(myh3TextNode);
+    //myDiv.appendChild(myh3);
+    //myDiv.appendChild(image);
+
+    //myContainer.appendChild(myDiv);
+
+    const myDivItem = document.createElement('div');
+
+
+    if (check) {
+        createCarousel();
+
+        myDivItem.setAttribute('class', 'item active');
+
+    } else {
+        myDivItem.setAttribute('class', 'item');
+
+    }
 
     var image = new Image();
-    image.src = `data:image/gif;base64,${material.image}`
+    image.src = `data:image/gif;base64,${material.image}`;
+
+    image.setAttribute('width', '100%');
+    image.setAttribute('height', '200');
+
+    myDivItem.appendChild(image);
+
+    document.getElementById('carousel').appendChild(myDivItem);
+
+}
+
+function createCarousel() {
 
     const myDiv = document.createElement('div');
-    myDiv.setAttribute('class', 'col-md-12');
+    myDiv.setAttribute('class', 'container');
+    myDiv.id = "slider";
 
-    const myh3 = document.createElement('h3');
-    myh3.setAttribute('class', 'text-center');
-    const myh3TextNode = document.createTextNode(material.naam);
-    myh3.appendChild(myh3TextNode);
-    myDiv.appendChild(myh3);
-    myDiv.appendChild(image);
+    const myCarousel = document.createElement('div');
+    myCarousel.id = "carousel_";
+    myCarousel.setAttribute('class', 'carousel slide');
+    myCarousel.setAttribute('data-ride', 'carousel');
 
-    myContainer.appendChild(myDiv);
+    const myCarouselInner = document.createElement('div');
+    myCarouselInner.setAttribute('class', 'carousel-inner');
+    myCarouselInner.id = "carousel";
+    myCarousel.setAttribute('role', 'listbox');
+    myCarousel.appendChild(myCarouselInner);
+    myDiv.appendChild(myCarousel);
+
+    //buttonPrev
+    const myButtonPrev = document.createElement('a');
+    myButtonPrev.setAttribute('class', 'left carousel-control');
+    myButtonPrev.href = "#carousel_";
+    myButtonPrev.setAttribute('role', 'button');
+    myButtonPrev.setAttribute('data-slide', 'prev');
+    //span
+    const mySpan = document.createElement('span');
+    mySpan.setAttribute('class', 'glyphicon glyphicon-chevron-left');
+    mySpan.setAttribute('aria-hidden', 'true');
+    myButtonPrev.appendChild(mySpan);
+
+    //buttonNext
+    const myButtonNext = document.createElement('a');
+
+    myButtonNext.setAttribute('class', 'right carousel-control');
+    myButtonNext.href = "#carousel_";
+    myButtonNext.setAttribute('role', 'button');
+    myButtonNext.setAttribute('data-slide', 'next');
+    //span
+    const mySpan1 = document.createElement('span');
+    mySpan1.setAttribute('class', 'glyphicon glyphicon-chevron-right');
+    mySpan1.setAttribute('aria-hidden', 'true');
+    myButtonNext.appendChild(mySpan1);
+
+    myCarousel.appendChild(myButtonPrev);
+    myCarousel.appendChild(myButtonNext);
+
     document.getElementById('Material').appendChild(myDiv);
+
+    $("#carousel_").carousel({
+        interval: false
+    });
 
 }
 
