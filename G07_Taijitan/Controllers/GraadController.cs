@@ -48,12 +48,19 @@ namespace G07_Taijitan.Controllers {
             return new JsonResult(result);
         }
 
+        [ServiceFilter(typeof(GebruikerFilter))]
         public IActionResult OefeningMaterialView(int oefeningId)
         {
             ///methode voor het tonen van de view
             int id = oefeningId;
             ViewData["oefeningid"] = oefeningId;
             return View();
+        }
+
+        [HttpPost]
+        public void GetCommentaar(string comment, int oefeningid)
+        {
+
         }
 
         #region ReplaceMe

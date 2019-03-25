@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewData["Title"] = "OefeningMateriaal";
-   
+
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -23,5 +23,5 @@
     </div>
 
 </body>
-
-
+<textarea id="commentsection" placeholder="Geef hier commentaar op het lesmateriaal" class="form-control" onkeyup="checkOnEmptyTextArea()"></textarea>
+<button id="submitbutton" class="text-center" disabled="disabled" onclick="postComment()">submit</button>

@@ -5,6 +5,7 @@
 var aanwezigeLeden = new Array();
 var afwezigeLeden = new Array();
 var lesmateriaal = new Array();
+var oefeningId;
 
 Array.from(document.getElementsByClassName("leden")).forEach(function (element) {
     afwezigeLeden.push(element.id);
@@ -41,24 +42,51 @@ function determineMaterial(id, materialType) {
         url: `/graad/ongetmateriaal?oefeningid=${id}`,
         success: function (result) {
             lesmateriaal = result;
+            oefeningId = id;
             checkType(lesmateriaal, materialType);
         },
         failure: function x(response) {
-            alert(respone);
+            alert(response);
         }
     });
 }
 
+function postComment() {
+    var data = $("#commentsection").val();
+    console.log(data);
+    $.ajax({
+        type: "post",
+        url: `/graad/getcommentaar`,
+        data: {
+            comment: data, oefeningId: oefeningId
+        },
+        succes: function (result) {
+            console.log('succes');
+        },
+        error: function (result) {
+            console.log('failed');
+        }
+    })
+}
+
+function checkOnEmptyTextArea() {
+    if ($("#commentsection").val().trim().length < 1) {
+        $("#submitbutton").prop("disabled", true);
+    } else {
+        $("#submitbutton").prop("disabled", false);
+    }
+}
+
 function checkType(result, materialType) {
     clearContentOfScreen();
-    Array.from(result).forEach(function (element) {    
-        if (element.hasOwnProperty(materialType)) {          
+    Array.from(result).forEach(function (element) {
+        if (element.hasOwnProperty(materialType)) {
             switch (materialType) {
                 case 'url': createVideoHtml(element); break;
                 case 'image': createAfbeeldingHtml(element); break;
                 case 'file': createTekstHtml(element); break;
             }
-        }                 
+        }
     })
 }
 

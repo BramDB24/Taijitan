@@ -49,9 +49,10 @@ body {
     margin-bottom: 20px;
     display: block;
 }
-.keuze:hover, .keuze:visited, .keuze:link, .keuze:active {
-    text-decoration: none;
-}
+
+    .keuze:hover, .keuze:visited, .keuze:link, .keuze:active {
+        text-decoration: none;
+    }
 
 .nav, .navbar, .navbar-inverse .navbar-fixed-top {
     background-color: #346567;
@@ -66,14 +67,14 @@ body {
     font-size: 16px;
 }
 
-.navbar-btn:hover, .navbar-btn:visited, .navbar-btn:link, .navbar-btn:active {
-    text-decoration: none;
-}
+    .navbar-btn:hover, .navbar-btn:visited, .navbar-btn:link, .navbar-btn:active {
+        text-decoration: none;
+    }
 
 .logomini {
     height: 40px;
     margin-top: -10px;
-   }
+}
 
 h2 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -95,6 +96,7 @@ h2 {
     height: 100%;
     border: 0;
 }
+
 .displayed {
     display: block;
     margin-left: auto;
