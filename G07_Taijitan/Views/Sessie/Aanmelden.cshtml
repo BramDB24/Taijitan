@@ -7,7 +7,9 @@
 <h2>Aanmelden</h2>
 <div class="leden">
     @foreach(var lid in Model) {
-        <p>@lid.Naam</p>
+        <div class="col-md-6">
+            <a asp-action="Aanmelden" asp-route-id="@lid.Gebruikersnaam">@lid.Gebruikersnaam | @lid.Naam @lid.Voornaam</a>
+        </div>
     }
 </div>
 

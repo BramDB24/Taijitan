@@ -9,5 +9,8 @@ namespace G07_Taijitan.Models.Domain.RepoInterface
     public interface ISessieRepository
     {
         IEnumerable<Lid> getAllLeden();
+        void Add(Sessie sessie);
+        IEnumerable<Sessie> getAll();
+        void SaveChanges();
     }
 }

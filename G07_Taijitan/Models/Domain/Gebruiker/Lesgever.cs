@@ -7,9 +7,6 @@ namespace G07_Taijitan.Models.Domain.Gebruiker {
         public Lesgever() {
 
         }
-
-        public Sessie startSessie(IEnumerable<Lid> ledenlijst) {
-            return new Sessie(ledenlijst);
-        }
+        
     }
 }

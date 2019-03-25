@@ -56,13 +56,14 @@ namespace G07_Taijitan
             {
                 options.AddPolicy("Lid", policy => policy.RequireClaim(ClaimTypes.Role, "Lid"));
             });
-
+            services.AddSession();
             services.AddScoped<GebruikerDataInitializer>();
             services.AddScoped<IGebruikerRepository, GebruikerRepository>();
             services.AddScoped<IOefeningRepository, OefeningRepository>();
             services.AddScoped<ISessieRepository, SessieRepository>();
             //services.AddScoped<IOefeningTypeRepository, OefeningTypeRepository>();
             services.AddScoped<GebruikerFilter>();
+            services.AddScoped<SessieFilter>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMvc(options =>
             {
@@ -93,7 +94,7 @@ namespace G07_Taijitan
             app.UseStatusCodePagesWithRedirects("/Home/Error");
 
             app.UseAuthentication();
-
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

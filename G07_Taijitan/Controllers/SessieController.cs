@@ -13,34 +13,43 @@ namespace G07_Taijitan.Controllers
     public class SessieController : Controller
     {
         private IGebruikerRepository _gebruikerRepository;
+        private ISessieRepository _sessieRepository;
 
-        public SessieController(IGebruikerRepository gebruikerRepository)
+        public SessieController(IGebruikerRepository gebruikerRepository, ISessieRepository sessieRepository)
         {
             _gebruikerRepository = gebruikerRepository;
+            _sessieRepository = sessieRepository;
         }
 
-        [ServiceFilter(typeof(GebruikerFilter))]
-        public IActionResult Aanwezigheden(Lesgever lesgever)
+        
+        public IActionResult Aanwezigheden()
         {
             IEnumerable<Lid> gebruikersLijst = _gebruikerRepository.GetAllLeden().AsEnumerable();
-            //Sessie sessie = lesgever.startSessie(gebruikersLijst);
             return View(gebruikersLijst);
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(SessieFilter))]
         public IActionResult RegistreerAanwezigheden(string aanwezigeLedenIds, string afwezigeLedenIds, Sessie sessie) {
             IEnumerable<string> aanwezigeLedenIdsArray = aanwezigeLedenIds.Split(",");
             IEnumerable<string> afwezigeLedenIdsArray = afwezigeLedenIds.Split(",");
-            ICollection<Lid> aanwezigeLeden = new List<Lid>();
-            ICollection<Lid> afwezigeLeden = new List<Lid>();
-            foreach(string id in aanwezigeLedenIdsArray) {
-                aanwezigeLeden.Add((Lid)_gebruikerRepository.GetByGebruikernaam(id));
-            }
-            foreach(string id in afwezigeLedenIdsArray) {
-                afwezigeLeden.Add((Lid)_gebruikerRepository.GetByGebruikernaam(id));
-            }
+            IEnumerable<Lid> aanwezigeLeden = aanwezigeLedenIdsArray.Select(l => (Lid)_gebruikerRepository.GetByGebruikernaam(l));
+            IEnumerable<Lid> afwezigeLeden = afwezigeLedenIdsArray.Select(l => (Lid)_gebruikerRepository.GetByGebruikernaam(l));
             sessie.RegistreerAanwezigheden(aanwezigeLeden.AsEnumerable(), afwezigeLeden.AsEnumerable());
+            _sessieRepository.Add(sessie);
+            _sessieRepository.SaveChanges();
             return View("Aanmelden", aanwezigeLeden);
+        }
+
+        [ServiceFilter(typeof(SessieFilter))]
+        public IActionResult Aanmelden(Sessie sessie, string id) { //id = gebruikersnaam
+            Gebruiker lid = _gebruikerRepository.GetByGebruikernaam(id);
+            if(lid == null)
+                return NotFound();
+            if(!sessie.Ledenlijst.Any(ls => ls.Lid == lid)) {
+                //no permission page
+            }
+            return RedirectToAction("Index", "Graad");
         }
 
     }

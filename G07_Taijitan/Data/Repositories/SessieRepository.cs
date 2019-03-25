@@ -19,9 +19,22 @@ namespace G07_Taijitan.Data.Repositories
             _context = context;
             _sessie = context.Sessies;
         }
+
+        public void Add(Sessie sessie) {
+            _sessie.Add(sessie);
+        }
+
+        public IEnumerable<Sessie> getAll() {
+            return _sessie.Include(s => s.Ledenlijst).ThenInclude(s => s.Lid).ToList();
+        }
+
         public IEnumerable<Lid> getAllLeden()
         {
             return (IEnumerable<Lid>)_sessie.ToList();   
+        }
+
+        public void SaveChanges() {
+            _context.SaveChanges();
         }
     }
 }
