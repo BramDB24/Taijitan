@@ -1,4 +1,4 @@
-﻿@model G07_Taijitan.Models.Domain.Sessie
+﻿@model IEnumerable<G07_Taijitan.Models.Domain.Gebruiker.Lid>
 @{
     ViewData["Title"] = "Aanwezigheden";
 }
@@ -12,14 +12,18 @@
                 Naam
             </div>
             <div id="leden">
-                @foreach (var x in Model.Ledenlijst)
-                {<div class="col-md-6">
+                @foreach(var x in Model) {<div class="col-md-6">
                         <div class="leden lijst text-center" id="@x.Gebruikersnaam" onclick="registreerAanwezigheid('@x.Gebruikersnaam')">
                             @x.Gebruikersnaam
                         </div>
                     </div>
                 }
-                </div>
             </div>
+            <form action="registreerAanwezigheden" method="post">
+                <input id="aanwezig" type="hidden" name="AanwezigeLedenIds" value="" />
+                <input id="afwezig" type="hidden" name="AfwezigeLedenIds" value="" />
+                <button type="submit" onclick="aanwezighedenRegistreren()" class="btn btn-primary">Stop registratie</button>
+            </form>
+        </div>
     </div>
 </body>

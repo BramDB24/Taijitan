@@ -27,6 +27,14 @@ function registreerAanwezigheid(id) {
     }
     return false;
 }
+
+
+function aanwezighedenRegistreren() {
+    document.getElementById("aanwezig").value = aanwezigeLeden.reduce((a, b) => a + "," + b);
+    document.getElementById("afwezig").value = afwezigeLeden.reduce((a, b) => a + "," + b);
+}
+
+
 function determineMaterial(id, materialType) {
     $.ajax({
         type: "get",

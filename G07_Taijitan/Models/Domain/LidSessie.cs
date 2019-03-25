@@ -23,5 +23,9 @@ namespace G07_Taijitan.Models.Domain {
         public LidSessie() {
 
         }
+
+        public void VeranderAanwezigheid() {
+            Aanwezigheid = !Aanwezigheid;
+        }
     }
 }

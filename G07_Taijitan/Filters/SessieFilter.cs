@@ -24,6 +24,7 @@ namespace G07_Taijitan.Filters {
         }
 
         public override void OnActionExecuted(ActionExecutedContext context) {
+            WriteSessieToSession(_sessie, context.HttpContext);
             base.OnActionExecuted(context);
         }
 

@@ -26,5 +26,15 @@ namespace G07_Taijitan.Models.Domain
         public void AddLid(Lid lid) {
             Ledenlijst.Add(new LidSessie(lid, this));
         }
+
+        public void RegistreerAanwezigheden(IEnumerable<Lid> aanwezigheden, IEnumerable<Lid> afwezigeLeden) {
+            Ledenlijst = new List<LidSessie>();
+            foreach(var x in aanwezigheden) {
+                AddLid(x);
+            }
+            foreach(var x in afwezigeLeden) {
+                AddLid(x);
+            }
+        }
     }
 }

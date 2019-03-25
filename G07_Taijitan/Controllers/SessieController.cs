@@ -23,8 +23,25 @@ namespace G07_Taijitan.Controllers
         public IActionResult Aanwezigheden(Lesgever lesgever)
         {
             IEnumerable<Lid> gebruikersLijst = _gebruikerRepository.GetAllLeden().AsEnumerable();
-            Sessie sessie = lesgever.startSessie(gebruikersLijst);
-            return View(sessie);
+            //Sessie sessie = lesgever.startSessie(gebruikersLijst);
+            return View(gebruikersLijst);
         }
+
+        [HttpPost]
+        public IActionResult RegistreerAanwezigheden(string aanwezigeLedenIds, string afwezigeLedenIds, Sessie sessie) {
+            IEnumerable<string> aanwezigeLedenIdsArray = aanwezigeLedenIds.Split(",");
+            IEnumerable<string> afwezigeLedenIdsArray = afwezigeLedenIds.Split(",");
+            ICollection<Lid> aanwezigeLeden = new List<Lid>();
+            ICollection<Lid> afwezigeLeden = new List<Lid>();
+            foreach(string id in aanwezigeLedenIdsArray) {
+                aanwezigeLeden.Add((Lid)_gebruikerRepository.GetByGebruikernaam(id));
+            }
+            foreach(string id in afwezigeLedenIdsArray) {
+                afwezigeLeden.Add((Lid)_gebruikerRepository.GetByGebruikernaam(id));
+            }
+            sessie.RegistreerAanwezigheden(aanwezigeLeden.AsEnumerable(), afwezigeLeden.AsEnumerable());
+            return View("Aanmelden", aanwezigeLeden);
+        }
+
     }
 }
