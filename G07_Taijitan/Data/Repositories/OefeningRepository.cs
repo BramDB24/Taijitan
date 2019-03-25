@@ -10,9 +10,11 @@ namespace G07_Taijitan.Data.Repositories
 {
     public class OefeningRepository : IOefeningRepository
     {
+        private readonly ApplicationDbContext _context;
         private readonly DbSet<Oefening> _oefeningen;
         public OefeningRepository(ApplicationDbContext context)
         {
+            _context = context;
             _oefeningen = context.Oefeningen;
         }
 
@@ -34,6 +36,10 @@ namespace G07_Taijitan.Data.Repositories
 
         public Oefening GetBy(int id) {
             return _oefeningen.Include(o=>o.Lesmateriaal).FirstOrDefault(o => o.OefeningId == id);
+        }
+
+        public void SaveChanges() {
+            _context.SaveChanges();
         }
     }
 }

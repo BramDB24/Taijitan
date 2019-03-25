@@ -58,9 +58,14 @@ namespace G07_Taijitan.Controllers {
         }
 
         [HttpPost]
-        public void GetCommentaar(string comment, int oefeningid)
+        [ServiceFilter(typeof(GebruikerFilter))]
+        public void GetCommentaar(Gebruiker gebruiker, string comment, int oefeningid)
         {
-
+            Oefening oefening = _oefeningRepository.GetBy(oefeningid);
+            if(oefening != null) {
+                oefening.addCommentaar(gebruiker, comment);
+                _oefeningRepository.SaveChanges();
+            }
         }
 
         #region ReplaceMe

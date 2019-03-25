@@ -8,5 +8,6 @@ namespace G07_Taijitan.Models.Domain.RepoInterface
         IEnumerable<Oefening> GetAll();        
         IEnumerable<Oefening> GetByGraadAndType(int graad, int type);
         IEnumerable<Oefening> GetByGraad(int graad);
+        void SaveChanges();
     }
 }
