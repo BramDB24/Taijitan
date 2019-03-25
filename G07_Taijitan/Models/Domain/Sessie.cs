@@ -10,13 +10,12 @@ namespace G07_Taijitan.Models.Domain
     [JsonObject(MemberSerialization.OptIn)]
     public class Sessie
     {
+        [JsonProperty]
         private ICollection<LidSessie> _ledenlijst = new List<LidSessie>();
 
         [JsonProperty]
         public DateTime SessieDatum { get; set; }
-        [JsonProperty]
         public IEnumerable<LidSessie> Ledenlijst => _ledenlijst.AsEnumerable();
-
         public Sessie() {
             SessieDatum = DateTime.Now;
         }
@@ -34,6 +33,10 @@ namespace G07_Taijitan.Models.Domain
             foreach(var lid in afwezigeLeden) {
                 AddLid(lid);
             }
+        }
+
+        public IEnumerable<Lid> getAanwezigeLeden() {
+            return Ledenlijst.Where(l=>l.Aanwezigheid).Select(l=>l.Lid).AsEnumerable();
         }
     }
 }

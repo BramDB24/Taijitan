@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<G07_Taijitan.Models.Domain.Gebruiker.Lid>
 @{
     ViewData["Title"] = "Aanmelden";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Aanmelden</h2>
+<h2>@ViewData["Title"]</h2>
 <div class="leden">
     @foreach(var lid in Model) {
         <div class="col-md-6">
             <a asp-action="Aanmelden" asp-route-id="@lid.Gebruikersnaam">@lid.Gebruikersnaam | @lid.Naam @lid.Voornaam</a>
         </div>
     }
+    <a class="btn btn-danger" asp-action="EindeSessie">Sessie beëindigen</a>
 </div>
 
 
