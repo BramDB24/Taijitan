@@ -86,7 +86,7 @@ function checkType(result, materialType) {
         if (element.hasOwnProperty(materialType)) {
             switch (materialType) {
                 case 'url': createVideoHtml(element); break;
-                case 'image': createAfbeeldingHtml(element, check); check = false ; break;
+                case 'image': createAfbeeldingHtml(element, check); check = false; break;
                 case 'file': createTekstHtml(element); break;
             }
         }
@@ -109,100 +109,49 @@ function createVideoHtml(material) {
 
 function createAfbeeldingHtml(material, check) {
 
-    //const myContainer = document.createElement('div');
-    //myContainer.setAttribute('class', 'container');
-
-    //var image = new Image();
-    //image.src = `data:image/gif;base64,${material.image}`
-
-    //const myDiv = document.createElement('div');
-    //myDiv.setAttribute('class', 'col-md-12');
-
-    //const myh3 = document.createElement('h3');
-    //myh3.setAttribute('class', 'text-center');
-    //const myh3TextNode = document.createTextNode(material.naam);
-    //myh3.appendChild(myh3TextNode);
-    //myDiv.appendChild(myh3);
-    //myDiv.appendChild(image);
-
-    //myContainer.appendChild(myDiv);
-
-    const myDivItem = document.createElement('div');
-
-
     if (check) {
-        createCarousel();
-
-        myDivItem.setAttribute('class', 'item active');
-
-    } else {
-        myDivItem.setAttribute('class', 'item');
-
+        const myDivItem = document.createElement('div');
+        myDivItem.setAttribute('class', 'slideshow-container');
+        document.getElementById('Material').appendChild(myDivItem);
+        const myDivItem1 = document.createElement('div');
+        myDivItem1.setAttribute('class', 'text-center');
+        myDivItem1.setAttribute('id', 'paljaas');
+        document.getElementById('Material').appendChild(myDivItem1);
+        const myATag = document.createElement('a');
+        myATag.setAttribute('class', 'prev');
+        myATag.setAttribute('onclick', 'plusSlides(-1)');
+        myATag.appendChild(document.createTextNode('\u276E'));
+        document.getElementById('Material').appendChild(myATag);
+        const myATag1 = document.createElement('a');
+        myATag1.setAttribute('class', 'next');
+        myATag1.setAttribute('onclick', 'plusSlides(1)');
+        myATag1.appendChild(document.createTextNode('\u276F'));
+        document.getElementById('Material').appendChild(myATag1);
     }
 
     var image = new Image();
-    image.src = `data:image/gif;base64,${material.image}`;
-
-    image.setAttribute('width', '100%');
-    image.setAttribute('height', '200');
-
-    myDivItem.appendChild(image);
-
-    document.getElementById('carousel').appendChild(myDivItem);
-
-}
-
-function createCarousel() {
+    image.src = `data:image/gif;base64,${material.image}`
 
     const myDiv = document.createElement('div');
-    myDiv.setAttribute('class', 'container');
-    myDiv.id = "slider";
+    myDiv.setAttribute('class', 'mySlides');
+    const myh3 = document.createElement('h3');
+    myh3.setAttribute('class', 'text-center');
+    image.setAttribute('class', 'displayed');
+    const myh3TextNode = document.createTextNode(material.naam);
+    myh3.appendChild(myh3TextNode);
+    myDiv.appendChild(myh3);
+    myDiv.appendChild(image);
+    const myDivItem = document.getElementsByClassName('slideshow-container');
+    myDivItem[0].appendChild(myDiv);
+    const myDiv2 = document.createElement('span');
+    const teller = document.getElementsByClassName('dot').length + 1;
+    myDiv2.setAttribute('class', 'dot');
+    myDiv2.setAttribute('onclick', `currentSlide(${teller})`);
+    document.getElementById('paljaas').appendChild(myDiv2);
+    if (teller == 1) {
+        myDiv2.click();
+    }
 
-    const myCarousel = document.createElement('div');
-    myCarousel.id = "carousel_";
-    myCarousel.setAttribute('class', 'carousel slide');
-    myCarousel.setAttribute('data-ride', 'carousel');
-
-    const myCarouselInner = document.createElement('div');
-    myCarouselInner.setAttribute('class', 'carousel-inner');
-    myCarouselInner.id = "carousel";
-    myCarousel.setAttribute('role', 'listbox');
-    myCarousel.appendChild(myCarouselInner);
-    myDiv.appendChild(myCarousel);
-
-    //buttonPrev
-    const myButtonPrev = document.createElement('a');
-    myButtonPrev.setAttribute('class', 'left carousel-control');
-    myButtonPrev.href = "#carousel_";
-    myButtonPrev.setAttribute('role', 'button');
-    myButtonPrev.setAttribute('data-slide', 'prev');
-    //span
-    const mySpan = document.createElement('span');
-    mySpan.setAttribute('class', 'glyphicon glyphicon-chevron-left');
-    mySpan.setAttribute('aria-hidden', 'true');
-    myButtonPrev.appendChild(mySpan);
-
-    //buttonNext
-    const myButtonNext = document.createElement('a');
-
-    myButtonNext.setAttribute('class', 'right carousel-control');
-    myButtonNext.href = "#carousel_";
-    myButtonNext.setAttribute('role', 'button');
-    myButtonNext.setAttribute('data-slide', 'next');
-    //span
-    const mySpan1 = document.createElement('span');
-    mySpan1.setAttribute('class', 'glyphicon glyphicon-chevron-right');
-    mySpan1.setAttribute('aria-hidden', 'true');
-    myButtonNext.appendChild(mySpan1);
-
-    myCarousel.appendChild(myButtonPrev);
-    myCarousel.appendChild(myButtonNext);
-
-    document.getElementById('Material').appendChild(myDiv);
-
-    $("#carousel_").carousel({
-        interval: false
-    });
 
 }
 
