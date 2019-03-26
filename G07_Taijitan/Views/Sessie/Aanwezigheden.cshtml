@@ -3,27 +3,33 @@
     ViewData["Title"] = "Aanwezigheden";
 }
 
+<link href="~/css/website.css" rel="stylesheet" />
+
 <body>
+    <h2>Aanwezigheid registreren</h2>
     <div class="container">
-        <h2>Leden</h2>
         <div id="ledenLijst" class="col-md-12">
 
             <div class="keuze">
-                Naam
+                Klik op je gebruikersnaam om je aan te melden
             </div>
             <div id="leden">
-                @foreach(var x in Model) {<div class="col-md-6">
+                @foreach (var x in Model)
+                {
+                    <div class="col-md-3">
                         <div class="leden lijst text-center" id="@x.Gebruikersnaam" onclick="registreerAanwezigheid('@x.Gebruikersnaam')">
                             @x.Gebruikersnaam
                         </div>
                     </div>
                 }
             </div>
-            <form action="registreerAanwezigheden" method="post">
-                <input id="aanwezig" type="hidden" name="AanwezigeLedenIds" value="" />
-                <input id="afwezig" type="hidden" name="AfwezigeLedenIds" value="" />
-                <button type="submit" onclick="aanwezighedenRegistreren()" class="btn btn-primary">Stop registratie</button>
-            </form>
+            <div class="col-md-12">
+                <form action="registreerAanwezigheden" method="post">
+                    <input id="aanwezig" type="hidden" name="AanwezigeLedenIds" value="" />
+                    <input id="afwezig" type="hidden" name="AfwezigeLedenIds" value="" />
+                    <button type="submit" onclick="aanwezighedenRegistreren()" class="btn mooiebtn">Stop registratie</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>

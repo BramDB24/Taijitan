@@ -46,10 +46,16 @@
             <!--</div>-->
         </div>
         <!-- The dots/circles -->
+        
         <div class="text-center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
+            @{int i = 1; }
+            @foreach (var foto in Model)
+            {
+                <span class="dot" onclick="currentSlide(i)"></span>
+                i++;
+            }
         </div>
+        
     </div>
     <script src="~/js/afbeeldingen.js"></script>
 </body>

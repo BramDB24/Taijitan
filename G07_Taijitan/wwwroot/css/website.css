@@ -109,18 +109,48 @@ h2 {
     margin-left: auto;
     margin-right: auto
 }
+
 /*tijdelijke opmaak*/
 .lijst {
     width: 100%;
-    padding: 20Px;
+    padding: 20px;
     font-size: 18px;
     background-color: #FFFFFF;
     text-decoration: none;
-    color: black;
-    border: 1px solid black;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 20px;
+}
+
+.mooiebtn {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #346567;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    margin-top: 20px;
     margin-bottom: 20px;
+    display: block;
+}
+
+.commentaar {
+    margin-top: 20px;
+}
+
+.leden:hover {
+    cursor: pointer;
+}
+
+.gebruikersnaam {
+    padding: 10px;
+    font-size: 14px;
+    background-color: white;
+    text-decoration: none !important;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: block;
 }
 
 .tekstpdf {

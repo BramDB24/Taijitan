@@ -19,7 +19,7 @@ function registreerAanwezigheid(id) {
         aanwezigeLeden.push(id);
         var index = afwezigeLeden.indexOf(id);
         if (index !== -1) afwezigeLeden.splice(index, 1);
-        document.getElementById(id).style.backgroundColor = "#7FFF00"; // backcolor
+        document.getElementById(id).style.backgroundColor = "#4F9960"; // backcolor
 
     }
     return false;

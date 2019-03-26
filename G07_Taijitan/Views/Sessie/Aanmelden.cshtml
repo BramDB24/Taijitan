@@ -2,15 +2,24 @@
 @{
     ViewData["Title"] = "Aanmelden";
 }
+<link href="~/css/website.css" rel="stylesheet" />
 
-<h2>@ViewData["Title"]</h2>
-<div class="leden">
-    @foreach(var lid in Model) {
-        <div class="col-md-6">
-            <a asp-action="Aanmelden" asp-route-id="@lid.Gebruikersnaam">@lid.Gebruikersnaam | @lid.Naam @lid.Voornaam</a>
+<body>
+    <h2>@ViewData["Title"]</h2>
+    <div class="container">
+        <div class="leden">
+            @foreach (var lid in Model)
+            {
+                <div class="col-md-4">
+                    <a class="gebruikersnaam text-center" asp-action="Aanmelden" asp-route-id="@lid.Gebruikersnaam">@lid.Gebruikersnaam | @lid.Naam @lid.Voornaam</a>
+                </div>
+            }
         </div>
-    }
-    <a class="btn btn-danger" asp-action="EindeSessie">Sessie beëindigen</a>
-</div>
-
-
+        <div class="clearfix"></div>
+        <div class="col-md-3">
+            <form asp-action="EindeSessie" method="post">
+                <button class="btn mooiebtn">Sessie beëindigen</button>
+            </form>
+        </div>
+    </div>
+</body>
