@@ -1,0 +1,31 @@
+﻿@model IEnumerable<G07_Taijitan.Models.Domain.Graad>
+@using G07_Taijitan.Helpers
+@{
+    ViewData["Title"] = "Taijitan Yoshin Ryu";
+}
+
+<link href="~/css/website.css" rel="stylesheet" type="text/css">
+
+<body>
+    <h2>@ViewData["Title"]</h2>
+
+    <div class="container">
+        <!--EERSTE HUIDIGE-->
+        <div class="col-xs-12 col-sm-4 ">
+            <article class="text-center">
+                <a asp-controller="Graad" asp-action="OefeningType" asp-route-graadid="@((int)ViewData["HuidigeGraad"])"><img src="~/images/@((int)ViewData["HuidigeGraad"]).png" alt="Huidige graad" class="img-responsive center-block" /></a>
+                <p>Huidige (@ViewData["HuidigeGraad"])</p>
+            </article>
+        </div>
+        <!--EINDE EERSTE HUIDIGE-->
+
+        @foreach(var graad in Model) {
+            <div class="col-xs-4 col-sm-2">
+                <article class="text-center">
+                    <a asp-controller="Graad" asp-action="OefeningType" asp-route-graadid="@((int)graad)"><img src="~/images/@((int)graad).png" alt="@(graad.GetDisplayName())" class="img-responsive center-block" /></a>
+                    <p>@(graad.GetDisplayName())</p>
+                </article>
+            </div>
+        }
+    </div>
+</body>

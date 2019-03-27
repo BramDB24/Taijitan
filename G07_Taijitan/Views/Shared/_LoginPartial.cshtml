@@ -2,16 +2,29 @@
 
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
-
 @if (SignInManager.IsSignedIn(User))
 {
-    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Graad", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                <a asp-controller="Gebruiker" asp-action="Edit" asp-route-id="@UserManager.GetUserName(User)" title="Manage">Hallo @UserManager.GetUserName(User)</a>
+
+                @*<a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>*@
             </li>
+            @if (User.IsInRole("Lesgever"))
+            {
+                <li>
+                    <a asp-controller="Sessie" asp-action="Aanwezigheden">Sessie starten</a>
+
+                </li>
+
+                <li>
+                    <a asp-controller="Aanwezigheidslijst" asp-action="Index">Aanwezigheden opvragen</a>
+                </li>
+            }
+
             <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link">Afmelden</button>
             </li>
         </ul>
     </form>
@@ -19,7 +32,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
-        <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+        @*<li><a asp-area="Identity" asp-page="/Account/Register">Registreer</a></li>*@
+        <li><a asp-area="Identity" asp-page="/Account/Login">Aanmelden</a></li>
     </ul>
 }

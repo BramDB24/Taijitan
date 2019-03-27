@@ -1,0 +1,41 @@
+﻿@model IEnumerable<G07_Taijitan.Models.Domain.Gebruiker.Lid>
+@{
+    ViewData["Title"] = "Aanwezigheden";
+}
+
+<link href="~/css/website.css" rel="stylesheet" />
+
+<body>
+    <h2>Aanwezigheid registreren</h2>
+    <div class="container">
+        <div id="ledenLijst" class="col-md-12">
+
+            <div class="keuze">
+                Klik op je gebruikersnaam om je aan te melden
+            </div>
+            <div id="leden">
+                @foreach (var x in Model)
+                {
+                    <div class="col-sm-4 col-md-3">
+                        <div class="leden lijst text-center" id="@x.Gebruikersnaam" onclick="registreerAanwezigheid('@x.Gebruikersnaam')">
+                            @x.Gebruikersnaam
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-12">
+                <form action="registreerAanwezigheden" method="post">
+                    <input id="aanwezig" type="hidden" name="AanwezigeLedenIds" value="" />
+                    <input id="afwezig" type="hidden" name="AfwezigeLedenIds" value="" />
+                    <button type="submit" onclick="aanwezighedenRegistreren()" class="btn mooiebtn">Stop registratie</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section Scripts
+    {
+    <script src="~/js/aanwezigheden.js"></script>
+}

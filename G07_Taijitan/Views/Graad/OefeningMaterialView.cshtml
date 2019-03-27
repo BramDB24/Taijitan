@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Oefening materiaal";
+
+}
+
+<h2>@ViewData["Title"]</h2>
+<header class="container">
+    <div>
+        <div class="col-sm-4 col-md-4">
+            <p class="btn btn-primary text-center keuze" onclick="checkType(lesmateriaal, 'url')">Video</p>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <a class="btn btn-default text-center keuze" onclick="checkType(lesmateriaal, 'image')">Afbeeldingen</a>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <a class="btn btn-default text-center keuze" onclick="checkType(lesmateriaal, 'file')">Tekstmateriaal</a>
+        </div>
+    </div>
+</header>
+
+
+<body onload="determineMaterial(@((int)ViewData["oefeningid"]),'url')">
+    <div class="container" id='Material'>
+
+    </div>
+    <script src="~/js/afbeeldingen.js"></script>
+    <div class="commentaarForm">
+        <textarea id="commentsection" placeholder="Geef hier commentaar op het lesmateriaal" class="form-control commentaar" onkeyup="checkOnEmptyTextArea()"></textarea>
+        <button id="submitbutton" class="text-center mooiebtn" disabled="disabled" onclick="postComment()">Verzend</button>
+    </div>
+    
+
+</body>

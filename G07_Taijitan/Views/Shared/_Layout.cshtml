@@ -7,13 +7,14 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+        <link href="~/css/website.css" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="~/images/logomini.png" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/website.css" asp-append-version="true" />
     </environment>
 </head>
 <body>
@@ -26,22 +27,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">G07_Taijitan</a>
+                <a asp-area="" asp-controller="Graad" asp-action="Index" class="navbar-brand"><img src="~/images/logomini.png" alt="Logo Taijitan Yoshin Ryu" class="logomini" /></a>
+                <a asp-area="" asp-controller="Graad" asp-action="Index" class="navbar-brand">Taijitan Yoshin Ryu</a>
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
         </div>
     </nav>
 
-    <partial name="_CookieConsentPartial" />
 
     <div class="container body-content">
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-success">@TempData["message"]</div>
+        }
+        @if (TempData["error"] != null)
+        {
+            <div class="alert alert-warning">@TempData["error"]</div>
+        }
         @RenderBody()
         <hr />
         <footer>
