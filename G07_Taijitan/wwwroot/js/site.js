@@ -77,23 +77,45 @@ function checkOnEmptyTextArea() {
     }
 }
 
+
+
 function checkType(result, materialType) {
     clearContentOfScreen();
 
     var check = true;
+    if (checkLeeg(result, materialType)) {
+        Array.from(result).forEach(function (element) {
+            if (element.hasOwnProperty(materialType)) {
+                switch (materialType) {
+                    case 'url': createVideoHtml(element); break;
+                    case 'image': createAfbeeldingHtml(element, check); check = false; break;
+                    case 'file': createTekstHtml(element); break;
+                }
+            }
+        })
+    } else {
+        const mydiv = document.createElement('div');
+        const divtextnode = document.createTextNode('Er is geen beschikbaar lesmateriaal voor dit bepaald onderdeel');
+        mydiv.appendChild(divtextnode);
+        document.getElementById('Material').appendChild(mydiv);
 
+    }
+
+}
+function checkLeeg(result, materialType) {
+    var temp = false;
     Array.from(result).forEach(function (element) {
         if (element.hasOwnProperty(materialType)) {
-            switch (materialType) {
-                case 'url': createVideoHtml(element); break;
-                case 'image': createAfbeeldingHtml(element, check); check = false; break;
-                case 'file': createTekstHtml(element); break;
-            }
+            temp = true;
         }
     })
+    return temp;
 }
 
+
+
 function createVideoHtml(material) {
+
     const mydiv = document.createElement('div');
     mydiv.setAttribute('class', 'col-md-12 resp-container');
 
@@ -108,6 +130,7 @@ function createVideoHtml(material) {
 }
 
 function createAfbeeldingHtml(material, check) {
+
 
     if (check) {
         const myDivItem = document.createElement('div');
@@ -156,6 +179,7 @@ function createAfbeeldingHtml(material, check) {
 }
 
 function createTekstHtml(material) {
+
 
     const myContainer = document.createElement('div');
     myContainer.setAttribute('class', 'container');

@@ -19,6 +19,7 @@ namespace G07_Taijitan.Tests.Controllers
         private readonly GraadController _controller;
         private readonly DummyApplicationDbContext _dummyContext;
         private readonly Mock<IOefeningRepository> _mockOefeningRepository;
+        private readonly Mock<IGebruikerRepository> _mockGeberuikerRepository;
         //private readonly Mock<IGebruikerRepository> _gebruikerRepository;
         private readonly Gebruiker _gebruiker;
         private readonly Oefening _oefening;
@@ -31,8 +32,8 @@ namespace G07_Taijitan.Tests.Controllers
         {
             _dummyContext = new DummyApplicationDbContext();
             _mockOefeningRepository = new Mock<IOefeningRepository>();
-            //_gebruikerRepository = new Mock<IGebruikerRepository>();
-            _controller = new GraadController(_mockOefeningRepository.Object);
+            _mockGeberuikerRepository = new Mock<IGebruikerRepository>();
+            _controller = new GraadController(_mockOefeningRepository.Object, _mockGeberuikerRepository.Object);
             _gebruiker = _dummyContext._gebruiker1;
             _oefening = _dummyContext._oefening1;
             _type = _oefening.OefeningType;

@@ -1,6 +1,8 @@
 ﻿using G07_Taijitan.Controllers;
 using G07_Taijitan.Models.Domain.RepoInterface;
 using G07_Taijitan.Tests.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Moq;
 using System;
 using System.Collections.Generic;
