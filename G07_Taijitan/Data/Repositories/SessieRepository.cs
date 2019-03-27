@@ -34,7 +34,7 @@ namespace G07_Taijitan.Data.Repositories
         }
 
         public Sessie getByDay(DateTime dag) {
-            return _sessie.FirstOrDefault(s => s.SessieDatum.Date == dag.Date);
+            return _sessie.Include(s=>s.Ledenlijst).ThenInclude(l=>l.Lid).FirstOrDefault(s => s.SessieDatum.Date == dag.Date);
         }
 
         public void SaveChanges() {
