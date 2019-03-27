@@ -21,7 +21,7 @@ namespace G07_Taijitan.Tests.Data
         public Oefening _oefening1 { get; }
         public Oefening _oefening2 { get; }
         public IEnumerable<Oefening> Oefeningen => new List<Oefening> { _oefening1, _oefening2 };
-
+        public Sessie _sessie1 { get; }
         public DummyApplicationDbContext()
         {
 
