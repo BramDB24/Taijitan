@@ -72,7 +72,7 @@ namespace G07_Taijitan.Tests.Data
             {
                 Naam = "Slaan",
                 Graad = Graad.Kyu4,
-                OefeningType = OefeningType.Armstoten,
+                OefeningType = OefeningType.Schouderworpen,
                 Lesmateriaal = _lesmateriaal2
             };
         }

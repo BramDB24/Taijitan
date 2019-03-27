@@ -89,7 +89,7 @@ namespace G07_Taijitan.Controllers {
                 await _userManager.RemoveClaimAsync(user, User.Claims.First(c => c.Value == "InSessie"));
             }
             await _signInManager.SignOutAsync();
-            return RedirectToAction("KeuzeScherm", "Home");
+            return RedirectToAction("Index", "Graad");
         }
 
     }
