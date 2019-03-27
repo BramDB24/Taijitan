@@ -31,7 +31,7 @@ namespace G07_Taijitan.Tests.Controllers
         {
             _dummyContext = new DummyApplicationDbContext();
             _mockOefeningRepository = new Mock<IOefeningRepository>();
-            //_gebruikerRepository = new Mock<IGebruikerRepository>();
+            _gebruikerRepository = new Mock<IGebruikerRepository>();
             _controller = new GraadController(_mockOefeningRepository.Object, _gebruikerRepository.Object);
             _gebruiker = _dummyContext._gebruiker1;
             _oefening = _dummyContext._oefening1;
@@ -68,7 +68,7 @@ namespace G07_Taijitan.Tests.Controllers
         [Fact]
         public void OefeningType_ToontBeschikbareOefeningTypes()
         {
-            var result = _controller.OefeningType((int)_graad) as ViewResult;
+            var result = _controller.OefeningType(_gebruiker, (int)_graad) as ViewResult;
             List<OefeningType> oefeningTypes = (result?.Model as IEnumerable<OefeningType>)?.ToList();
             List<OefeningType> enumvalues = Enum.GetValues(typeof(OefeningType)).Cast<OefeningType>().ToList();
             Assert.Equal(enumvalues, oefeningTypes);
@@ -81,7 +81,7 @@ namespace G07_Taijitan.Tests.Controllers
         [Fact]
         public void Oefening_CorrecteOefening_DeCorrecteOefeningIsIngeladenInDeView()
         {
-            var result = _controller.Oefening((int)_graad, (int)_type) as ViewResult;
+            var result = _controller.Oefening(_gebruiker, (int)_graad, (int)_type) as ViewResult;
             List<Oefening> oefeningen = (result?.Model as IEnumerable<Oefening>)?.ToList();
             Assert.Equal(2, oefeningen.Count);
             Assert.Equal("Vallen", oefeningen[0].Naam);
@@ -93,7 +93,7 @@ namespace G07_Taijitan.Tests.Controllers
         [Fact]
         public void Oefening_OngeldigeGraad_ReturnsNotFound()
         {
-            var result = _controller.Oefening(_ongeldigeGraad, (int)_type);
+            var result = _controller.Oefening(_gebruiker, _ongeldigeGraad, (int)_type);
             Assert.IsType<NotFoundResult>(result);
         }
         #endregion
