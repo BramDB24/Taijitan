@@ -181,6 +181,486 @@ namespace G07_Taijitan.Data
                         Score = 0
                     };
 
+                    Gebruiker Bertie = new Lid()
+                    {
+                        Naam = "Alfaro",
+                        Voornaam = "Bertie",
+                        Adres = "EenAdres2",
+                        Email = "Bertie.Alfaro@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Bertie.Alfaro",
+                        Telefoonnummer = "054000015",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000690",
+                        Gsm = "0476000502",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Corrinne = new Lid()
+                    {
+                        Naam = "Harnage",
+                        Voornaam = "Corrinne",
+                        Adres = "EenAdres2",
+                        Email = "Corrinne.Harnage@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Corrinne.Harnage",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Jerica = new Lid()
+                    {
+                        Naam = "Kirkendoll",
+                        Voornaam = "Jerica",
+                        Adres = "EenAdres2",
+                        Email = "Jerica.Kirkendoll@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Jerica.Kirkendoll",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Madalyn = new Lid()
+                    {
+                        Naam = "Debartolo",
+                        Voornaam = "Madalyn",
+                        Adres = "EenAdres2",
+                        Email = "Madalyn.Debartolo@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Madalyn.Debartolo",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Myles = new Lid()
+                    {
+                        Naam = "Placencia",
+                        Voornaam = "Myles",
+                        Adres = "EenAdres2",
+                        Email = "Myles.Placencia@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Myles.Placencia",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Madlyn = new Lid()
+                    {
+                        Naam = "Stejskal",
+                        Voornaam = "Madlyn",
+                        Adres = "EenAdres2",
+                        Email = "Madlyn.Stejskal@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Madlyn.Stejskal",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Alethea = new Lid()
+                    {
+                        Naam = "Rozelle",
+                        Voornaam = "Alethea",
+                        Adres = "EenAdres2",
+                        Email = "Alethea.Rozelle@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Alethea.Rozelle",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Craig = new Lid()
+                    {
+                        Naam = "Croff",
+                        Voornaam = "Craig",
+                        Adres = "EenAdres2",
+                        Email = "Craig.Croff@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Craig.Croff",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Ettie = new Lid()
+                    {
+                        Naam = "Omeara",
+                        Voornaam = "Ettie",
+                        Adres = "EenAdres2",
+                        Email = "Ettie.Omeara@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Ettie.Omeara",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Juliana = new Lid()
+                    {
+                        Naam = "Trembley",
+                        Voornaam = "Juliana",
+                        Adres = "EenAdres2",
+                        Email = "Juliana.Trembley@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Juliana.Trembley",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Malcolm = new Lid()
+                    {
+                        Naam = "Wheeless",
+                        Voornaam = "Malcolm",
+                        Adres = "EenAdres2",
+                        Email = "Malcolm.Wheeless@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Malcolm.Wheeless",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Elvin = new Lid()
+                    {
+                        Naam = "Belle",
+                        Voornaam = "Elvin",
+                        Adres = "EenAdres2",
+                        Email = "Elvin.Belle@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Elvin.Belle",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Kandra = new Lid()
+                    {
+                        Naam = "Derrico",
+                        Voornaam = "Kandra",
+                        Adres = "EenAdres2",
+                        Email = "Kandra.Derrico@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Kandra.Derrico",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Sandie = new Lid()
+                    {
+                        Naam = "Brodnax",
+                        Voornaam = "Sandie",
+                        Adres = "EenAdres2",
+                        Email = "Sandie.Brodnax@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Sandie.Brodnax",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Ira = new Lid()
+                    {
+                        Naam = "Koff",
+                        Voornaam = "Ira",
+                        Adres = "EenAdres2",
+                        Email = "Ira.Koff@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Ira.Koff",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Claribel = new Lid()
+                    {
+                        Naam = "Hoyle",
+                        Voornaam = "Claribel",
+                        Adres = "EenAdres2",
+                        Email = "Claribel.Hoyle@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Claribel.Hoyle",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Lyndia = new Lid()
+                    {
+                        Naam = "Piekarski",
+                        Voornaam = "Lyndia",
+                        Adres = "EenAdres2",
+                        Email = "Lyndia.Piekarski@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Lyndia.Piekarski",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Gilma = new Lid()
+                    {
+                        Naam = "Kepley",
+                        Voornaam = "Gilma",
+                        Adres = "EenAdres2",
+                        Email = "Gilma.Kepley@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Gilma.Kepley",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Wynell = new Lid()
+                    {
+                        Naam = "Vitagliano",
+                        Voornaam = "Wynell",
+                        Adres = "EenAdres2",
+                        Email = "Wynell.Vitagliano@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Wynell.Vitagliano",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
+                    Gebruiker Margaretta = new Lid()
+                    {
+                        Naam = "Dillingham",
+                        Voornaam = "Margaretta",
+                        Adres = "EenAdres2",
+                        Email = "Margaretta.Dillingham@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 12, 10),
+                        Gebruikersnaam = "Margaretta.Dillingham",
+                        Telefoonnummer = "054000002",
+                        Wachtwoord = "P@ssword4",
+                        Graad = Graad.Dan6,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19981210000000",
+                        Gsm = "0476000002",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Formule = test,
+                        Score = 0
+                    };
                     ////LesMateriaal
                     #region WurgGrepenVideo
                     //Wurggrepen Kyu1 - Dan3
@@ -428,9 +908,28 @@ namespace G07_Taijitan.Data
                     await InitilizeUsers(Bram.Gebruikersnaam, Bram.Wachtwoord, Bram.GetType().Name);
                     await InitilizeUsers(Johanna.Gebruikersnaam, Johanna.Wachtwoord, Johanna.GetType().Name);
                     await InitilizeUsers(Lowie.Gebruikersnaam, Lowie.Wachtwoord, Lowie.GetType().Name);
+                    await InitilizeUsers(Bertie.Gebruikersnaam, Bertie.Wachtwoord, Bertie.GetType().Name);
+                    await InitilizeUsers(Corrinne.Gebruikersnaam, Corrinne.Wachtwoord, Corrinne.GetType().Name);
+                    await InitilizeUsers(Jerica.Gebruikersnaam, Jerica.Wachtwoord, Jerica.GetType().Name);
+                    await InitilizeUsers(Madalyn.Gebruikersnaam, Madalyn.Wachtwoord, Madalyn.GetType().Name);
+                    await InitilizeUsers(Myles.Gebruikersnaam, Myles.Wachtwoord, Myles.GetType().Name);
+                    await InitilizeUsers(Madlyn.Gebruikersnaam, Madlyn.Wachtwoord, Madlyn.GetType().Name);
+                    await InitilizeUsers(Alethea.Gebruikersnaam, Alethea.Wachtwoord, Alethea.GetType().Name);
+                    await InitilizeUsers(Craig.Gebruikersnaam, Craig.Wachtwoord, Craig.GetType().Name);
+                    await InitilizeUsers(Ettie.Gebruikersnaam, Ettie.Wachtwoord, Ettie.GetType().Name);
+                    await InitilizeUsers(Juliana.Gebruikersnaam, Juliana.Wachtwoord, Juliana.GetType().Name);
+                    await InitilizeUsers(Malcolm.Gebruikersnaam, Malcolm.Wachtwoord, Malcolm.GetType().Name);
+                    await InitilizeUsers(Elvin.Gebruikersnaam, Elvin.Wachtwoord, Elvin.GetType().Name);
+                    await InitilizeUsers(Kandra.Gebruikersnaam, Kandra.Wachtwoord, Kandra.GetType().Name);
+                    await InitilizeUsers(Sandie.Gebruikersnaam, Sandie.Wachtwoord, Sandie.GetType().Name);
+                    await InitilizeUsers(Ira.Gebruikersnaam, Ira.Wachtwoord, Ira.GetType().Name);
+                    await InitilizeUsers(Claribel.Gebruikersnaam, Claribel.Wachtwoord, Claribel.GetType().Name);
+                    await InitilizeUsers(Lyndia.Gebruikersnaam, Lyndia.Wachtwoord, Lyndia.GetType().Name);
+                    await InitilizeUsers(Gilma.Gebruikersnaam, Gilma.Wachtwoord, Gilma.GetType().Name);
+                    await InitilizeUsers(Wynell.Gebruikersnaam, Wynell.Wachtwoord, Wynell.GetType().Name);
+                    await InitilizeUsers(Margaretta.Gebruikersnaam, Margaretta.Wachtwoord, Margaretta.GetType().Name);
 
-
-                    _context.Gebruikers.AddRange(Jonah, Bram, Lowie, Johanna);
+                    _context.Gebruikers.AddRange(Jonah, Bram, Lowie, Johanna, Bertie, Corrinne, Jerica, Madalyn, Myles, Madlyn, Alethea, Craig, Ettie, Juliana, Malcolm, Elvin, Kandra, Sandie, Ira, Claribel, Lyndia, Gilma, Wynell, Margaretta);
                     _context.SaveChanges();
                 }
             }

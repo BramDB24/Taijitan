@@ -123,6 +123,7 @@ h2 {
     text-decoration: none;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20px;
     border-radius: 20px;
 }
 
@@ -145,10 +146,12 @@ h2 {
 .leden:hover {
     cursor: pointer;
 }
-
+.commentaarForm{
+    margin-left:12px;
+}
 .gebruikersnaam {
     padding: 10px;
-    font-size: 14px;
+    font-size: 18px;
     background-color: white;
     text-decoration: none !important;
     color: black;
