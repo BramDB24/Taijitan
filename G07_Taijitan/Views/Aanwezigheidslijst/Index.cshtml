@@ -1,0 +1,50 @@
+﻿@model G07_Taijitan.Models.AanwezigheidslijstViewModel.SessieViewModel
+@{
+    ViewData["Title"] = "Aanwezigheidslijsten";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form>
+    <div class="form-inline">
+        <div class="form-group">
+            <label asp-for="SessieDatum"></label>
+            <input id="sessieDatum" name="sessieDatum" asp-for="SessieDatum" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-default">Filter</button>
+    </div>
+</form>
+
+@if(Model.Leden != null) {
+    <table class="table">
+        <tr>
+            <th>Gebruikersnaam</th>
+            <th>Volledige naam</th>
+            <th>Aanwezigheid</th>
+            <th>Regulier</th>
+        </tr>
+
+        @foreach(var item in Model.Leden) {
+            <tr>
+                <td>
+                    @item.Gebruikersnaam
+                </td>
+                <td>
+                    @item.Lid.Naam @item.Lid.Voornaam
+                </td>
+                <td>
+                    @(item.Aanwezigheid ? "Aanwezig" : "Afwezig")
+                </td>
+                <td>
+                    regulier  @*wip*@
+                </td>
+            </tr>
+        }
+
+    </table>
+} else {
+    <h2>Geen sessie geregistreerd voor deze dag!</h2>
+}
+
+
+

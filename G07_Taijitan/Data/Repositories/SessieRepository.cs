@@ -33,6 +33,10 @@ namespace G07_Taijitan.Data.Repositories
             return (IEnumerable<Lid>)_sessie.ToList();   
         }
 
+        public Sessie getByDay(DateTime dag) {
+            return _sessie.Include(s=>s.Ledenlijst).ThenInclude(l=>l.Lid).FirstOrDefault(s => s.SessieDatum.Date == dag.Date);
+        }
+
         public void SaveChanges() {
             _context.SaveChanges();
         }

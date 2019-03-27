@@ -11,6 +11,7 @@ namespace G07_Taijitan.Models.Domain.RepoInterface
         IEnumerable<Lid> getAllLeden();
         void Add(Sessie sessie);
         IEnumerable<Sessie> getAll();
+        Sessie getByDay(DateTime dag);
         void SaveChanges();
     }
 }

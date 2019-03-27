@@ -32,9 +32,10 @@ namespace G07_Taijitan.Data
             builder.ApplyConfiguration(new SessieConfiguration());
             builder.ApplyConfiguration(new LidSessieConfiguration());
             builder.ApplyConfiguration(new FormuleConfiguration());
+            builder.ApplyConfiguration(new FormuleDagConfiguration());
             builder.ApplyConfiguration(new CommentaarConfiguration());
-            //builder.ApplyConfiguration(new OefeningTypeConfiguration());
-
+            builder.ApplyConfiguration(new DagConfiguration());
+            builder.ApplyConfiguration(new LidConfiguration());
         }
     }
 }
