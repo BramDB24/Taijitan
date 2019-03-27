@@ -149,6 +149,10 @@ h2 {
 .commentaarForm{
     margin-left:12px;
 }
+
+.buttonForm {
+    margin-left: 14px;
+}
 .gebruikersnaam {
     padding: 10px;
     font-size: 18px;
@@ -226,4 +230,33 @@ h2 {
 
     .active, .dot:hover {
         background-color: #717171;
+    }
+
+    /* tabel */
+#ledentabel {
+    margin-top: 15px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    #ledentabel td, #ledentabel th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #ledentabel tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #ledentabel tr:hover {
+        background-color: #ddd;
+    }
+
+    #ledentabel th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #346567;
+        color: white;
     }
