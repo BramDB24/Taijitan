@@ -12,7 +12,6 @@ namespace G07_Taijitan.Data
 {
     public class GebruikerDataInitializer
     {
-
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
