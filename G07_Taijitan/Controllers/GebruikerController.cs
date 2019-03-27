@@ -56,7 +56,7 @@ namespace G07_Taijitan.Controllers
                     ModelState.AddModelError("", e.Message);
                 }
 
-                return RedirectToAction(nameof(Index), "Home");
+                return RedirectToAction(nameof(Index), "Graad");
 
             }
             return View(nameof(Edit), gvm);
