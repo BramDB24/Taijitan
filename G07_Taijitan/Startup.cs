@@ -46,22 +46,19 @@ namespace G07_Taijitan
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DatabaseConnection")));
 
-            //services.AddIdentity<ApplicationUser, IdentityRole>()
-            //    .AddEntityFrameworkStores<ApplicationDbContext>()
-            //    .AddDefaultTokenProviders();
-
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("Lid", policy => policy.RequireClaim(ClaimTypes.Role, "Lid"));
+                options.AddPolicy("Lesgever", policy => policy.RequireClaim(ClaimTypes.Role, "Lesgever"));
+                options.AddPolicy("InSessie", policy => policy.RequireClaim(ClaimTypes.Role, "InSessie"));
             });
             services.AddSession();
             services.AddScoped<GebruikerDataInitializer>();
             services.AddScoped<IGebruikerRepository, GebruikerRepository>();
             services.AddScoped<IOefeningRepository, OefeningRepository>();
             services.AddScoped<ISessieRepository, SessieRepository>();
-            //services.AddScoped<IOefeningTypeRepository, OefeningTypeRepository>();
             services.AddScoped<GebruikerFilter>();
             services.AddScoped<SessieFilter>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

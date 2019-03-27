@@ -4,13 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace G07_Taijitan.Models.Domain {
-    public enum Dag {
-        Maandag,
-        Dinsdag,
-        Woensdag,
-        Donderdag,
-        Vrijdag,
-        Zaterdag,
-        Zondag
+    public class Dag {
+        public DagEnum Naam { get; set; }
+        public IEnumerable<FormuleDag> Formules { get; set; } //!
+
+        public Dag() {
+
+        }
     }
 }

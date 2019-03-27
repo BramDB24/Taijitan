@@ -16,6 +16,7 @@ namespace G07_Taijitan.Models.Domain
         [JsonProperty]
         public DateTime SessieDatum { get; set; }
         public IEnumerable<LidSessie> Ledenlijst => _ledenlijst.AsEnumerable();
+        public int Dag => (int)SessieDatum.DayOfWeek;
         public Sessie() {
             SessieDatum = DateTime.Now;
         }
@@ -28,7 +29,7 @@ namespace G07_Taijitan.Models.Domain
         public void RegistreerAanwezigheden(IEnumerable<Lid> aanwezigheden, IEnumerable<Lid> afwezigeLeden) {
             foreach(var lid in aanwezigheden) {
                 AddLid(lid, true);
-                //lid.verhoogPunten();
+                lid.verhoogPunten();
             }
             foreach(var lid in afwezigeLeden) {
                 AddLid(lid);

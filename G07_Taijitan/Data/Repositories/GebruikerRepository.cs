@@ -20,16 +20,7 @@ namespace G07_Taijitan.Data.Repositories
             _context = context;
             _gebruikers = _context.Gebruikers;
         }
-
-        public void AddGebruiker(Gebruiker gebruiker)
-        {
-            _gebruikers.Add(gebruiker);
-        }
-
-        public void RemoveGebruiker(Gebruiker gebruiker)
-        {
-            _gebruikers.Remove(gebruiker);
-        }
+        
 
         public void SaveChanges()
         {
@@ -41,19 +32,17 @@ namespace G07_Taijitan.Data.Repositories
             return _gebruikers.ToList();
         }
 
-        public Gebruiker GetByEmail(string email)
-        {
-            return _gebruikers.FirstOrDefault(t => t.Email.Equals(email));
-        }
-
         public Gebruiker GetByGebruikernaam(string gebruikersnaam)
         {
             return _gebruikers.FirstOrDefault(t => t.Gebruikersnaam ==gebruikersnaam);
         }
 
-        public IEnumerable<Lid> GetAllLeden()
-        {
-            return _gebruikers.OfType<Lid>().OrderBy(l => l.Naam).ToList();
+        public Lid GetLidByGebruikersnaam(string gebruikersnaam) {
+            return _gebruikers.OfType<Lid>().Include(g=>g.Formule).ThenInclude(g=>g.Dagen).FirstOrDefault(t => t.Gebruikersnaam == gebruikersnaam); //added omdat ik formule hierbij moet includen.
+        }
+        
+        public IEnumerable<Lid> GetLedenVoorSessieOp(int dag) { 
+            return _gebruikers.OfType<Lid>().Where(g=>g.Formule.Dagen.Select(d=>(int)d.Dag.Naam).Contains(dag));
         }
     }
 }

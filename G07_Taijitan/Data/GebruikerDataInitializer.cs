@@ -29,25 +29,64 @@ namespace G07_Taijitan.Data
             {
                 if (!_context.Gebruikers.Any())
                 {
-                    Formule di = new Formule() {
-                        FormuleNaam = "DI",
-                        Punten = 5
+                    Dag maandag = new Dag() {
+                        Naam = DagEnum.Maandag
                     };
+                    Dag dinsdag = new Dag() {
+                        Naam = DagEnum.Dinsdag
+                    };
+                    Dag woensdag = new Dag() {
+                        Naam = DagEnum.Woensdag
+                    };
+                    Dag donderdag = new Dag() {
+                        Naam = DagEnum.Donderdag
+                    };
+                    Dag vrijdag = new Dag() {
+                        Naam = DagEnum.Vrijdag
+                    };
+                    Dag zaterdag = new Dag() {
+                        Naam = DagEnum.Zaterdag
+                    };
+                    Dag zondag = new Dag() {
+                        Naam = DagEnum.Zondag
+                    };
+                    
+                    Formule di = new Formule() {
+                        FormuleNaam = "DI"
+                    };
+                    
                     Formule dond = new Formule() {
-                        FormuleNaam = "DO",
-                        Punten = 5
+                        FormuleNaam = "DO"
                     };
 
                     Formule vrij = new Formule() {
-                        FormuleNaam = "VR",
-                        Punten = 5
+                        FormuleNaam = "VRIJ"
                     };
 
                     Formule dovr = new Formule() {
-                        FormuleNaam = "DO,VR",
-                        Punten = 10
+                        FormuleNaam = "DOVR"
                     };
-                    ////Gebruikers
+                    
+                    Formule dido = new Formule() {
+                        FormuleNaam = "DIDO"
+                    };
+                    Formule test = new Formule() {
+                        FormuleNaam = "Test"
+                    };
+
+                    IEnumerable<FormuleDag> didagen = new List<FormuleDag>() { new FormuleDag(dinsdag, di) };
+                    IEnumerable<FormuleDag> dodagen = new List<FormuleDag>() { new FormuleDag(donderdag, dond) };
+                    IEnumerable<FormuleDag> dovrdagen = new List<FormuleDag>() { new FormuleDag(donderdag, dovr), new FormuleDag(vrijdag, dovr) };
+                    IEnumerable<FormuleDag> didodagen = new List<FormuleDag>() { new FormuleDag(dinsdag, dido), new FormuleDag(donderdag, dido) };
+                    IEnumerable<FormuleDag> testdag = new List<FormuleDag>() { new FormuleDag(woensdag, test) };
+                    //dinsdag.Formules = didagen;
+                    //donderdag.Formules = dodagen;
+                    di.Dagen = didagen;
+                    dido.Dagen = didodagen;
+                    test.Dagen = testdag;
+
+
+                    //Gebruikers
                     Gebruiker Jonah = new Lesgever()
                     {
                         Naam = "De Smet",
@@ -90,7 +129,7 @@ namespace G07_Taijitan.Data
                         Gsm = "0476000001",
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
-                        Formule = di,
+                        Formule = test,
                         Score = 0
                     };
                     Gebruiker Johanna = new Lid()
@@ -114,7 +153,7 @@ namespace G07_Taijitan.Data
                         Gsm = "0476000002",
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
-                        Formule = dond,
+                        Formule = dido,
                         Score = 0
                     };
                     Gebruiker Lowie = new Lid()
@@ -138,7 +177,7 @@ namespace G07_Taijitan.Data
                         Gsm = "0476000002",
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
-                        Formule = dovr,
+                        Formule = test,
                         Score = 0
                     };
 

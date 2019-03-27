@@ -12,10 +12,12 @@ using System.Threading.Tasks;
 namespace G07_Taijitan.Filters {
     public class SessieFilter : ActionFilterAttribute {
         private readonly IGebruikerRepository _gebruikerRepository;
+        private readonly ISessieRepository _sessieRepository;
         private Sessie _sessie;
 
-        public SessieFilter(IGebruikerRepository gebruikerRepository) {
+        public SessieFilter(IGebruikerRepository gebruikerRepository, ISessieRepository sessieRepository) {
             _gebruikerRepository = gebruikerRepository;
+            _sessieRepository = sessieRepository;
         }
 
         public override void OnActionExecuting(ActionExecutingContext context) {
@@ -31,15 +33,17 @@ namespace G07_Taijitan.Filters {
 
         private Sessie ReadSessieFromSession(HttpContext context) {
             Sessie sessiemetids = context.Session.GetString("sessie") == null ?
-                new Sessie() : JsonConvert.DeserializeObject<Sessie>(context.Session.GetString("sessie"));
+                _sessieRepository.getByDay(DateTime.Today) : JsonConvert.DeserializeObject<Sessie>(context.Session.GetString("sessie"));
+            if(sessiemetids == null)
+                return new Sessie();
             Sessie sessie = new Sessie();
             ICollection<Lid> aanwezigen = new List<Lid>();
             ICollection<Lid> afwezigen = new List<Lid>();
             foreach (var l in sessiemetids.Ledenlijst) {
                 if(l.Aanwezigheid)
-                    aanwezigen.Add((Lid)_gebruikerRepository.GetByGebruikernaam(l.Gebruikersnaam));
+                    aanwezigen.Add(_gebruikerRepository.GetLidByGebruikersnaam(l.Gebruikersnaam));
                 else
-                    afwezigen.Add((Lid)_gebruikerRepository.GetByGebruikernaam(l.Gebruikersnaam));
+                    afwezigen.Add(_gebruikerRepository.GetLidByGebruikersnaam(l.Gebruikersnaam));
             }
             sessie.RegistreerAanwezigheden(aanwezigen, afwezigen);
             return sessie;

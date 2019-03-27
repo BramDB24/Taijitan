@@ -8,6 +8,8 @@ namespace G07_Taijitan.Models.Domain.RepoInterface
         IEnumerable<Gebruiker.Gebruiker> GetAllGebruikers();
         void SaveChanges();
         Gebruiker.Gebruiker GetByGebruikernaam(string gebruikersnaam);
-        IEnumerable<Lid> GetAllLeden();
+        Lid GetLidByGebruikersnaam(string gebruikersnaam);
+        IEnumerable<Lid> GetLedenVoorSessieOp(int dag);
+        
     }
 }
