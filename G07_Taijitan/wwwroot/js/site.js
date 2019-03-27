@@ -53,6 +53,8 @@ function determineMaterial(id, materialType) {
 
 function postComment() {
     var data = $("#commentsection").val();
+    $("input[type=text]").val("");
+    $("textarea").val("");
     console.log(data);
     $.ajax({
         type: "post",
