@@ -56,12 +56,8 @@ namespace G07_Taijitan.Controllers {
         }
 
         [ServiceFilter(typeof(SessieFilter))]
-        public async Task<IActionResult> AanwezigeLeden(Sessie sessie) {
+        public IActionResult AanwezigeLeden(Sessie sessie) {
             IEnumerable<Lid> aanwezigeLeden = sessie.getAanwezigeLeden();
-            foreach(var lid in aanwezigeLeden) {
-                var user = await _userManager.FindByNameAsync(lid.Gebruikersnaam);
-                await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, "InSessie"));
-            }
             return View("Aanmelden", aanwezigeLeden);
         }
 
@@ -71,21 +67,24 @@ namespace G07_Taijitan.Controllers {
             if(lid == null)
                 return NotFound();
             if(!sessie.Ledenlijst.Any(ls => ls.Lid == lid)) {
-                //no permission page
+                return Forbid();
             }
-            var impersonatedUser = await _userManager.FindByNameAsync(id);
-            await _signInManager.SignOutAsync(); //signout admin
-            await _signInManager.SignInAsync(impersonatedUser, false); //Impersonate User
+            var user = await _userManager.FindByNameAsync(id);
+            await _signInManager.SignOutAsync(); //sign out last person
+            await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, "InSessie"));
+            await _signInManager.SignInAsync(user, false); //Impersonate User
             return RedirectToAction("Index", "Graad");
         }
 
+
+        [ServiceFilter(typeof(GebruikerFilter))]
         [ServiceFilter(typeof(SessieFilter))]
-        public async Task<IActionResult> EindeSessie(Sessie sessie) {
+        public async Task<IActionResult> EindeSessie(Sessie sessie, Gebruiker gebruiker) {
             if(sessie == null) {
                 return NotFound();
             }
-            foreach(var lid in sessie.getAanwezigeLeden()) {
-                var user = await _userManager.FindByNameAsync(lid.Gebruikersnaam);
+            if(!(gebruiker is Lesgever)) {
+                var user = await _userManager.FindByNameAsync(gebruiker.Gebruikersnaam);
                 await _userManager.RemoveClaimAsync(user, User.Claims.First(c => c.Value == "InSessie"));
             }
             await _signInManager.SignOutAsync();
