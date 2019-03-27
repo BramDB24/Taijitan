@@ -8,10 +8,10 @@
     @foreach (var item in Model)
     {
         <div class="col-sm-6 col-md-6">
-            <a class="keuze text-center" asp-controller="Graad" asp-action="OefeningMaterialView" asp-route-oefeningid="@item.OefeningId">@item.Naam</a>
+            <a class="keuze text-center"  onclick="makeAjaxPostCall(@item.OefeningId)" asp-controller="Graad" asp-action="OefeningMaterialView" asp-route-oefeningid="@item.OefeningId">@item.Naam</a>
         </div>
     }
 </div>
-
+<script src="~/js/Raadpleging.js"></script>
 
 

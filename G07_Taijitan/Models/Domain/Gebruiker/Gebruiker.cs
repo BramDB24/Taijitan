@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace G07_Taijitan.Models.Domain.Gebruiker
@@ -14,6 +15,7 @@ namespace G07_Taijitan.Models.Domain.Gebruiker
         private string _telefoonnummer;
         private DateTime _geboortedatum;
         private string _email;
+        private readonly ICollection<GebruikerOefening> _oefeningen = new List<GebruikerOefening>();
         #endregion
 
         #region Properties
@@ -126,8 +128,9 @@ namespace G07_Taijitan.Models.Domain.Gebruiker
             }
         }
         public Graad Graad { get; set; }
+        public IEnumerable<GebruikerOefening> Oefeningen => _oefeningen.AsEnumerable();
 
-        public ICollection<GebruikerOefening> Oefeningen { get; set; }
+
 
         //uncomment if needed
         public DateTime InschrijvingsDatum { get; set; }
@@ -163,6 +166,10 @@ namespace G07_Taijitan.Models.Domain.Gebruiker
             Adres = adres;
         }
 
+        public void AddGebruikerOefening(Gebruiker gebruiker, int oefeningid)
+        {
+            _oefeningen.Add(new GebruikerOefening(oefeningid, gebruiker));
+        }
         #endregion
     }
 }

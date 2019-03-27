@@ -14,8 +14,10 @@ namespace G07_Taijitan.Controllers {
     [Authorize(Policy = "Lid")]
     public class GraadController : Controller {
         private readonly IOefeningRepository _oefeningRepository;
-        public GraadController(IOefeningRepository oefeningRepository) {
+        private readonly IGebruikerRepository _gebruikerRepository;
+        public GraadController(IOefeningRepository oefeningRepository, IGebruikerRepository gebruikerRepository) {
             _oefeningRepository = oefeningRepository;
+            _gebruikerRepository = gebruikerRepository;
         }
 
         [ServiceFilter(typeof(GebruikerFilter))]        
@@ -59,7 +61,7 @@ namespace G07_Taijitan.Controllers {
 
         [HttpPost]
         [ServiceFilter(typeof(GebruikerFilter))]
-        public void GetCommentaar(Gebruiker gebruiker, string comment, int oefeningid)
+        public void getcommentaar(Gebruiker gebruiker, string comment, int oefeningid)
         {
             Oefening oefening = _oefeningRepository.GetBy(oefeningid);
             if(oefening != null) {
@@ -67,6 +69,17 @@ namespace G07_Taijitan.Controllers {
                 _oefeningRepository.SaveChanges();
             }
         }
+        [HttpPost]
+        [ServiceFilter(typeof(GebruikerFilter))]
+        public void getConsult(Gebruiker gebruiker, int oefeningid)
+        {
+            Gebruiker lid = _gebruikerRepository.GetByGebruikernaam(gebruiker.Gebruikersnaam);
+            if(lid != null) {
+                lid.AddGebruikerOefening(gebruiker, oefeningid);
+                _gebruikerRepository.SaveChanges();
+            }
+        }
+
 
         #region ReplaceMe
 

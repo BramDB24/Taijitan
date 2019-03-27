@@ -10,5 +10,18 @@ namespace G07_Taijitan.Models.Domain {
         public string Gebruikersnaam { get; set; }
         public int OefeningId { get; set; }
         public DateTime RaadpleegTijdstip { get; set; }
+
+        public GebruikerOefening(int oefeningid, Gebruiker.Gebruiker gebruiker)
+        {
+            OefeningId = oefeningid;
+            Gebruiker = gebruiker;
+            RaadpleegTijdstip = DateTime.Now;
+        }
+
+        protected GebruikerOefening()
+        {
+
+        }
     }
 }
+
