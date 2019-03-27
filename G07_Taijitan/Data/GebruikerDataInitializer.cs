@@ -639,12 +639,12 @@ namespace G07_Taijitan.Data
                     };
                     Gebruiker Margaretta = new Lid()
                     {
-                        Naam = "Dillingham",
+                        Naam = "Dirk",
                         Voornaam = "Margaretta",
                         Adres = "EenAdres2",
-                        Email = "Margaretta.Dillingham@hotmail.com",
+                        Email = "Margaretta.Dirk@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
-                        Gebruikersnaam = "Margaretta.Dillingham",
+                        Gebruikersnaam = "Margaretta.Dirk",
                         Telefoonnummer = "054000002",
                         Wachtwoord = "P@ssword4",
                         Graad = Graad.Dan6,

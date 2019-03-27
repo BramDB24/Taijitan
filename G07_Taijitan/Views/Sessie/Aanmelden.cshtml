@@ -10,7 +10,7 @@
         <div class="leden">
             @foreach (var lid in Model)
             {
-                <div class="col-md-4">
+                <div class="col-sm-6 col-md-4">
                     <a class="gebruikersnaam text-center" asp-action="Aanmelden" asp-route-id="@lid.Gebruikersnaam">@lid.Gebruikersnaam | @lid.Naam @lid.Voornaam</a>
                 </div>
             }
