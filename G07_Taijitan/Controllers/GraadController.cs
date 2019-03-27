@@ -27,18 +27,24 @@ namespace G07_Taijitan.Controllers {
             return View(graden);
         }
 
-
-        public IActionResult OefeningType(int graadid) {
+        [ServiceFilter(typeof(GebruikerFilter))]
+        public IActionResult OefeningType(Gebruiker gebruiker, int graadid) {
             IEnumerable<OefeningType> oefeningTypes = Enum.GetValues(typeof(OefeningType)).Cast<OefeningType>();
+            if((int)gebruiker.Graad < graadid) {
+                return Forbid();
+            }
             ViewData["Graad"] = graadid;
             return View(oefeningTypes);
         }
 
-
-        public IActionResult Oefening(int graadid, int typeid) {
+        [ServiceFilter(typeof(GebruikerFilter))]
+        public IActionResult Oefening(Gebruiker gebruiker, int graadid, int typeid) {
             IEnumerable<Oefening> oefeningen = _oefeningRepository.GetByGraadAndType(graadid, typeid);
-            if(oefeningen.Count() == 0)
+            if(oefeningen == null || oefeningen.Count() == 0)
                 return NotFound();
+            if((int)gebruiker.Graad<graadid) {
+                return Forbid();
+            }
             return View(oefeningen);
         }
         
@@ -79,68 +85,5 @@ namespace G07_Taijitan.Controllers {
                 _gebruikerRepository.SaveChanges();
             }
         }
-
-
-        #region ReplaceMe
-
-        [ServiceFilter(typeof(GebruikerFilter))]
-        public IActionResult Videomateriaal(Gebruiker gebruiker, int oefeningid) {
-            Oefening oefening = _oefeningRepository.GetBy(oefeningid);
-            if(oefening == null || gebruiker.Graad < oefening.Graad) {
-                return NotFound();
-            }
-            IEnumerable<Lesmateriaal> materiaal = oefening.Lesmateriaal.ToList();
-            IList<Video> lijst = new List<Video>();
-            foreach(var x in materiaal) {
-                if(x is Video)
-                    lijst.Add((Video)x);
-            }
-            if(lijst == null)
-                return NotFound();
-            ViewData["oefeningid"] = oefeningid;
-            return View(lijst);
-        }
-
-       
-
-        [ServiceFilter(typeof(GebruikerFilter))]
-        public IActionResult Afbeeldingen(Gebruiker gebruiker, int oefeningid) {
-            Oefening oefening = _oefeningRepository.GetBy(oefeningid);
-            if(oefening == null || gebruiker.Graad < oefening.Graad) {
-                return NotFound();
-            }
-            IEnumerable<Lesmateriaal> materiaal = oefening.Lesmateriaal.ToList();
-            IList<Foto> lijst = new List<Foto>();
-            foreach(var x in materiaal) {
-                if(x is Foto)
-                    lijst.Add((Foto)x);
-            }
-            if(lijst == null) {
-                return NotFound();
-            }
-            ViewData["oefeningid"] = oefeningid;
-            return View(lijst);
-        }
-
-        [ServiceFilter(typeof(GebruikerFilter))]
-        public IActionResult Tekstbestanden(Gebruiker gebruiker, int oefeningid) {
-            Oefening oefening = _oefeningRepository.GetBy(oefeningid);
-            if(oefening == null || gebruiker.Graad < oefening.Graad) {
-                return NotFound();
-            }
-            IEnumerable<Lesmateriaal> materiaal = oefening.Lesmateriaal.ToList();
-            IList<Tekst> lijst = new List<Tekst>();
-            foreach(var x in materiaal) {
-                if(x is Tekst)
-                    lijst.Add((Tekst)x);
-            }
-            if(lijst == null) {
-                return NotFound();
-            }
-            ViewData["oefeningid"] = oefeningid;
-            return View(lijst);
-        }
-        #endregion
-
     }
 }

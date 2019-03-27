@@ -67,6 +67,7 @@ namespace G07_Taijitan.Models.Domain.Gebruiker
                 _adres = value;
             }
         }
+
         public string Telefoonnummer
         {
             get

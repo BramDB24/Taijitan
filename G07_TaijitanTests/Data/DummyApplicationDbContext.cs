@@ -6,10 +6,8 @@ using System.Linq;
 using G07_Taijitan.Models.Domain.Gebruiker;
 using G07_Taijitan.Models.Domain.LesMateriaal;
 
-namespace G07_Taijitan.Tests.Data
-{
-    public class DummyApplicationDbContext
-    {
+namespace G07_Taijitan.Tests.Data {
+    public class DummyApplicationDbContext {
 
         private readonly IEnumerable<Lesmateriaal> _lesmateriaal1;
         private readonly IEnumerable<Lesmateriaal> _lesmateriaal2;
@@ -22,13 +20,13 @@ namespace G07_Taijitan.Tests.Data
         public Oefening _oefening2 { get; }
         public IEnumerable<Oefening> Oefeningen => new List<Oefening> { _oefening1, _oefening2 };
         public Sessie _sessie1 { get; }
-        public DummyApplicationDbContext()
-        {
+        public Sessie _sessie2 { get; }
+        public IEnumerable<Sessie> Sessies => new List<Sessie> { _sessie1, _sessie2 };
+        public DummyApplicationDbContext() {
 
 
 
-            _gebruiker1 = new Lid()
-            {
+            _gebruiker1 = new Lid() {
                 Naam = "De Smet",
                 Voornaam = "Jonah",
                 Adres = "Adres 123",
@@ -39,8 +37,7 @@ namespace G07_Taijitan.Tests.Data
                 Wachtwoord = "P@ssword1",
                 Graad = Graad.Kyu4
             };
-            _gebruiker2 = new Lesgever
-            {
+            _gebruiker2 = new Lesgever {
                 Naam = "De Bleecker",
                 Voornaam = "Bram",
                 Adres = "Adres 777",
@@ -60,21 +57,30 @@ namespace G07_Taijitan.Tests.Data
                 new Tekst {Naam = "slaan" }, new Foto {Naam = "slagfoto"}, new Video {Naam = "slagvideo"}
             };
 
-            _oefening1 = new Oefening
-            {
+            _oefening1 = new Oefening {
                 Naam = "Vallen",
                 Graad = Graad.Kyu4,
                 OefeningType = OefeningType.Beenworpen,
                 Lesmateriaal = _lesmateriaal1
             };
 
-            _oefening2 = new Oefening
-            {
+            _oefening2 = new Oefening {
                 Naam = "Slaan",
                 Graad = Graad.Kyu4,
                 OefeningType = OefeningType.Schouderworpen,
                 Lesmateriaal = _lesmateriaal2
             };
+
+            _sessie1 = new Sessie {
+                SessieDatum = DateTime.Now
+
+            };
+            _sessie1.AddLid((Lid)_gebruiker1);
+
+            _sessie2 = new Sessie {
+                SessieDatum = DateTime.Now.AddDays(1)
+            };
+            _sessie2.AddLid((Lid)_gebruiker1);
         }
     }
 }
