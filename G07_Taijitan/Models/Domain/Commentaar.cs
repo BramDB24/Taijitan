@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace G07_Taijitan.Models.Domain {
     public class Commentaar {
         public Gebruiker.Gebruiker Gebruiker { get; set; }
+        public int CommentaarId { get; set; }
         public string Gebruikersnaam { get; set; }
         public Oefening Oefening { get; set; }
         public int OefeningId { get; set; }

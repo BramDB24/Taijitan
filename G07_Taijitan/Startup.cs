@@ -96,7 +96,7 @@ namespace G07_Taijitan
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=KeuzeScherm}/{id?}");
+                    template: "{controller=Graad}/{action=Index}/{id?}");
             });
             initializer.InitializeData().Wait();
         }

@@ -115,7 +115,7 @@ function createAfbeeldingHtml(material, check) {
         document.getElementById('Material').appendChild(myDivItem);
         const myDivItem1 = document.createElement('div');
         myDivItem1.setAttribute('class', 'text-center');
-        myDivItem1.setAttribute('id', 'paljaas');
+        myDivItem1.setAttribute('id', 'div1');
         document.getElementById('Material').appendChild(myDivItem1);
         const myATag = document.createElement('a');
         myATag.setAttribute('class', 'prev');
@@ -147,7 +147,7 @@ function createAfbeeldingHtml(material, check) {
     const teller = document.getElementsByClassName('dot').length + 1;
     myDiv2.setAttribute('class', 'dot');
     myDiv2.setAttribute('onclick', `currentSlide(${teller})`);
-    document.getElementById('paljaas').appendChild(myDiv2);
+    document.getElementById('div1').appendChild(myDiv2);
     if (teller == 1) {
         myDiv2.click();
     }

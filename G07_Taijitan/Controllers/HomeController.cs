@@ -20,18 +20,6 @@ namespace G07_Taijitan.Controllers
         {
         }
 
-        [ServiceFilter(typeof(GebruikerFilter))]
-        [Authorize(Policy = "Lid")]
-        public IActionResult KeuzeScherm(Gebruiker gebruiker)
-        {
-            if (!(gebruiker is Lesgever))
-            {
-                return RedirectToAction("Index", "Graad");
-            }
-            return View();
-
-        }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
