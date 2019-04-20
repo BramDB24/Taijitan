@@ -22,7 +22,7 @@ namespace G07_Taijitan.Data.Mappers
             builder.Property(t => t.Land).IsRequired(true).HasMaxLength(100);
             builder.Property(t => t.Rijksregisternummer).IsRequired(true).HasMaxLength(20);
 
-            builder.Property(t => t.Adres).IsRequired(false).HasMaxLength(50);
+            //builder.Property(t => t.Adres).IsRequired(false).HasMaxLength(50);
             builder.Property(t => t.Stad).IsRequired(true).HasMaxLength(100);
             builder.Property(t => t.Straatnaam).IsRequired(true).HasMaxLength(150);
             builder.Property(t => t.Postcode).IsRequired(true).HasMaxLength(100);

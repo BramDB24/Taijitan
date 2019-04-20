@@ -27,9 +27,9 @@ namespace G07_Taijitan.Models.GebruikersViewModel
         [Display(Name = "Geboortedatum")]
         public DateTime GeboorteDatum { get; set; }
 
-        [Required(ErrorMessage ="Het adres mag niet leeg gelaten worden")]
-        [Display(Name = "Adres")]
-        public string Adres { get; set; }
+        //[Required(ErrorMessage ="Het adres mag niet leeg gelaten worden")]  //moet straat, stad, postcode etc worden.
+        //[Display(Name = "Adres")]
+        //public string Adres { get; set; }
 
         [Required(ErrorMessage ="Het telefoonnummer mag niet leeg gelaten worden")]
         [Display(Name = "Telefoonnummer")]
@@ -56,7 +56,7 @@ namespace G07_Taijitan.Models.GebruikersViewModel
             Naam = this.Gebruiker.Naam;
             Voornaam = this.Gebruiker.Voornaam;
             GeboorteDatum = this.Gebruiker.Geboortedatum;
-            Adres = this.Gebruiker.Adres;
+            //Adres = this.Gebruiker.Adres;   //moet straat, stad, postcode etc worden
             Telefoonnummer = this.Gebruiker.Telefoonnummer;
             Email = this.Gebruiker.Email;
         }

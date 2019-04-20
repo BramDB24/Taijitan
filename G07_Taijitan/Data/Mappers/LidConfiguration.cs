@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace G07_Taijitan.Data.Mappers {
     public class LidConfiguration : IEntityTypeConfiguration<Lid> {
         public void Configure(EntityTypeBuilder<Lid> builder) { 
-            builder.HasOne(l => l.Formule).WithMany().IsRequired().OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(l => l.Formule).WithMany().IsRequired(false).OnDelete(DeleteBehavior.Restrict); //moet weer true worden
         }
     }
 }

@@ -52,21 +52,21 @@ namespace G07_Taijitan.Models.Domain.Gebruiker
                 _voornaam = value;
             }
         }
-        public string Adres
-        {
-            get
-            {
-                return _adres;
-            }
-            set
-            {
-                if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("Adres mag niet leeg zijn");
-                if (value.Length > 100)
-                    throw new ArgumentException("Adres mag niet langer zijn dan 100 tekens");
-                _adres = value;
-            }
-        }
+        //public string Adres
+        //{
+        //    get
+        //    {
+        //        return _adres;
+        //    }
+        //    set
+        //    {
+        //        if (string.IsNullOrWhiteSpace(value))
+        //            throw new ArgumentException("Adres mag niet leeg zijn");
+        //        if (value.Length > 100)
+        //            throw new ArgumentException("Adres mag niet langer zijn dan 100 tekens");
+        //        _adres = value;
+        //    }
+        //}
 
         public string Telefoonnummer
         {
@@ -143,7 +143,9 @@ namespace G07_Taijitan.Models.Domain.Gebruiker
         public string Rijksregisternummer { get; set; }
         public string Gsm { get; set; }
         public string EmailOuders { get; set; }
-        public string Geboorteplek { get; set; }        
+        public string Geboorteplek { get; set; }
+        public string Nationaliteit { get; set; }
+        public string Geslacht { get; set; }
         #endregion
 
         //nodig voor het aanmaken van een nieuwe gebruiker
@@ -157,14 +159,14 @@ namespace G07_Taijitan.Models.Domain.Gebruiker
 
         #region Methods
 
-        public void EditGebruiker(string email, string naam, string voornaam, string telefoonnummer, DateTime geboortedatum, string adres)
+        public void EditGebruiker(string email, string naam, string voornaam, string telefoonnummer, DateTime geboortedatum/*, string adres*/)
         {
             Email = email;
             Naam = naam;
             Voornaam = voornaam;
             Telefoonnummer = telefoonnummer;
             Geboortedatum = geboortedatum;
-            Adres = adres;
+            //Adres = adres;
         }
 
         public void AddGebruikerOefening(Gebruiker gebruiker, int oefeningid)

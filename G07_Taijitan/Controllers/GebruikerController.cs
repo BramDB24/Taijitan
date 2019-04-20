@@ -47,7 +47,7 @@ namespace G07_Taijitan.Controllers
                 try
                 {
                     Gebruiker _gebruiker = gebruiker;
-                    _gebruiker.EditGebruiker(gvm.Email, gvm.Naam, gvm.Voornaam, gvm.Telefoonnummer, gvm.GeboorteDatum, gvm.Adres);
+                    _gebruiker.EditGebruiker(gvm.Email, gvm.Naam, gvm.Voornaam, gvm.Telefoonnummer, gvm.GeboorteDatum/*, gvm.Adres*/);
                     _gebruikerRepository.SaveChanges();
                     TempData["message"] = $"Gebruiker {gebruiker.Voornaam} is succesvol aangepast";
                 }

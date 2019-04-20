@@ -77,7 +77,7 @@ namespace G07_Taijitan.Data
                     IEnumerable<FormuleDag> dodagen = new List<FormuleDag>() { new FormuleDag(donderdag, dond) };
                     IEnumerable<FormuleDag> dovrdagen = new List<FormuleDag>() { new FormuleDag(donderdag, dovr), new FormuleDag(vrijdag, dovr) };
                     IEnumerable<FormuleDag> didodagen = new List<FormuleDag>() { new FormuleDag(dinsdag, dido), new FormuleDag(donderdag, dido) };
-                    IEnumerable<FormuleDag> testdag = new List<FormuleDag>() { new FormuleDag(woensdag, test) };
+                    IEnumerable<FormuleDag> testdag = new List<FormuleDag>() { new FormuleDag(donderdag, test) };
                     //dinsdag.Formules = didagen;
                     //donderdag.Formules = dodagen;
                     di.Dagen = didagen;
@@ -90,7 +90,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "De Smet",
                         Voornaam = "Jonah",
-                        Adres = "EenAdres",
+                        ////Adres = "EenAdres",
                         Email = "jonah.desmet@hotmail.com",
                         Geboortedatum = new DateTime(1998, 03, 13),
                         Gebruikersnaam = "jonah.desmet",
@@ -111,7 +111,7 @@ namespace G07_Taijitan.Data
                     Gebruiker Bram = new Lid() {
                         Naam = "De Bleecker",
                         Voornaam = "Bram",
-                        Adres = "EenAdres1",
+                        ////Adres = "EenAdres1",
                         Email = "bram.debleccker@hotmail.com",
                         Geboortedatum = new DateTime(1999, 02, 12),
                         Gebruikersnaam = "bram.debleecker",
@@ -135,7 +135,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "De Bruycker",
                         Voornaam = "Johanna",
-                        Adres = "EenAdres",
+                        ////Adres = "EenAdres",
                         Email = "johanna.debruycker@hotmail.com",
                         Geboortedatum = new DateTime(1997, 01, 11),
                         Gebruikersnaam = "johanna.debruycker",
@@ -159,7 +159,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Scheirlinckx",
                         Voornaam = "Lowie",
-                        Adres = "EenAdres2",
+                        ////Adres = "EenAdres2",
                         Email = "lowie.scheirlinckx@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "lowie.scheirlinckx",
@@ -184,7 +184,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Alfaro",
                         Voornaam = "Bertie",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Bertie.Alfaro@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Bertie.Alfaro",
@@ -208,7 +208,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Harnage",
                         Voornaam = "Corrinne",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Corrinne.Harnage@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Corrinne.Harnage",
@@ -232,7 +232,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Kirkendoll",
                         Voornaam = "Jerica",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Jerica.Kirkendoll@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Jerica.Kirkendoll",
@@ -256,7 +256,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Debartolo",
                         Voornaam = "Madalyn",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Madalyn.Debartolo@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Madalyn.Debartolo",
@@ -280,7 +280,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Placencia",
                         Voornaam = "Myles",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Myles.Placencia@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Myles.Placencia",
@@ -304,7 +304,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Stejskal",
                         Voornaam = "Madlyn",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Madlyn.Stejskal@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Madlyn.Stejskal",
@@ -328,7 +328,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Rozelle",
                         Voornaam = "Alethea",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Alethea.Rozelle@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Alethea.Rozelle",
@@ -352,7 +352,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Croff",
                         Voornaam = "Craig",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Craig.Croff@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Craig.Croff",
@@ -376,7 +376,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Omeara",
                         Voornaam = "Ettie",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Ettie.Omeara@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Ettie.Omeara",
@@ -400,7 +400,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Trembley",
                         Voornaam = "Juliana",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Juliana.Trembley@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Juliana.Trembley",
@@ -424,7 +424,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Wheeless",
                         Voornaam = "Malcolm",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Malcolm.Wheeless@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Malcolm.Wheeless",
@@ -448,7 +448,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Belle",
                         Voornaam = "Elvin",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Elvin.Belle@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Elvin.Belle",
@@ -472,7 +472,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Derrico",
                         Voornaam = "Kandra",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Kandra.Derrico@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Kandra.Derrico",
@@ -496,7 +496,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Brodnax",
                         Voornaam = "Sandie",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Sandie.Brodnax@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Sandie.Brodnax",
@@ -520,7 +520,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Koff",
                         Voornaam = "Ira",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Ira.Koff@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Ira.Koff",
@@ -544,7 +544,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Hoyle",
                         Voornaam = "Claribel",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Claribel.Hoyle@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Claribel.Hoyle",
@@ -568,7 +568,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Piekarski",
                         Voornaam = "Lyndia",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Lyndia.Piekarski@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Lyndia.Piekarski",
@@ -592,7 +592,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Kepley",
                         Voornaam = "Gilma",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Gilma.Kepley@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Gilma.Kepley",
@@ -616,7 +616,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Vitagliano",
                         Voornaam = "Wynell",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Wynell.Vitagliano@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Wynell.Vitagliano",
@@ -640,7 +640,7 @@ namespace G07_Taijitan.Data
                     {
                         Naam = "Dirk",
                         Voornaam = "Margaretta",
-                        Adres = "EenAdres2",
+                        //Adres = "EenAdres2",
                         Email = "Margaretta.Dirk@hotmail.com",
                         Geboortedatum = new DateTime(1998, 12, 10),
                         Gebruikersnaam = "Margaretta.Dirk",
