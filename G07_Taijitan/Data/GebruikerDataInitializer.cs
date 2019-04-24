@@ -8,26 +8,20 @@ using System.Threading.Tasks;
 using G07_Taijitan.Models.Domain.Gebruiker;
 using G07_Taijitan.Models.Domain.LesMateriaal;
 
-namespace G07_Taijitan.Data
-{
-    public class GebruikerDataInitializer
-    {
+namespace G07_Taijitan.Data {
+    public class GebruikerDataInitializer {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public GebruikerDataInitializer(ApplicationDbContext context, UserManager<IdentityUser> userManager)
-        {
+        public GebruikerDataInitializer(ApplicationDbContext context, UserManager<IdentityUser> userManager) {
             _context = context;
             _userManager = userManager;
         }
 
-        public async Task InitializeData()
-        {
+        public async Task InitializeData() {
             _context.Database.EnsureDeleted();
-            if (_context.Database.EnsureCreated())
-            {
-                if (!_context.Gebruikers.Any())
-                {
+            if(_context.Database.EnsureCreated()) {
+                if(!_context.Gebruikers.Any()) {
                     Dag maandag = new Dag() {
                         Naam = DagEnum.Maandag
                     };
@@ -49,11 +43,11 @@ namespace G07_Taijitan.Data
                     Dag zondag = new Dag() {
                         Naam = DagEnum.Zondag
                     };
-                    
+
                     Formule di = new Formule() {
                         FormuleNaam = "DI"
                     };
-                    
+
                     Formule dond = new Formule() {
                         FormuleNaam = "DO"
                     };
@@ -65,7 +59,7 @@ namespace G07_Taijitan.Data
                     Formule dovr = new Formule() {
                         FormuleNaam = "DOVR"
                     };
-                    
+
                     Formule dido = new Formule() {
                         FormuleNaam = "DIDO"
                     };
@@ -86,28 +80,28 @@ namespace G07_Taijitan.Data
 
 
                     //Gebruikers
-                    Gebruiker Jonah = new Lesgever()
-                    {
-                        Naam = "De Smet",
-                        Voornaam = "Jonah",
-                        ////Adres = "EenAdres",
-                        Email = "jonah.desmet@hotmail.com",
-                        Geboortedatum = new DateTime(1998, 03, 13),
-                        Gebruikersnaam = "jonah.desmet",
-                        Telefoonnummer = "054000000",
-                        Wachtwoord = "P@ssword1",
-                        Graad = Graad.Dan3,
-                        InschrijvingsDatum = DateTime.Today,
-                        Straatnaam = "straat",
-                        Huisnummer = "1",
-                        Postcode = "9506",
-                        Stad = "stad",
-                        Land = "België",
-                        Rijksregisternummer = "19980313000000",
-                        Gsm = "0476000000",
-                        EmailOuders = "ouders@hotmail.com",
-                        Geboorteplek = "Aalst"
-                    };
+                    //Gebruiker Jonah = new Lesgever()
+                    //{
+                    //    Naam = "De Smet",
+                    //    Voornaam = "Jonah",
+                    //    ////Adres = "EenAdres",
+                    //    Email = "jonah.desmet@hotmail.com",
+                    //    Geboortedatum = new DateTime(1998, 03, 13),
+                    //    Gebruikersnaam = "jonah.desmet",
+                    //    Telefoonnummer = "054000000",
+                    //    Wachtwoord = "P@ssword1",
+                    //    Graad = Graad.Dan3,
+                    //    InschrijvingsDatum = DateTime.Today,
+                    //    Straatnaam = "straat",
+                    //    Huisnummer = "1",
+                    //    Postcode = "9506",
+                    //    Stad = "stad",
+                    //    Land = "België",
+                    //    Rijksregisternummer = "19980313000000",
+                    //    Gsm = "0476000000",
+                    //    EmailOuders = "ouders@hotmail.com",
+                    //    Geboorteplek = "Aalst"
+                    //};
                     Gebruiker Bram = new Lid() {
                         Naam = "De Bleecker",
                         Voornaam = "Bram",
@@ -131,8 +125,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Johanna = new Lid()
-                    {
+                    Gebruiker Johanna = new Lid() {
                         Naam = "De Bruycker",
                         Voornaam = "Johanna",
                         ////Adres = "EenAdres",
@@ -155,8 +148,7 @@ namespace G07_Taijitan.Data
                         Formule = dido,
                         Score = 0
                     };
-                    Gebruiker Lowie = new Lid()
-                    {
+                    Gebruiker Lowie = new Lid() {
                         Naam = "Scheirlinckx",
                         Voornaam = "Lowie",
                         ////Adres = "EenAdres2",
@@ -180,8 +172,7 @@ namespace G07_Taijitan.Data
                         Score = 0
                     };
 
-                    Gebruiker Bertie = new Lid()
-                    {
+                    Gebruiker Bertie = new Lid() {
                         Naam = "Alfaro",
                         Voornaam = "Bertie",
                         //Adres = "EenAdres2",
@@ -204,8 +195,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Corrinne = new Lid()
-                    {
+                    Gebruiker Corrinne = new Lid() {
                         Naam = "Harnage",
                         Voornaam = "Corrinne",
                         //Adres = "EenAdres2",
@@ -228,8 +218,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Jerica = new Lid()
-                    {
+                    Gebruiker Jerica = new Lid() {
                         Naam = "Kirkendoll",
                         Voornaam = "Jerica",
                         //Adres = "EenAdres2",
@@ -252,8 +241,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Madalyn = new Lid()
-                    {
+                    Gebruiker Madalyn = new Lid() {
                         Naam = "Debartolo",
                         Voornaam = "Madalyn",
                         //Adres = "EenAdres2",
@@ -276,8 +264,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Myles = new Lid()
-                    {
+                    Gebruiker Myles = new Lid() {
                         Naam = "Placencia",
                         Voornaam = "Myles",
                         //Adres = "EenAdres2",
@@ -300,8 +287,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Madlyn = new Lid()
-                    {
+                    Gebruiker Madlyn = new Lid() {
                         Naam = "Stejskal",
                         Voornaam = "Madlyn",
                         //Adres = "EenAdres2",
@@ -324,8 +310,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Alethea = new Lid()
-                    {
+                    Gebruiker Alethea = new Lid() {
                         Naam = "Rozelle",
                         Voornaam = "Alethea",
                         //Adres = "EenAdres2",
@@ -348,8 +333,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Craig = new Lid()
-                    {
+                    Gebruiker Craig = new Lid() {
                         Naam = "Croff",
                         Voornaam = "Craig",
                         //Adres = "EenAdres2",
@@ -372,8 +356,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Ettie = new Lid()
-                    {
+                    Gebruiker Ettie = new Lid() {
                         Naam = "Omeara",
                         Voornaam = "Ettie",
                         //Adres = "EenAdres2",
@@ -396,8 +379,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Juliana = new Lid()
-                    {
+                    Gebruiker Juliana = new Lid() {
                         Naam = "Trembley",
                         Voornaam = "Juliana",
                         //Adres = "EenAdres2",
@@ -420,8 +402,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Malcolm = new Lid()
-                    {
+                    Gebruiker Malcolm = new Lid() {
                         Naam = "Wheeless",
                         Voornaam = "Malcolm",
                         //Adres = "EenAdres2",
@@ -444,8 +425,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Elvin = new Lid()
-                    {
+                    Gebruiker Elvin = new Lid() {
                         Naam = "Belle",
                         Voornaam = "Elvin",
                         //Adres = "EenAdres2",
@@ -468,8 +448,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Kandra = new Lid()
-                    {
+                    Gebruiker Kandra = new Lid() {
                         Naam = "Derrico",
                         Voornaam = "Kandra",
                         //Adres = "EenAdres2",
@@ -492,8 +471,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Sandie = new Lid()
-                    {
+                    Gebruiker Sandie = new Lid() {
                         Naam = "Brodnax",
                         Voornaam = "Sandie",
                         //Adres = "EenAdres2",
@@ -516,8 +494,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Ira = new Lid()
-                    {
+                    Gebruiker Ira = new Lid() {
                         Naam = "Koff",
                         Voornaam = "Ira",
                         //Adres = "EenAdres2",
@@ -540,8 +517,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Claribel = new Lid()
-                    {
+                    Gebruiker Claribel = new Lid() {
                         Naam = "Hoyle",
                         Voornaam = "Claribel",
                         //Adres = "EenAdres2",
@@ -564,8 +540,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Lyndia = new Lid()
-                    {
+                    Gebruiker Lyndia = new Lid() {
                         Naam = "Piekarski",
                         Voornaam = "Lyndia",
                         //Adres = "EenAdres2",
@@ -588,8 +563,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Gilma = new Lid()
-                    {
+                    Gebruiker Gilma = new Lid() {
                         Naam = "Kepley",
                         Voornaam = "Gilma",
                         //Adres = "EenAdres2",
@@ -612,8 +586,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Wynell = new Lid()
-                    {
+                    Gebruiker Wynell = new Lid() {
                         Naam = "Vitagliano",
                         Voornaam = "Wynell",
                         //Adres = "EenAdres2",
@@ -636,8 +609,7 @@ namespace G07_Taijitan.Data
                         Formule = test,
                         Score = 0
                     };
-                    Gebruiker Margaretta = new Lid()
-                    {
+                    Gebruiker Margaretta = new Lid() {
                         Naam = "Dirk",
                         Voornaam = "Margaretta",
                         //Adres = "EenAdres2",
@@ -663,25 +635,21 @@ namespace G07_Taijitan.Data
                     ////LesMateriaal
                     #region WurgGrepenVideo
                     //Wurggrepen Kyu1 - Dan3
-                    Lesmateriaal WurgGreep1 = new Video()
-                    {
+                    Lesmateriaal WurgGreep1 = new Video() {
                         Naam = "WurgGreepKyu1",
                         Url = "https://www.youtube.com/embed/2s53EtXPJd8"
                     };
-                    Lesmateriaal WurgGreep2 = new Video()
-                    {
+                    Lesmateriaal WurgGreep2 = new Video() {
                         Naam = "WurgGreep1Kyu1",
                         Url = "https://www.youtube.com/embed/Gf4H1EBFE7o"
                     };
 
-                    Lesmateriaal WurgGreep3 = new Video()
-                    {
+                    Lesmateriaal WurgGreep3 = new Video() {
                         Naam = "WurgGreepDan3",
                         Url = "https://www.youtube.com/embed/GaD5s0_H0T4"
                     };
 
-                    Lesmateriaal WurgGreep4 = new Video()
-                    {
+                    Lesmateriaal WurgGreep4 = new Video() {
                         Naam = "WurgGreep1Dan3",
                         Url = "https://www.youtube.com/embed/LppnEfRoFIM"
                     };
@@ -702,104 +670,90 @@ namespace G07_Taijitan.Data
                     #endregion
 
                     #region BeenWorpenVideo
-                    Lesmateriaal lesmateriaal1 = new Video()
-                    {
+                    Lesmateriaal lesmateriaal1 = new Video() {
                         Naam = "BeenworpKyu1",
                         Url = "https://www.youtube.com/embed/JdGWiOcijdQ"
                     };
-                    Lesmateriaal lesmateriaal2 = new Video()
-                    {
+                    Lesmateriaal lesmateriaal2 = new Video() {
                         Naam = "BeenworpKyu1",
                         Url = "https://www.youtube.com/embed/71XFjhqKBIY"
                     };
-                    Lesmateriaal lesmateriaal3 = new Video()
-                    {
+                    Lesmateriaal lesmateriaal3 = new Video() {
                         Naam = "BeenworpDan3",
                         Url = "https://www.youtube.com/embed/CrwGeAMbAUQ"
                     };
-                    Lesmateriaal lesmateriaal4 = new Video()
-                    {
+                    Lesmateriaal lesmateriaal4 = new Video() {
                         Naam = "BeenworpDan4",
                         Url = "https://www.youtube.com/embed/RN6jkQ4dAbo"
                     };
                     #endregion
 
                     #region HeupworpenVideo
-                    Lesmateriaal Heupworp = new Video()
-                    {
+                    Lesmateriaal Heupworp = new Video() {
                         Naam = "HeupworpKyu1",
                         Url = "https://www.youtube.com/embed/R5z00opR0Qo"
                     };
                     #endregion
 
                     #region SchouderworpenVideo
-                    Lesmateriaal Schouderworp = new Video()
-                    {
+                    Lesmateriaal Schouderworp = new Video() {
                         Naam = "SchouderworpKyu1",
                         Url = "https://www.youtube.com/embed/k0dX5shdBQM"
                     };
-                    Lesmateriaal Schouderworp1 = new Video()
-                    {
+                    Lesmateriaal Schouderworp1 = new Video() {
                         Naam = "Schouderworp1Kyu1",
                         Url = "https://www.youtube.com/embed/xQj-AWM-5fI"
                     };
-                    Lesmateriaal Schouderworp2 = new Video()
-                    {
+                    Lesmateriaal Schouderworp2 = new Video() {
                         Naam = "SchouderworpDan3",
                         Url = "https://www.youtube.com/embed/FNeCQbcJivw"
                     };
                     #endregion
-                    
+
                     ////Oefeningen
                     #region Beenworpen
 
                     //Beenworpen - Kyu1
-                    Oefening oefening1 = new Oefening()
-                    {
+                    Oefening oefening1 = new Oefening() {
                         Naam = "Makkelijke Beenworp",
                         Graad = Graad.Kyu1,
                         OefeningType = OefeningType.Beenworpen,
                         Lesmateriaal = new List<Lesmateriaal> { lesmateriaal1, VoorwaartseStand, VoorwaartseStand2, tekst }
                     };
 
-                    Oefening oefening6 = new Oefening()
-                    {
+                    Oefening oefening6 = new Oefening() {
                         Naam = "Middelmatige beenworp",
                         Graad = Graad.Kyu1,
                         OefeningType = OefeningType.Beenworpen,
-                        Lesmateriaal = new List<Lesmateriaal> { lesmateriaal2}
+                        Lesmateriaal = new List<Lesmateriaal> { lesmateriaal2 }
                     };
 
                     //Beenworpen - Dan3
-                    Oefening oefening7 = new Oefening()
-                    {
+                    Oefening oefening7 = new Oefening() {
                         Naam = "Moeilijke beenworp",
                         Graad = Graad.Dan3,
                         OefeningType = OefeningType.Beenworpen,
-                        Lesmateriaal = new List<Lesmateriaal> { lesmateriaal3}
+                        Lesmateriaal = new List<Lesmateriaal> { lesmateriaal3 }
                     };
 
-                    Oefening oefening8 = new Oefening()
-                    {
+                    Oefening oefening8 = new Oefening() {
                         Naam = "Zeer moeilijke beenworp",
                         Graad = Graad.Dan3,
                         OefeningType = OefeningType.Beenworpen,
-                        Lesmateriaal = new List<Lesmateriaal> { lesmateriaal4}
+                        Lesmateriaal = new List<Lesmateriaal> { lesmateriaal4 }
                     };
                     #endregion
 
                     #region Heupworpen
                     //Heupworpen - Kyu1
-                    Oefening oefening2 = new Oefening()
-                    {
+                    Oefening oefening2 = new Oefening() {
                         Naam = "Makkelijke heupworp",
                         Graad = Graad.Kyu1,
                         OefeningType = OefeningType.Heupworpen,
                         Lesmateriaal = new List<Lesmateriaal> { Heupworp }
                     };
 
-                    Oefening oefening3 = new Oefening()
-                    {
+                    Oefening oefening3 = new Oefening() {
                         Naam = "Middelmatige heupworp",
                         Graad = Graad.Kyu1,
                         OefeningType = OefeningType.Heupworpen,
@@ -807,16 +761,14 @@ namespace G07_Taijitan.Data
                     };
 
                     //Heupworpen - Dan3
-                    Oefening oefening9 = new Oefening()
-                    {
+                    Oefening oefening9 = new Oefening() {
                         Naam = "Moeilijke heupworp",
                         Graad = Graad.Dan3,
                         OefeningType = OefeningType.Heupworpen,
                         Lesmateriaal = new List<Lesmateriaal> { Heupworp }
                     };
 
-                    Oefening oefening10 = new Oefening()
-                    {
+                    Oefening oefening10 = new Oefening() {
                         Naam = "Zeer moeilijke heupworp",
                         Graad = Graad.Dan3,
                         OefeningType = OefeningType.Heupworpen,
@@ -826,16 +778,14 @@ namespace G07_Taijitan.Data
 
                     #region WurgGrepen
                     //Wurggrepen - Kyu1
-                    Oefening oefening4 = new Oefening()
-                    {
+                    Oefening oefening4 = new Oefening() {
                         Naam = "Makkelijke wurggreep",
                         Graad = Graad.Kyu1,
                         OefeningType = OefeningType.Wurggrepen,
                         Lesmateriaal = new List<Lesmateriaal> { WurgGreep1 }
                     };
 
-                    Oefening oefening11 = new Oefening()
-                    {
+                    Oefening oefening11 = new Oefening() {
                         Naam = "Middelmatige wurggreep",
                         Graad = Graad.Kyu1,
                         OefeningType = OefeningType.Wurggrepen,
@@ -843,16 +793,14 @@ namespace G07_Taijitan.Data
                     };
 
                     //Wurggrepen - Dan3
-                    Oefening oefening12 = new Oefening()
-                    {
+                    Oefening oefening12 = new Oefening() {
                         Naam = "Moeilijke wurggreep",
                         Graad = Graad.Dan3,
                         OefeningType = OefeningType.Wurggrepen,
                         Lesmateriaal = new List<Lesmateriaal> { WurgGreep3 }
                     };
 
-                    Oefening oefening13 = new Oefening()
-                    {
+                    Oefening oefening13 = new Oefening() {
                         Naam = "Zeer moeilijke wurggreep",
                         Graad = Graad.Dan3,
                         OefeningType = OefeningType.Wurggrepen,
@@ -862,16 +810,14 @@ namespace G07_Taijitan.Data
 
                     #region Schouderworpen
                     //Schouderworpen - Kyu1
-                    Oefening oefening14 = new Oefening()
-                    {
+                    Oefening oefening14 = new Oefening() {
                         Naam = "Makkelijke schouderworp",
                         Graad = Graad.Kyu1,
                         OefeningType = OefeningType.Schouderworpen,
                         Lesmateriaal = new List<Lesmateriaal> { Schouderworp }
                     };
 
-                    Oefening oefening5 = new Oefening()
-                    {
+                    Oefening oefening5 = new Oefening() {
                         Naam = "Vliegende schouderworp",
                         Graad = Graad.Kyu1,
                         OefeningType = OefeningType.Schouderworpen,
@@ -879,16 +825,14 @@ namespace G07_Taijitan.Data
                     };
 
                     //Schouderworpen - Dan3
-                    Oefening oefening15 = new Oefening()
-                    {
+                    Oefening oefening15 = new Oefening() {
                         Naam = "Ninja schouderworp",
                         Graad = Graad.Dan3,
                         OefeningType = OefeningType.Schouderworpen,
                         Lesmateriaal = new List<Lesmateriaal> { Schouderworp2 }
                     };
 
-                    Oefening oefening16 = new Oefening()
-                    {
+                    Oefening oefening16 = new Oefening() {
                         Naam = "Achterwaartse schouderworp",
                         Graad = Graad.Dan3,
                         OefeningType = OefeningType.Schouderworpen,
@@ -903,7 +847,34 @@ namespace G07_Taijitan.Data
                         oefening13, oefening14, oefening15
                         );
 
-                    await InitilizeUsers(Jonah.Gebruikersnaam, Jonah.Wachtwoord, Jonah.GetType().Name);
+
+                    Sessie les1 = new Sessie() {
+                        SessieDatum = DateTime.Today
+                    };
+                    Sessie les2 = new Sessie() {
+                        SessieDatum = DateTime.Today.AddDays(2)
+                    };
+                    Sessie les3 = new Sessie() {
+                        SessieDatum = DateTime.Today.AddDays(5)
+                    };
+
+
+                    IEnumerable<Lid> ledenlijst1 = new List<Lid>() {
+                            (Lid)Bram, (Lid)Johanna, (Lid)Lowie, (Lid)Madlyn, (Lid)Madalyn, (Lid)Elvin, (Lid)Bertie, (Lid)Corrinne, 
+                        };
+                    IEnumerable<Lid> ledenlijst2 = new List<Lid>() {
+                            (Lid)Alethea, (Lid)Craig, (Lid)Ettie, (Lid)Juliana, (Lid)Malcolm, (Lid)Kandra, (Lid)Sandie, (Lid)Ira
+                        };
+                    IEnumerable<Lid> ledenlijst3 = new List<Lid>() {
+                        (Lid)Claribel, (Lid)Lyndia, (Lid)Gilma, (Lid)Wynell, (Lid)Margaretta, (Lid)Jerica, (Lid)Myles
+                    };
+
+                    les1.RegistreerAanwezigheden(ledenlijst1, ledenlijst3);
+                    les2.RegistreerAanwezigheden(ledenlijst2, ledenlijst1);
+                    les3.RegistreerAanwezigheden(ledenlijst3, ledenlijst2);
+                    
+
+                    //await InitilizeUsers(Jonah.Gebruikersnaam, Jonah.Wachtwoord, Jonah.GetType().Name);
                     await InitilizeUsers(Bram.Gebruikersnaam, Bram.Wachtwoord, Bram.GetType().Name);
                     await InitilizeUsers(Johanna.Gebruikersnaam, Johanna.Wachtwoord, Johanna.GetType().Name);
                     await InitilizeUsers(Lowie.Gebruikersnaam, Lowie.Wachtwoord, Lowie.GetType().Name);
@@ -927,20 +898,19 @@ namespace G07_Taijitan.Data
                     await InitilizeUsers(Gilma.Gebruikersnaam, Gilma.Wachtwoord, Gilma.GetType().Name);
                     await InitilizeUsers(Wynell.Gebruikersnaam, Wynell.Wachtwoord, Wynell.GetType().Name);
                     await InitilizeUsers(Margaretta.Gebruikersnaam, Margaretta.Wachtwoord, Margaretta.GetType().Name);
-
-                    _context.Gebruikers.AddRange(Jonah, Bram, Lowie, Johanna, Bertie, Corrinne, Jerica, Madalyn, Myles, Madlyn, Alethea, Craig, Ettie, Juliana, Malcolm, Elvin, Kandra, Sandie, Ira, Claribel, Lyndia, Gilma, Wynell, Margaretta);
+                    
+                    _context.Gebruikers.AddRange(/*Jonah,*/ Bram, Lowie, Johanna, Bertie, Corrinne, Jerica, Madalyn, Myles, Madlyn, Alethea, Craig, Ettie, Juliana, Malcolm, Elvin, Kandra, Sandie, Ira, Claribel, Lyndia, Gilma, Wynell, Margaretta);
+                    _context.Sessies.AddRange(les1, les2, les3);
                     _context.SaveChanges();
                 }
             }
         }
 
-        private async Task InitilizeUsers(string username, string password, string role)
-        {
+        private async Task InitilizeUsers(string username, string password, string role) {
             var user = new IdentityUser { UserName = username };
             await _userManager.CreateAsync(user, password);
             await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, role));
-            if(role == "Lesgever")
-            {
+            if(role == "Lesgever") {
                 await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, "Lid"));
             }
         }
