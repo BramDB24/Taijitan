@@ -100,7 +100,8 @@ namespace G07_Taijitan.Data {
                     //    Rijksregisternummer = "19980313000000",
                     //    Gsm = "0476000000",
                     //    EmailOuders = "ouders@hotmail.com",
-                    //    Geboorteplek = "Aalst"
+                    //    Geboorteplek = "Aalst",
+                    //    Geslacht = "Man"
                     //};
                     Gebruiker Bram = new Lid() {
                         Naam = "De Bleecker",
@@ -123,7 +124,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Man"
                     };
                     Gebruiker Johanna = new Lid() {
                         Naam = "De Bruycker",
@@ -146,7 +148,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = dido,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Vrouw"
                     };
                     Gebruiker Lowie = new Lid() {
                         Naam = "Scheirlinckx",
@@ -169,7 +172,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Man"
                     };
 
                     Gebruiker Bertie = new Lid() {
@@ -193,7 +197,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Man"
                     };
                     Gebruiker Corrinne = new Lid() {
                         Naam = "Harnage",
@@ -216,7 +221,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Vrouw"
                     };
                     Gebruiker Jerica = new Lid() {
                         Naam = "Kirkendoll",
@@ -239,7 +245,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Vrouw"
                     };
                     Gebruiker Madalyn = new Lid() {
                         Naam = "Debartolo",
@@ -262,7 +269,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Vrouw"
                     };
                     Gebruiker Myles = new Lid() {
                         Naam = "Placencia",
@@ -285,7 +293,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Man"
                     };
                     Gebruiker Madlyn = new Lid() {
                         Naam = "Stejskal",
@@ -308,7 +317,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Vrouw"
                     };
                     Gebruiker Alethea = new Lid() {
                         Naam = "Rozelle",
@@ -331,7 +341,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Vrouw"
                     };
                     Gebruiker Craig = new Lid() {
                         Naam = "Croff",
@@ -354,7 +365,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Man"
                     };
                     Gebruiker Ettie = new Lid() {
                         Naam = "Omeara",
@@ -377,7 +389,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Overig"
                     };
                     Gebruiker Juliana = new Lid() {
                         Naam = "Trembley",
@@ -400,7 +413,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Vrouw"
                     };
                     Gebruiker Malcolm = new Lid() {
                         Naam = "Wheeless",
@@ -423,7 +437,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Man"
                     };
                     Gebruiker Elvin = new Lid() {
                         Naam = "Belle",
@@ -446,7 +461,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Man"
                     };
                     Gebruiker Kandra = new Lid() {
                         Naam = "Derrico",
@@ -469,7 +485,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Vrouw"
                     };
                     Gebruiker Sandie = new Lid() {
                         Naam = "Brodnax",
@@ -492,7 +509,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Vrouw"
                     };
                     Gebruiker Ira = new Lid() {
                         Naam = "Koff",
@@ -515,7 +533,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Vrouw"
                     };
                     Gebruiker Claribel = new Lid() {
                         Naam = "Hoyle",
@@ -538,7 +557,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Overig"
                     };
                     Gebruiker Lyndia = new Lid() {
                         Naam = "Piekarski",
@@ -561,7 +581,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Vrouw"
                     };
                     Gebruiker Gilma = new Lid() {
                         Naam = "Kepley",
@@ -584,7 +605,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Vrouw"
                     };
                     Gebruiker Wynell = new Lid() {
                         Naam = "Vitagliano",
@@ -607,7 +629,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Man"
                     };
                     Gebruiker Margaretta = new Lid() {
                         Naam = "Dirk",
@@ -630,7 +653,8 @@ namespace G07_Taijitan.Data {
                         EmailOuders = "ouders@hotmail.com",
                         Geboorteplek = "Aalst",
                         Formule = test,
-                        Score = 0
+                        Score = 0,
+                        Geslacht = "Vrouw"
                     };
                     ////LesMateriaal
                     #region WurgGrepenVideo
