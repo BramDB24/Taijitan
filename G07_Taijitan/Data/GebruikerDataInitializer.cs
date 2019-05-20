@@ -80,29 +80,29 @@ namespace G07_Taijitan.Data {
 
 
                     //Gebruikers
-                    //Gebruiker Jonah = new Lesgever()
-                    //{
-                    //    Naam = "De Smet",
-                    //    Voornaam = "Jonah",
-                    //    ////Adres = "EenAdres",
-                    //    Email = "jonah.desmet@hotmail.com",
-                    //    Geboortedatum = new DateTime(1998, 03, 13),
-                    //    Gebruikersnaam = "jonah.desmet",
-                    //    Telefoonnummer = "054000000",
-                    //    Wachtwoord = "P@ssword1",
-                    //    Graad = Graad.Dan3,
-                    //    InschrijvingsDatum = DateTime.Today,
-                    //    Straatnaam = "straat",
-                    //    Huisnummer = "1",
-                    //    Postcode = "9506",
-                    //    Stad = "stad",
-                    //    Land = "België",
-                    //    Rijksregisternummer = "19980313000000",
-                    //    Gsm = "0476000000",
-                    //    EmailOuders = "ouders@hotmail.com",
-                    //    Geboorteplek = "Aalst",
-                    //    Geslacht = "Man"
-                    //};
+                    Gebruiker Jonah = new Lesgever()
+                    {
+                        Naam = "De Smet",
+                        Voornaam = "Jonah",
+                        ///Adres = "EenAdres",
+                        Email = "jonah.desmet@hotmail.com",
+                        Geboortedatum = new DateTime(1998, 03, 13),
+                        Gebruikersnaam = "jonah.desmet",
+                        Telefoonnummer = "054000000",
+                        Wachtwoord = "P@ssword1",
+                        Graad = Graad.Dan3,
+                        InschrijvingsDatum = DateTime.Today,
+                        Straatnaam = "straat",
+                        Huisnummer = "1",
+                        Postcode = "9506",
+                        Stad = "stad",
+                        Land = "België",
+                        Rijksregisternummer = "19980313000000",
+                        Gsm = "0476000000",
+                        EmailOuders = "ouders@hotmail.com",
+                        Geboorteplek = "Aalst",
+                        Geslacht = "Man"
+                    };
                     Gebruiker Bram = new Lid() {
                         Naam = "De Bleecker",
                         Voornaam = "Bram",
@@ -898,7 +898,7 @@ namespace G07_Taijitan.Data {
                     les3.RegistreerAanwezigheden(ledenlijst3, ledenlijst2);
                     
 
-                    //await InitilizeUsers(Jonah.Gebruikersnaam, Jonah.Wachtwoord, Jonah.GetType().Name);
+                    await InitilizeUsers(Jonah.Gebruikersnaam, Jonah.Wachtwoord, Jonah.GetType().Name);
                     await InitilizeUsers(Bram.Gebruikersnaam, Bram.Wachtwoord, Bram.GetType().Name);
                     await InitilizeUsers(Johanna.Gebruikersnaam, Johanna.Wachtwoord, Johanna.GetType().Name);
                     await InitilizeUsers(Lowie.Gebruikersnaam, Lowie.Wachtwoord, Lowie.GetType().Name);
@@ -923,7 +923,7 @@ namespace G07_Taijitan.Data {
                     await InitilizeUsers(Wynell.Gebruikersnaam, Wynell.Wachtwoord, Wynell.GetType().Name);
                     await InitilizeUsers(Margaretta.Gebruikersnaam, Margaretta.Wachtwoord, Margaretta.GetType().Name);
                     
-                    _context.Gebruikers.AddRange(/*Jonah,*/ Bram, Lowie, Johanna, Bertie, Corrinne, Jerica, Madalyn, Myles, Madlyn, Alethea, Craig, Ettie, Juliana, Malcolm, Elvin, Kandra, Sandie, Ira, Claribel, Lyndia, Gilma, Wynell, Margaretta);
+                    _context.Gebruikers.AddRange(Jonah, Bram, Lowie, Johanna, Bertie, Corrinne, Jerica, Madalyn, Myles, Madlyn, Alethea, Craig, Ettie, Juliana, Malcolm, Elvin, Kandra, Sandie, Ira, Claribel, Lyndia, Gilma, Wynell, Margaretta);
                     _context.Sessies.AddRange(les1, les2, les3);
                     _context.SaveChanges();
                 }
