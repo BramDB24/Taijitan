@@ -15,6 +15,7 @@ namespace G07_Taijitan.Data
         public DbSet<Gebruiker> Gebruikers { get; set; }   
         public DbSet<Oefening> Oefeningen { get; set; }
         public DbSet<Sessie>  Sessies { get; set; }
+        public DbSet<Activiteit> Activiteiten { get; set; }
         #endregion
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> option)
@@ -36,6 +37,8 @@ namespace G07_Taijitan.Data
             builder.ApplyConfiguration(new CommentaarConfiguration());
             builder.ApplyConfiguration(new DagConfiguration());
             builder.ApplyConfiguration(new LidConfiguration());
+            builder.ApplyConfiguration(new LidActiviteitConfiguration());
+            builder.ApplyConfiguration(new ActiviteitConfiguration());
         }
     }
 }

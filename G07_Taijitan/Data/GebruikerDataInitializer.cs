@@ -656,6 +656,12 @@ namespace G07_Taijitan.Data {
                         Score = 0,
                         Geslacht = "Vrouw"
                     };
+
+                    Bram.AddGebruikerOefening(Bram, 1);
+                    Bram.AddGebruikerOefening(Bram, 1);
+                    Johanna.AddGebruikerOefening(Johanna, 5);
+                    Jonah.AddGebruikerOefening(Jonah, 7);
+                    Lowie.AddGebruikerOefening(Lowie, 4);
                     ////LesMateriaal
                     #region WurgGrepenVideo
                     //Wurggrepen Kyu1 - Dan3
@@ -882,6 +888,40 @@ namespace G07_Taijitan.Data {
                         SessieDatum = DateTime.Today.AddDays(5)
                     };
 
+                    Activiteit activiteit1 = new Activiteit() {
+                        StartDatum = DateTime.Now,
+                        EindDatum = DateTime.Now.AddDays(2),
+                        Naam = "Klimmuur",
+                        MaxAantal = 20
+                    };
+
+                    Activiteit activiteit2 = new Activiteit() {
+                        StartDatum = DateTime.Now.AddDays(3),
+                        EindDatum = DateTime.Now.AddDays(6),
+                        Naam = "Bobbejaanland",
+                        MaxAantal = 10
+                    };
+
+                    Activiteit activiteit3 = new Activiteit() {
+                        StartDatum = DateTime.Now.AddDays(5),
+                        EindDatum = DateTime.Now.AddDays(8),
+                        Naam = "Gastspreker",
+                        MaxAantal = 50
+                    };
+
+                    Activiteit activiteit4 = new Activiteit() {
+                        StartDatum = DateTime.Now.AddDays(7),
+                        EindDatum = DateTime.Now.AddDays(10),
+                        Naam = "Bijles",
+                        MaxAantal = 5
+                    };
+
+                    Activiteit activiteit5 = new Activiteit() {
+                        StartDatum = DateTime.Now.AddDays(12),
+                        EindDatum = DateTime.Now.AddDays(20),
+                        Naam = "BBQ",
+                        MaxAantal = 30
+                    };
 
                     IEnumerable<Lid> ledenlijst1 = new List<Lid>() {
                             (Lid)Bram, (Lid)Johanna, (Lid)Lowie, (Lid)Madlyn, (Lid)Madalyn, (Lid)Elvin, (Lid)Bertie, (Lid)Corrinne, 
@@ -893,9 +933,36 @@ namespace G07_Taijitan.Data {
                         (Lid)Claribel, (Lid)Lyndia, (Lid)Gilma, (Lid)Wynell, (Lid)Margaretta, (Lid)Jerica, (Lid)Myles
                     };
 
+                    IEnumerable<Lid> ledenlijst4 = new List<Lid>() {
+                        (Lid)Claribel, (Lid)Lyndia, (Lid)Bram, (Lid)Johanna, (Lid)Lowie
+                    };
+
+                    IEnumerable<Lid> ledenlijst5 = new List<Lid>() {
+                        (Lid)Alethea, (Lid)Craig, (Lid)Ettie, (Lid)Juliana, (Lid)Malcolm, (Lid)Kandra, (Lid)Sandie, (Lid)Ira,
+                        (Lid)Bram, (Lid)Johanna, (Lid)Lowie, (Lid)Madlyn, (Lid)Madalyn, (Lid)Elvin, (Lid)Bertie, (Lid)Corrinne,
+                        (Lid)Claribel, (Lid)Lyndia, (Lid)Gilma, (Lid)Wynell, (Lid)Margaretta, (Lid)Jerica, (Lid)Myles
+                    };
+
                     les1.RegistreerAanwezigheden(ledenlijst1, ledenlijst3);
                     les2.RegistreerAanwezigheden(ledenlijst2, ledenlijst1);
                     les3.RegistreerAanwezigheden(ledenlijst3, ledenlijst2);
+
+                    foreach(Lid lid in ledenlijst1) {
+                        activiteit1.AddLid(lid);
+                    }
+
+                    foreach(Lid lid in ledenlijst2) {
+                        activiteit2.AddLid(lid);
+                    }
+                    foreach(Lid lid in ledenlijst3) {
+                        activiteit3.AddLid(lid);
+                    }
+                    foreach(Lid lid in ledenlijst4) {
+                        activiteit4.AddLid(lid);
+                    }
+                    foreach(Lid lid in ledenlijst5) {
+                        activiteit5.AddLid(lid);
+                    }
                     
 
                     await InitilizeUsers(Jonah.Gebruikersnaam, Jonah.Wachtwoord, Jonah.GetType().Name);
@@ -925,6 +992,7 @@ namespace G07_Taijitan.Data {
                     
                     _context.Gebruikers.AddRange(Jonah, Bram, Lowie, Johanna, Bertie, Corrinne, Jerica, Madalyn, Myles, Madlyn, Alethea, Craig, Ettie, Juliana, Malcolm, Elvin, Kandra, Sandie, Ira, Claribel, Lyndia, Gilma, Wynell, Margaretta);
                     _context.Sessies.AddRange(les1, les2, les3);
+                    _context.Activiteiten.AddRange(activiteit1, activiteit2, activiteit3, activiteit4, activiteit5);
                     _context.SaveChanges();
                 }
             }
